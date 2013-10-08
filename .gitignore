@@ -3,5 +3,5 @@ dist
 .tmp
 .sass-cache
 .idea
-.DS_Store
+*.DS_Store
 client-dev/bower_components
