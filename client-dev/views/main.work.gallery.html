@@ -1,0 +1,6 @@
+<div class="col-sm-6 col-md-3" ng-repeat="workItem in workData">
+    <a ui-sref="main.work.item({itemId:1})" class="thumbnail">
+        <img src="{{workItem.imgThumbUrl}}"/>
+        <span class="thumbnail-title">{{workItem.title}}</span>
+    </a>
+</div>

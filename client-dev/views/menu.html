@@ -1,0 +1,29 @@
+<div class="navigation" ng-class="{active:menuIsActive}" ng-controller="MenuController">
+    <nav class="navigation-main">
+        <div class="navigation-toggler" ng-click="toggleNavigation()">
+            <span class="navigation-toggler-bar"></span>
+            <span class="navigation-toggler-bar"></span>
+            <span class="navigation-toggler-bar"></span>
+        </div>
+        <ul>
+            <li>
+                <a ui-sref="main.bio">
+                <span class="navigation-bg navigation-bg-bio"></span>
+                <span class="jumping-letter">Bio</span>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="main.work">
+                    <span class="navigation-bg navigation-bg-work"></span>
+                    <span class="jumping-letter">Work</span>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="main.hire">
+                    <span class="navigation-bg navigation-bg-hire"></span>
+                    <span class="jumping-letter">Hire</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
