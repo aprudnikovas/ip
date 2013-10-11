@@ -3,14 +3,34 @@
         <h1><a ui-sref="main.home"><span class="firstName">Ivar</span><span class="lastName">Prudnikov</span></a></h1>
         <span class="separator">{{ codeText }}</span>
     </header>
-    <section>
+    <section class="container">
         <header><h2>Bio</h2></header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non neque non turpis placerat sodales. Sed
-            varius lorem in lacus faucibus eleifend. Aliquam hendrerit lectus sed rutrum feugiat. Etiam ipsum mauris,
-            fringilla vel nulla at, interdum sodales arcu. Donec a sagittis velit, sit amet tristique velit. Aliquam a
-            metus massa. Quisque viverra tristique lectus, in ultricies mauris aliquam iaculis. Suspendisse eu nunc vel
-            nulla consequat tempor at a magna. Suspendisse pretium, massa in feugiat rutrum, ligula purus lobortis
-            turpis, vitae viverra dui nibh sit amet purus.</p>
+
+        <div class="row">
+
+                <div class="col-sm-offset-4 col-sm-4">
+                    <div class="animation-block" ng-class="{active:animateHeader}">
+                        <img src="../images/ivar_prudnikov.jpeg">
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-offset-3 col-md-6">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non neque non turpis placerat sodales. Sed
+                    varius lorem in lacus faucibus eleifend. Aliquam hendrerit lectus sed rutrum feugiat. Etiam ipsum mauris,
+                    fringilla vel nulla at, interdum sodales arcu. Donec a sagittis velit, sit amet tristique velit. Aliquam a
+                    metus massa. Quisque viverra tristique lectus, in ultricies mauris aliquam iaculis. Suspendisse eu nunc vel
+                    nulla consequat tempor at a magna. Suspendisse pretium, massa in feugiat rutrum, ligula purus lobortis
+                    turpis, vitae viverra dui nibh sit amet purus.</p>
+            </div>
+
+        </div>
+
+
+
 
         <div class="coding-skills">
 
@@ -33,7 +53,7 @@
                 </ul>
             </nav>
 
-            <div ng-if="languageBlock">
+            <div ng-if="languageBlock" class="description">
                 <h3 class="coding-skills-language">{{languageBlock.lang}}</h3>
                 <p class="coding-skills-text">{{languageBlock.text}}</p>
                 <div class="coding-skills-code" ng-include=" '/views/codeSnippets/' + languageBlock.lang + '.html' "></div>
