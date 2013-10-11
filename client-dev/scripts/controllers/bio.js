@@ -1,6 +1,13 @@
 angular.module('tApp')
 	.controller('BioController', ['$scope','$rootScope','$timeout', function ($scope,$rootScope,$timeout) {
 
+		$scope.animateHeader = false;
+
+		$timeout(function() {
+			$scope.animateHeader = true;
+		}, 100);
+
+
 		// ala moving code
 		////////////////////////
 
@@ -118,6 +125,7 @@ angular.module('tApp')
 		$scope.execCodeTimer();
 
 
+
 		// CLEANUP ON DESTROY
 		///////////////////////
 
@@ -127,6 +135,9 @@ angular.module('tApp')
 			}
 			if (codeTimer) {
 				$timeout.cancel(codeTimer);
+			}
+			if(ageOnScreenTimer) {
+				$timeout.cancel(ageOnScreenTimer);
 			}
 		});
 

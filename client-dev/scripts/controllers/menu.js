@@ -1,6 +1,7 @@
 angular.module('tApp')
 	.controller('MenuController', ['$scope','$rootScope', function ($scope,$rootScope) {
 
+
 		$scope.menuIsActive = $rootScope.menuIsActive;
 
 		$scope.activeMenuClass = "menu-activated";
