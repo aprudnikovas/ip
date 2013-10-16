@@ -1,0 +1,166 @@
+.main_bio {
+  background-color: rgb(99, 99, 99);
+}
+
+
+
+.animation-block {
+  display: block;
+  backface-visibility: hidden;
+  transition: all ease 0.5s;
+  transform-style: preserve-3d;
+  perspective: 500;
+  transform: rotateY(180deg) scale3d(0.5,0.5,0.5);
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 100px;
+  margin: 0 auto 2em;
+  text-align: center;
+
+  > img {
+    margin: 0 auto;
+    height: 100%;
+  }
+}
+.animation-block.active {
+  transform: rotateY(0deg);
+  box-sizing: border-box;
+}
+
+
+
+
+#expertise {
+  height: 300px;
+  background-color: rgb(88, 88, 88);
+  overflow: hidden;
+}
+.expertise-stripe {
+  height: 150px;
+  margin-top: 75px;
+  margin-bottom: 75px;
+  background-color: rgb(60, 60, 60);
+  position: relative;
+}
+.expertise-group {
+  position: absolute;
+  width: 700px;
+  left: 50%;
+  margin-left: -350px;
+  height: 150px;
+}
+.expertise-backend {
+  top: -75px;
+}
+.expertise-frontend {
+  bottom: -75px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.coding-skills-navigation {
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  > li > a {
+
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+    margin: 5px 0 5px 120px;
+    transition: all ease 0.5s;
+
+    &.active {
+      background-color: rgb(182, 214, 113);
+    }
+
+    .coding-skills-tooltip {
+      position: absolute;
+      width: 80px;
+      color: #FFF;
+      left: -90px;
+      top: 4px;
+      text-align: right;
+      font-size: 12px;
+      line-height: 20px;
+      border-radius: 4px;
+
+    }
+
+    &:hover .coding-skills-tooltip {
+      display: block;
+    }
+
+    .connecting-line {
+      width: 40px;
+      height: 2px;
+      top: 14px;
+      left: 15px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.1);
+      transform: rotateZ(90deg);
+      transform-origin: left;
+    }
+
+    .connecting-line-value {
+      height: 100%;
+      display: block;
+      width: 0%;
+      background-color: #FFFFFF;
+      transition: all ease 0.3s;
+    }
+
+    .d-o-t {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #000000;
+      border-radius: 8px;
+      top:11px;
+      left: 11px;
+      position: absolute;
+      transition: all ease 0.1s;
+    }
+
+  }
+
+  a:hover .d-o-t,
+  a.active .d-o-t {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top:10px;
+    left: 10px;
+
+    animation:zoomDot 0.2s;
+    -o-animation:zoomDot 0.2s ;
+    -moz-animation:zoomDot 0.2s;
+    -webkit-animation:zoomDot 0.2s ;
+  }
+
+  > li:last-child .connecting-line {
+    display: none;
+  }
+
+}
