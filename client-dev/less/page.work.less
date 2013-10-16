@@ -1,0 +1,165 @@
+.body-hover-link-bio {
+  background: url(@img-hand-location) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: @light-background;
+}
+.body-hover-link-work {
+  background: url(@img-code-location) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: @light-background;
+}
+.body-hover-link-hire {
+}
+
+.home-block {
+
+  width: 800px;
+  height: 270px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -400px;
+  color:#FFFFFF;
+
+
+  h1 {
+    position: absolute;
+    top: 13px;
+    left: -30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-align: right;
+    width: 50%;
+    font-size: 50px;
+    font-family: @hand-font;
+    font-weight: 300;
+  }
+
+  h2 {
+    font-family: @code-font;
+    font-size: 16px;
+    position: absolute;
+    top: 54px;
+    left: -30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-align: right;
+    width: 50%;
+  }
+
+  .firstName {
+    font-weight: 300;
+    margin-right: 10px;
+  }
+  .lastName {
+    font-weight: 800;
+  }
+
+  .separator {
+    font-size: 8px;
+    width: 5px;
+    word-break: break-all;
+    display: block;
+    margin: 0 auto;
+    line-height: 1;
+    font-weight: 800;
+    font-family: @code-font;
+  }
+
+  .home-block-nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: 20px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-top: 6px;
+        margin-bottom: 6px;
+        display:block;
+
+        a {
+          display: block;
+          position: relative;
+          padding: 20px 40px 20px 100px;
+          color: #FFF;
+
+          &:hover,
+          &:focus {
+
+            .icn{
+              background-size: 100px;
+            }
+            &.home-block-nav-bio .icn {
+              background-position: center -410px;
+            }
+            &.home-block-nav-work .icn {
+              background-position: center -510px;
+            }
+            &.home-block-nav-hire .icn {
+              background-position: center -615px;
+            }
+          }
+        }
+
+        .home-block-nav-bio .icn {
+          background-position: center -345px;
+        }
+        .home-block-nav-work .icn {
+          background-position: center -434px;
+        }
+        .home-block-nav-hire .icn {
+          background-position: center -520px;
+        }
+
+      }
+
+      .icn {
+        display: block;
+        width: 90px;
+        height: 80px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(@img-sprite-small-location);
+        background-repeat: no-repeat;
+        background-size: 86px;
+      }
+
+      .line {
+        font-size: 16px;
+        line-height: 18px;
+        display: block;
+        font-family: @code-font;
+      }
+
+      .arrow {
+        position:absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 80px;
+        background-image: url(@img-sprite-small-location);
+        background-repeat: no-repeat;
+        background-size: 86px;
+        background-position: -36px -600px;
+      }
+
+    }
+
+  }
+
+}
