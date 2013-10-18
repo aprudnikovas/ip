@@ -1,0 +1,326 @@
+.main_bio {
+  background-color: rgb(99, 99, 99);
+}
+
+
+.radialMixin(@url: ""; @inner-color: #555; @outer-color: #333) {
+  background-color: @inner-color;
+  background-image: url(@url);
+  background-image: url(@url), -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+  background-image: url(@url), -webkit-radial-gradient(circle, @inner-color, @outer-color);
+  background-image: url(@url), -moz-radial-gradient(circle, @inner-color, @outer-color);
+  background-image: url(@url), radial-gradient(circle, @inner-color, @outer-color);
+}
+
+
+.bio-main-title {
+  font-family: @hand-font;
+  text-align: center;
+  margin: 1em 0;
+  font-size: 2.5em;
+  color: rgb(255, 255, 255);
+}
+
+.animation-block {
+  display: block;
+  backface-visibility: hidden;
+  transition: all ease 0.5s;
+  transform-style: preserve-3d;
+  perspective: 500;
+  transform: rotateY(180deg) scale3d(0.5,0.5,0.5);
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 100px;
+  margin: 0 auto 2em;
+  text-align: center;
+
+  > img {
+    margin: 0 auto;
+    height: 100%;
+  }
+}
+.animation-block.active {
+  transform: rotateY(0deg);
+  box-sizing: border-box;
+}
+
+
+
+
+#expertise {
+
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 5em;
+
+  .expertise-stripe {
+    height: 150px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    background-color: rgb(80, 80, 80);
+    position: relative;
+
+    .expertise-backend {
+      top: -75px;
+    }
+    .expertise-frontend {
+      bottom: -75px;
+    }
+
+    .expertise-group {
+      position: absolute;
+      width: 600px;
+      left: 50%;
+      margin-left: -300px;
+      height: 150px;
+
+      .expertise-group-title {
+        position: absolute;
+        top: 74px;
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #333;
+
+        .expertise-group-title-dot {
+          position: absolute;
+          display: block;
+          width: 14px;
+          height: 14px;
+          border-radius: 7px;
+          top: -6px;
+          background-color: #333;
+        }
+
+        h4 {
+          position: absolute;
+          top: -30px;
+          margin: 0;
+          padding: 0;
+          line-height: 30px;
+          width: 5em;
+          font-family: @hand-font;
+          color: rgb(255, 255, 255);
+          font-size: 2em;
+          text-align: center;
+          margin-left: -2.5em;
+        }
+      }
+
+      &.expertise-backend .expertise-group-title {
+        left:0;
+        .expertise-group-title-dot{ right:0 }
+      }
+      &.expertise-frontend .expertise-group-title {
+        right: 0;
+        .expertise-group-title-dot{ left:0 }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      ul > li {
+        display: block;
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
+        background-color: rgb(60, 60, 60);
+        position: absolute;
+        top: 0;
+        .radialMixin(@img-sprite-bio-location,#444,#333);
+        transition: all ease 0.1s;
+
+        &.expertise-rest {
+          left: 0;
+          background-position: center 0;
+        }
+        &.expertise-api {
+          left: 180px;
+          background-position: center -150px;
+        }
+        &.expertise-servers {
+          left: 360px;
+          background-position: center -300px;
+        }
+        &.expertise-ui {
+          left: 90px;
+          background-position: center -450px;
+        }
+        &.expertise-ux {
+          left: 270px;
+          background-position: center -600px;
+        }
+        &.expertise-spa {
+          left: 450px;
+          background-position: center -750px;
+        }
+      }
+
+      ul > li:hover {
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        perspective: 500;
+        transform: rotate3d(1,0,0,20deg) scale3d(1.2,1.2,1.2);
+      }
+
+    }
+  }
+}
+
+
+
+#coding-skills {
+
+  .skill-description-wrapper {
+    width: 0px;
+    height: 280px;
+    margin: 0 auto;
+    border-left: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid rgb(255, 255, 255);
+    position: relative;
+    transition: all ease 0.2s;
+    font-family: @code-font;
+
+    &.active {
+      width: 400px;
+      padding: 0 20px;
+    }
+
+    .description {
+      overflow: hidden;
+      color: #FFFFFF;
+
+      .coding-skills-language {
+        margin: 0 0 0.5em;
+      }
+    }
+
+  }
+
+  .coding-skills-block {
+    display: block;
+    width: 160px;
+    position: absolute;
+
+    .coding-skills-title {
+      font-family: @code-font;
+      margin: 0 15px 10px;
+      padding:0;
+      color: #999;
+    }
+  }
+
+  .coding-skills-frontend {
+    left: -160px;
+
+    .coding-skills-title {
+      text-align: right;
+    }
+
+    .coding-skills-navigation > li > a {
+      margin: 5px 10px 5px 110px;
+      .coding-skills-tooltip {
+        left: -90px;
+        right: initial;
+        text-align: right;
+      }
+    }
+  }
+
+  .coding-skills-backend {
+    right: -160px;
+
+    .coding-skills-title {
+      text-align: left;
+    }
+
+    .coding-skills-navigation > li > a {
+      margin: 5px 120px 5px 10px;
+      .coding-skills-tooltip {
+        right: -90px;
+        left: initial;
+        text-align: left;
+      }
+    }
+  }
+
+}
+
+
+.coding-skills-navigation {
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  > li > a {
+
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+    margin: 5px 0 5px 120px;
+    transition: all ease 0.5s;
+
+    &.active {
+      background-color: rgb(182, 214, 113);
+    }
+
+    .coding-skills-tooltip {
+      position: absolute;
+      width: 80px;
+      color: #FFF;
+      left: -90px;
+      top: 4px;
+      text-align: right;
+      font-size: 12px;
+      line-height: 20px;
+      border-radius: 4px;
+
+    }
+
+    &:hover .coding-skills-tooltip {
+      display: block;
+    }
+
+    .d-o-t {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #000000;
+      border-radius: 8px;
+      top:11px;
+      left: 11px;
+      position: absolute;
+      transition: all ease 0.1s;
+    }
+
+  }
+
+  a:hover .d-o-t,
+  a.active .d-o-t {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top:10px;
+    left: 10px;
+
+    animation:zoomDot 0.2s;
+    -o-animation:zoomDot 0.2s ;
+    -moz-animation:zoomDot 0.2s;
+    -webkit-animation:zoomDot 0.2s ;
+  }
+
+}
