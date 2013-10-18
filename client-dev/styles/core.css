@@ -6391,7 +6391,7 @@ td.visible-print {
   box-sizing: border-box;
 }
 #expertise {
-  height: 300px;
+  height: auto;
   overflow: hidden;
   margin-bottom: 5em;
 }
@@ -6401,6 +6401,37 @@ td.visible-print {
   margin-bottom: 75px;
   background-color: #505050;
   position: relative;
+  transition: all ease 0.3s;
+}
+#expertise .expertise-stripe.active {
+  height: 320px;
+}
+#expertise .expertise-stripe .expertise-item-description {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #3c3c3c;
+  color: #ffffff;
+  border-radius: 20px;
+  transition: all ease 0.4s;
+}
+#expertise .expertise-stripe .expertise-item-description .close-description {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 10px;
+  cursor: pointer;
+  line-height: 1;
+}
+#expertise .expertise-stripe.active .expertise-item-description {
+  width: 500px;
+  margin-left: -250px;
+  height: 130px;
+  margin-top: -65px;
+  padding: 2em;
 }
 #expertise .expertise-stripe .expertise-backend {
   top: -75px;
@@ -6462,51 +6493,145 @@ td.visible-print {
   padding: 0;
   margin: 0;
 }
-#expertise .expertise-stripe .expertise-group ul > li {
+#expertise .expertise-stripe .expertise-group ul > li a {
+  transform-style: preserve-3d;
+  perspective: 500;
+  width: 150px;
+  height: 150px;
+  display: block;
+  border-radius: 75px;
+  position: absolute;
+  top: 0;
+  z-index: 5000;
+}
+#expertise .expertise-stripe .expertise-group ul > li a:before,
+#expertise .expertise-stripe .expertise-group ul > li a:after {
+  content: '';
+  position: absolute;
+  opacity: 0;
+  border-width: 0px 30px 106px 0px;
+  border-color: transparent transparent #000000 transparent;
+  border-style: solid;
+  display: block;
+  top: -31px;
+  left: 50%;
+  transform: rotate(0deg);
+  transform-origin: bottom left;
+  z-index: 5000;
+  transition: all ease 0.3s;
+}
+#expertise .expertise-stripe .expertise-group ul > li a:before {
+  border-width: 0px 0px 106px 30px;
+  border-color: transparent transparent #000000 transparent;
+  transform-origin: bottom right;
+  margin-left: -30px;
+}
+#expertise .expertise-stripe .expertise-group ul > li a .face {
+  position: absolute;
+  top: 0;
   display: block;
   width: 150px;
   height: 150px;
   border-radius: 75px;
   background-color: #3c3c3c;
-  position: absolute;
-  top: 0;
   background-color: #444444;
   background-image: url("../images/img_sprite_bio.png");
   background-image: url("../images/img_sprite_bio.png"), -webkit-gradient(radial, center center, 0, center center, 460, from(#444444), to(#333333));
   background-image: url("../images/img_sprite_bio.png"), -webkit-radial-gradient(circle, #444444, #333333);
   background-image: url("../images/img_sprite_bio.png"), -moz-radial-gradient(circle, #444444, #333333);
   background-image: url("../images/img_sprite_bio.png"), radial-gradient(circle, #444444, #333333);
-  transition: all ease 0.1s;
+  transition: all ease 0.2s;
+  cursor: pointer;
+  backface-visibility: hidden;
+  z-index: 5001;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
 }
-#expertise .expertise-stripe .expertise-group ul > li.expertise-rest {
+#expertise .expertise-stripe .expertise-group ul > li a .front {
+  transform: rotate3d(1, 0, 0, 0deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li a .back {
+  transform: rotate3d(1, 0, 0, 180deg);
+  background: #000000;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-rest a {
   left: 0;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-rest a:before,
+#expertise .expertise-stripe .expertise-group ul > li.expertise-rest a:after {
+  transform: rotate(150deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-rest a .face {
   background-position: center 0;
 }
-#expertise .expertise-stripe .expertise-group ul > li.expertise-api {
+#expertise .expertise-stripe .expertise-group ul > li.expertise-api a {
   left: 180px;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-api a:before,
+#expertise .expertise-stripe .expertise-group ul > li.expertise-api a:after {
+  transform: rotate(150deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-api a .face {
   background-position: center -150px;
 }
-#expertise .expertise-stripe .expertise-group ul > li.expertise-servers {
+#expertise .expertise-stripe .expertise-group ul > li.expertise-servers a {
   left: 360px;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-servers a:before,
+#expertise .expertise-stripe .expertise-group ul > li.expertise-servers a:after {
+  transform: rotate(220deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-servers a .face {
   background-position: center -300px;
 }
-#expertise .expertise-stripe .expertise-group ul > li.expertise-ui {
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ui a {
   left: 90px;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ui a:before,
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ui a:after {
+  transform: rotate(375deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ui a .face {
   background-position: center -450px;
 }
-#expertise .expertise-stripe .expertise-group ul > li.expertise-ux {
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ux a {
   left: 270px;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ux a:before,
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ux a:after {
+  transform: rotate(340deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-ux a .face {
   background-position: center -600px;
 }
-#expertise .expertise-stripe .expertise-group ul > li.expertise-spa {
+#expertise .expertise-stripe .expertise-group ul > li.expertise-spa a {
   left: 450px;
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-spa a:before,
+#expertise .expertise-stripe .expertise-group ul > li.expertise-spa a:after {
+  transform: rotate(320deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li.expertise-spa a .face {
   background-position: center -750px;
 }
-#expertise .expertise-stripe .expertise-group ul > li:hover {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  perspective: 500;
-  transform: rotate3d(1, 0, 0, 20deg) scale3d(1.2, 1.2, 1.2);
+#expertise .expertise-stripe .expertise-group ul > li > a:hover .front,
+#expertise .expertise-stripe .expertise-group ul > li > a:focus .front,
+#expertise .expertise-stripe .expertise-group ul > li > a.active .front {
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li > a:hover .back,
+#expertise .expertise-stripe .expertise-group ul > li > a:focus .back,
+#expertise .expertise-stripe .expertise-group ul > li > a.active .back {
+  transform: rotate3d(0, 1, 0, 0deg);
+}
+#expertise .expertise-stripe .expertise-group ul > li > a.active:before,
+#expertise .expertise-stripe .expertise-group ul > li > a.active:after {
+  opacity: 1;
 }
 #coding-skills .skill-description-wrapper {
   width: 0px;

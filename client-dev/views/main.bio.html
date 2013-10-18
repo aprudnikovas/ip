@@ -34,9 +34,16 @@
     <h3 class="bio-main-title">Expertise</h3>
 
     <div id="expertise">
-        <div class="expertise-stripe">
+        <div class="expertise-stripe" ng-class="expertiseDescription != null ? 'active' : ''">
 
-            <div class="expertise-item-description"></div>
+            <div class="expertise-item-description">
+                <div ng-if="expertiseDescription.text" class="expertise-description-text">
+                    <span class="close-description">
+                        <span class="glyphicon glyphicon-remove" ng-click="updateExpertise()"></span>
+                    </span>
+                    {{ expertiseDescription.text }}
+                </div>
+            </div>
 
             <div class="expertise-group expertise-backend">
                 <div class="expertise-group-title">
@@ -45,9 +52,16 @@
                     </div>
                 </div>
                 <ul>
-                    <li class="expertise-rest"></li>
-                    <li class="expertise-api"></li>
-                    <li class="expertise-servers"></li>
+                    <li ng-repeat="exp in expertiseBack" class="{{exp.className}}">
+                        <a tabindex="0"
+                           ng-class="expertiseDescription && exp.title === expertiseDescription.title ? 'active' : ''"
+                           ng-click="updateExpertise('back',$index)">
+
+                            <span class="face front"></span>
+                            <span class="face back">{{exp.title}}</span>
+
+                           </a>
+                    </li>
                 </ul>
             </div>
 
@@ -58,9 +72,16 @@
                     </div>
                 </div>
                 <ul>
-                    <li class="expertise-ui"></li>
-                    <li class="expertise-ux"></li>
-                    <li class="expertise-spa"></li>
+                    <li ng-repeat="exp in expertiseFront" class="{{exp.className}}">
+                        <a tabindex="0"
+                           ng-class="expertiseDescription && exp.title === expertiseDescription.title ? 'active' : ''"
+                           ng-click="updateExpertise('front',$index)">
+
+                            <span class="face front"></span>
+                            <span class="face back">{{exp.title}}</span>
+
+                           </a>
+                    </li>
                 </ul>
             </div>
 
