@@ -29,38 +29,93 @@
 
         </div>
 
+    </section>
+
+    <h3 class="bio-main-title">Expertise</h3>
+
+    <div id="expertise">
+        <div class="expertise-stripe">
+
+            <div class="expertise-item-description"></div>
+
+            <div class="expertise-group expertise-backend">
+                <div class="expertise-group-title">
+                    <div class="expertise-group-title-dot">
+                        <h4>back-end</h4>
+                    </div>
+                </div>
+                <ul>
+                    <li class="expertise-rest"></li>
+                    <li class="expertise-api"></li>
+                    <li class="expertise-servers"></li>
+                </ul>
+            </div>
+
+            <div class="expertise-group expertise-frontend">
+                <div class="expertise-group-title">
+                    <div class="expertise-group-title-dot">
+                        <h4>front-end</h4>
+                    </div>
+                </div>
+                <ul>
+                    <li class="expertise-ui"></li>
+                    <li class="expertise-ux"></li>
+                    <li class="expertise-spa"></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
 
 
+    <h3 class="bio-main-title">languages / frameworks</h3>
 
-        <div class="coding-skills">
+    <div id="coding-skills">
+        <div class="skill-description-wrapper" ng-class="languageBlock != null ? 'active' : ''">
+            <div class="coding-skills-block coding-skills-frontend">
 
-            <nav>
+                <h4 class="coding-skills-title">front-end</h4>
+
                 <ul class="coding-skills-navigation clearfix">
-                    <li ng-repeat="language in codeData">
+                    <li ng-repeat="language in codeDataFrontEnd">
 
                         <a title="{{language.lang}}"
                            ng-class="language.lang === languageBlock.lang ? 'active' : ''"
-                           ng-click="updateLanguageBlock($index)">
+                           ng-click="updateLanguageBlock('front',$index)">
 
                             <span class="coding-skills-tooltip">{{language.lang}}</span>
-                            <span class="connecting-line">
-                                <span class="connecting-line-value"></span>
-                            </span>
                             <span class="d-o-t"></span>
                         </a>
 
                     </li>
                 </ul>
-            </nav>
+            </div>
+            <div class="coding-skills-block coding-skills-backend">
+
+                <h4 class="coding-skills-title">back-end</h4>
+
+                <ul class="coding-skills-navigation clearfix">
+                    <li ng-repeat="language in codeDataBackEnd">
+
+                        <a title="{{language.lang}}"
+                           ng-class="language.lang === languageBlock.lang ? 'active' : ''"
+                           ng-click="updateLanguageBlock('back',$index)">
+
+                            <span class="coding-skills-tooltip">{{language.lang}}</span>
+                            <span class="d-o-t"></span>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
 
             <div ng-if="languageBlock" class="description">
                 <h3 class="coding-skills-language">{{languageBlock.lang}}</h3>
                 <p class="coding-skills-text">{{languageBlock.text}}</p>
-                <div class="coding-skills-code" ng-include=" '/views/codeSnippets/' + languageBlock.lang + '.html' "></div>
             </div>
 
         </div>
+    </div>
 
-    </section>
 </article>
 

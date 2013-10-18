@@ -29,40 +29,11 @@ angular.module('tApp')
 		// CAROUSEL
 		////////////////////////
 
-		$scope.codeData = [
-			{
-				lang:'html',
-				text:'HyperText Markup Language (HTML) is the main markup language for creating web pages and other information that can be displayed in a web browser.'
-			},
-			{
-				lang:'jade',
-				text:'Jade is a high performance template engine heavily influenced by Haml and implemented with JavaScript for node.'
-			},
-			{
-				lang:'css',
-				text:'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a document written in a markup language.'
-			},
-			{
-				lang:'less',
-				text:'The dynamic stylesheet language. LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions.'
-			},
-			{
-				lang:'javascript',
-				text:'JavaScript is a prototype-based scripting language with dynamic typing and has first-class functions.'
-			},
+		$scope.codeDataBackEnd = [
 			{
 				lang:'node.js',
 				text:"Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications."
 			},
-			{
-				lang:'backbone',
-				text:'Backbone supplies structure to JavaScript-heavy applications.'
-			},
-			{
-				lang:'angular',
-				text:'AngularJS is what HTML would have been, had it been designed for building web-apps.'
-			},
-
 			{
 				lang:'groovy',
 				text:'Groovy is an object-oriented programming language for the Java platform. It is a dynamic language with features similar to those of Python, Ruby, Perl, and Smalltalk.'
@@ -89,32 +60,47 @@ angular.module('tApp')
 			}
 		];
 
-		$scope.codeIdx = 0;
-		$scope.languageBlock = $scope.codeData[$scope.codeIdx]
-
-		var codeTimer;
-		$scope.execCodeTimer = function(t){
-			var interval = t != null ? t : 3000
-			codeTimer = $timeout(function() {
-				var arr = $scope.codeData;
-				var currIdx = $scope.codeIdx;
-				if(currIdx < (arr.length - 1))
-					$scope.codeIdx++
-				else
-					$scope.codeIdx = 0
-
-				$scope.languageBlock = $scope.codeData[$scope.codeIdx]
-				$scope.execCodeTimer();
-			}, interval);
-		}
-
-
-		$scope.updateLanguageBlock = function(idx){
-
-			if (codeTimer) {
-				$timeout.cancel(codeTimer);
+		$scope.codeDataFrontEnd = [
+			{
+				lang:'html',
+				text:'HyperText Markup Language (HTML) is the main markup language for creating web pages and other information that can be displayed in a web browser.'
+			},
+			{
+				lang:'jade',
+				text:'Jade is a high performance template engine heavily influenced by Haml and implemented with JavaScript for node.'
+			},
+			{
+				lang:'css',
+				text:'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a document written in a markup language.'
+			},
+			{
+				lang:'less',
+				text:'The dynamic stylesheet language. LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions.'
+			},
+			{
+				lang:'javascript',
+				text:'JavaScript is a prototype-based scripting language with dynamic typing and has first-class functions.'
+			},
+			{
+				lang:'backbone',
+				text:'Backbone supplies structure to JavaScript-heavy applications.'
+			},
+			{
+				lang:'angular',
+				text:'AngularJS is what HTML would have been, had it been designed for building web-apps.'
 			}
-			$scope.languageBlock = $scope.codeData[idx];
+		];
+
+
+
+		$scope.languageBlock;
+		$scope.updateLanguageBlock = function(frontOrBack,idx){
+			if(frontOrBack === 'front' && (!$scope.languageBlock || $scope.codeDataFrontEnd[idx].lang !== $scope.languageBlock.lang) ){
+				$scope.languageBlock = $scope.codeDataFrontEnd[idx];
+			} else if(frontOrBack === 'back' && (!$scope.languageBlock || $scope.codeDataBackEnd[idx].lang !== $scope.languageBlock.lang) ) {
+				$scope.languageBlock = $scope.codeDataBackEnd[idx];
+			} else
+				$scope.languageBlock = null
 		}
 
 
@@ -122,8 +108,6 @@ angular.module('tApp')
 		////////////////////////
 
 		$scope.execTimer();
-		$scope.execCodeTimer();
-
 
 
 		// CLEANUP ON DESTROY
@@ -132,12 +116,6 @@ angular.module('tApp')
 		$scope.$on("$destroy", function() {
 			if (timer) {
 				$timeout.cancel(timer);
-			}
-			if (codeTimer) {
-				$timeout.cancel(codeTimer);
-			}
-			if(ageOnScreenTimer) {
-				$timeout.cancel(ageOnScreenTimer);
 			}
 		});
 
