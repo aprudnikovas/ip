@@ -26,8 +26,60 @@ angular.module('tApp')
 		}
 
 
-		// CAROUSEL
+		// Languages / frameworks visibility
+		/////////////////////////////////////
+
+		$scope.languageBlock;
+		$scope.updateLanguageBlock = function(frontOrBack,idx){
+			if(frontOrBack === 'front' && (!$scope.languageBlock || $scope.codeDataFrontEnd[idx].lang !== $scope.languageBlock.lang) ){
+				$scope.languageBlock = $scope.codeDataFrontEnd[idx];
+			} else if(frontOrBack === 'back' && (!$scope.languageBlock || $scope.codeDataBackEnd[idx].lang !== $scope.languageBlock.lang) ) {
+				$scope.languageBlock = $scope.codeDataBackEnd[idx];
+			} else
+				$scope.languageBlock = null
+		}
+
+
+		// Expertise visibility
+		/////////////////////////////////////
+
+		$scope.expertiseDescription = null;
+		$scope.updateExpertise = function(frontOrBack,idx){
+			if( frontOrBack === 'front' && (!$scope.expertiseDescription ||
+				$scope.expertiseFront[idx].title !== $scope.expertiseDescription.title) ){
+
+				$scope.expertiseDescription = $scope.expertiseFront[idx];
+			} else if ( frontOrBack === 'back' && (!$scope.expertiseDescription ||
+				$scope.expertiseBack[idx].title !== $scope.expertiseDescription.title) ) {
+
+				$scope.expertiseDescription = $scope.expertiseBack[idx];
+			} else
+				$scope.expertiseDescription = null;
+		}
+
+
+		// EXECUTE TIMERS
 		////////////////////////
+
+		$scope.execTimer();
+
+
+		// CLEANUP ON DESTROY
+		///////////////////////
+
+		$scope.$on("$destroy", function() {
+			if (timer) {
+				$timeout.cancel(timer);
+			}
+		});
+
+
+
+
+
+
+		// LANGUAGES / FRAMEWORKS
+		//////////////////////////
 
 		$scope.codeDataBackEnd = [
 			{
@@ -91,33 +143,44 @@ angular.module('tApp')
 			}
 		];
 
+		// EXPERTISE
+		//////////////////////////
 
-
-		$scope.languageBlock;
-		$scope.updateLanguageBlock = function(frontOrBack,idx){
-			if(frontOrBack === 'front' && (!$scope.languageBlock || $scope.codeDataFrontEnd[idx].lang !== $scope.languageBlock.lang) ){
-				$scope.languageBlock = $scope.codeDataFrontEnd[idx];
-			} else if(frontOrBack === 'back' && (!$scope.languageBlock || $scope.codeDataBackEnd[idx].lang !== $scope.languageBlock.lang) ) {
-				$scope.languageBlock = $scope.codeDataBackEnd[idx];
-			} else
-				$scope.languageBlock = null
-		}
-
-
-		// EXECUTE TIMERS
-		////////////////////////
-
-		$scope.execTimer();
-
-
-		// CLEANUP ON DESTROY
-		///////////////////////
-
-		$scope.$on("$destroy", function() {
-			if (timer) {
-				$timeout.cancel(timer);
+		$scope.expertiseFront = [
+			{
+				title:'UI',
+				className: 'expertise-ui',
+				text:'ui text'
+			},
+			{
+				title:'UX',
+				className: 'expertise-ux',
+				text:'ux text'
+			},
+			{
+				title:'SPA',
+				className: 'expertise-spa',
+				text:'spa text'
 			}
-		});
+		];
+
+		$scope.expertiseBack = [
+			{
+				title:'REST',
+				className: 'expertise-rest',
+				text:'rest text'
+			},
+			{
+				title:'API',
+				className: 'expertise-api',
+				text:'api text'
+			},
+			{
+				title:'Servers',
+				className: 'expertise-servers',
+				text:'servers text'
+			}
+		];
 
 
 
