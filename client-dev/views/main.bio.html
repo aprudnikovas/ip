@@ -100,7 +100,7 @@
                 <ul class="coding-skills-navigation clearfix">
                     <li ng-repeat="language in codeDataFrontEnd">
 
-                        <a title="{{language.lang}}"
+                        <a tabindex="0" title="{{language.lang}}"
                            ng-class="language.lang === languageBlock.lang ? 'active' : ''"
                            ng-click="updateLanguageBlock('front',$index)">
 
@@ -118,7 +118,7 @@
                 <ul class="coding-skills-navigation clearfix">
                     <li ng-repeat="language in codeDataBackEnd">
 
-                        <a title="{{language.lang}}"
+                        <a tabindex="0" title="{{language.lang}}"
                            ng-class="language.lang === languageBlock.lang ? 'active' : ''"
                            ng-click="updateLanguageBlock('back',$index)">
 

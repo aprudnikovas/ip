@@ -1,0 +1,17 @@
+[
+	{
+		"class":"company"
+	},
+
+	{
+		"class":"project"
+	},
+
+	{
+		"class":"skill"
+	},
+
+	{
+		"class":"language"
+	}
+]
