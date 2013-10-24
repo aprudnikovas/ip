@@ -1,10 +1,10 @@
 <div class="navigation" ng-class="{active:menuIsActive}" ng-controller="MenuController">
     <nav class="navigation-main">
-        <div class="navigation-toggler" ng-click="toggleNavigation()">
+        <a tabindex="0" class="navigation-toggler" ng-click="toggleNavigation()">
             <span class="navigation-toggler-bar"></span>
             <span class="navigation-toggler-bar"></span>
             <span class="navigation-toggler-bar"></span>
-        </div>
+        </a>
         <ul>
             <li class="home">
                 <a ui-sref="main">

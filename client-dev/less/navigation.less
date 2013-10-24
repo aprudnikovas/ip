@@ -1,7 +1,15 @@
+// variables in use in this file
+
+@nav-bg: @sidebar-background;
+@nav-fg: @sidebar-color;
+@brand-font: @hand-font;
+@nav-font: @code-font;
+@sprite-p: @sprite-path;
+
 .navigation {
   width: 130px;
   min-height: 100%;
-  background-color: @dark-background;
+  background-color: @nav-bg;
   position: absolute;
   position: fixed;
   top: 0;
@@ -21,7 +29,7 @@
   right: -60px;
   width: 50px;
   height: 44px;
-  background-color: @dark-background;
+  background-color: @nav-bg;
   cursor: pointer;
   padding-top: 11px;
   padding-bottom: 11px;
@@ -30,7 +38,7 @@
     display: block;
     height: 4px;
     width: 28px;
-    background-color: rgb(255, 255, 255);
+    background-color: @nav-fg;
     margin: 0 auto 5px;
   }
 }
@@ -45,20 +53,20 @@
 
     a {
       display: block;
-      color: #FFFFFF;
+      color: @nav-fg;
       font-size: 16px;
       line-height: 24px;
-      font-family: @code-font;
+      font-family: @nav-font;
       padding: 8px;
       .transition(all 0.2s ease);
 
       .jumping-letter{
         position:relative;
-        color: #FFFFFF;
+        color: @nav-fg;
       }
 
       &:visited {
-        color: #FFFFFF;
+        color: @nav-fg;
       }
 
       &:hover,
@@ -67,8 +75,8 @@
         text-decoration: none;
         letter-spacing: 1px;
         font-weight: 800;
-        color: #FFFFFF;
-        background-color: rgb(62, 45, 75);
+        color: @nav-fg;
+        background-color: darken(@nav-bg,10%);
 
         .jumping-letter{
           animation:bounceLetter 1s;
@@ -81,7 +89,7 @@
     }
 
     &.home a {
-      font-family: @hand-font;
+      font-family: @brand-font;
       font-size: 2em;
     }
 
@@ -92,10 +100,11 @@
 
 
 .navigation-bg {
+
   display: block;
   width: 80px;
   height: 60px;
-  background-image: url(@sprite-path);
+  background-image: url(@sprite-p);
   background-repeat: no-repeat;
   background-size: 60px;
   margin: 0 auto;

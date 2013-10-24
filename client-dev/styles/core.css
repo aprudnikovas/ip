@@ -6155,7 +6155,7 @@ td.visible-print {
 }
 .navigation-main ul > li a {
   display: block;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   line-height: 24px;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
@@ -6165,10 +6165,10 @@ td.visible-print {
 }
 .navigation-main ul > li a .jumping-letter {
   position: relative;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .navigation-main ul > li a:visited {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .navigation-main ul > li a:hover,
 .navigation-main ul > li a:focus,
@@ -6176,8 +6176,8 @@ td.visible-print {
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: 800;
-  color: #FFFFFF;
-  background-color: #3e2d4b;
+  color: #ffffff;
+  background-color: #2f1c36;
 }
 .navigation-main ul > li a:hover .jumping-letter,
 .navigation-main ul > li a:focus .jumping-letter,
@@ -6211,9 +6211,10 @@ td.visible-print {
 }
 .main_home .footer {
   position: absolute;
-  width: 400px;
+  width: 500px;
   left: 50%;
-  margin-left: -200px;
+  margin-left: -250px;
+  color: #aa95b1;
 }
 .body-hover-link-bio {
   background: url("../images/handprint.png") no-repeat center center fixed;
@@ -6221,7 +6222,7 @@ td.visible-print {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #bdb669;
+  background-color: #5a4974;
 }
 .body-hover-link-work {
   background: url("../images/code-bg.png") no-repeat center center fixed;
@@ -6229,7 +6230,7 @@ td.visible-print {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #bdb669;
+  background-color: #5a4974;
 }
 .home-block {
   width: 800px;
@@ -6282,6 +6283,7 @@ td.visible-print {
   line-height: 1;
   font-weight: 800;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  color: #aa95b1;
 }
 .home-block .home-block-nav {
   position: absolute;
@@ -6342,7 +6344,7 @@ td.visible-print {
   background-size: 86px;
 }
 .home-block .home-block-nav ul .line {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 18px;
   display: block;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
@@ -6360,6 +6362,12 @@ td.visible-print {
 }
 .main_bio {
   background-color: #636363;
+}
+.main_bio .footer {
+  color: #a3a3a3;
+}
+.main_bio .page .separator {
+  color: #a3a3a3;
 }
 .bio-main-title {
   font-family: "la_belle_auroreregular", sans-serif;
@@ -6399,7 +6407,7 @@ td.visible-print {
   height: 150px;
   margin-top: 75px;
   margin-bottom: 75px;
-  background-color: #505050;
+  background-color: #565656;
   position: relative;
   transition: all ease 0.3s;
 }
@@ -6413,7 +6421,7 @@ td.visible-print {
   position: absolute;
   left: 50%;
   top: 50%;
-  background-color: #3c3c3c;
+  background-color: #201325;
   color: #ffffff;
   border-radius: 20px;
   transition: all ease 0.4s;
@@ -6452,7 +6460,7 @@ td.visible-print {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: #333;
+  background-color: #4a4a4a;
 }
 #expertise .expertise-stripe .expertise-group .expertise-group-title .expertise-group-title-dot {
   position: absolute;
@@ -6461,7 +6469,7 @@ td.visible-print {
   height: 14px;
   border-radius: 7px;
   top: -6px;
-  background-color: #333;
+  background-color: #4a4a4a;
 }
 #expertise .expertise-stripe .expertise-group .expertise-group-title h4 {
   position: absolute;
@@ -6510,7 +6518,7 @@ td.visible-print {
   position: absolute;
   opacity: 0;
   border-width: 0px 30px 106px 0px;
-  border-color: transparent transparent #000000 transparent;
+  border-color: transparent transparent #201325 transparent;
   border-style: solid;
   display: block;
   top: -31px;
@@ -6522,7 +6530,7 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li a:before {
   border-width: 0px 0px 106px 30px;
-  border-color: transparent transparent #000000 transparent;
+  border-color: transparent transparent #201325 transparent;
   transform-origin: bottom right;
   margin-left: -30px;
 }
@@ -6533,17 +6541,17 @@ td.visible-print {
   width: 150px;
   height: 150px;
   border-radius: 75px;
-  background-color: #3c3c3c;
-  background-color: #444444;
+  background-color: #4c2d58;
   background-image: url("../images/img_sprite_bio.png");
-  background-image: url("../images/img_sprite_bio.png"), -webkit-gradient(radial, center center, 0, center center, 460, from(#444444), to(#333333));
-  background-image: url("../images/img_sprite_bio.png"), -webkit-radial-gradient(circle, #444444, #333333);
-  background-image: url("../images/img_sprite_bio.png"), -moz-radial-gradient(circle, #444444, #333333);
-  background-image: url("../images/img_sprite_bio.png"), radial-gradient(circle, #444444, #333333);
+  background-image: url("../images/img_sprite_bio.png"), -webkit-gradient(radial, center center, 0, center center, 460, from(#4c2d58), to(#2f1c36));
+  background-image: url("../images/img_sprite_bio.png"), -webkit-radial-gradient(circle, #4c2d58, #2f1c36);
+  background-image: url("../images/img_sprite_bio.png"), -moz-radial-gradient(circle, #4c2d58, #2f1c36);
+  background-image: url("../images/img_sprite_bio.png"), radial-gradient(circle, #4c2d58, #2f1c36);
   transition: all ease 0.2s;
   cursor: pointer;
   backface-visibility: hidden;
   z-index: 5001;
+  border: 2px solid #78478b;
   padding-top: 50px;
   padding-bottom: 50px;
   line-height: 50px;
@@ -6557,7 +6565,7 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li a .back {
   transform: rotate3d(1, 0, 0, 180deg);
-  background: #000000;
+  background: #201325;
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-rest a {
   left: 0;
@@ -6649,7 +6657,7 @@ td.visible-print {
 }
 #coding-skills .skill-description-wrapper .description {
   overflow: hidden;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 #coding-skills .skill-description-wrapper .description .coding-skills-language {
   margin: 0 0 0.5em;
@@ -6663,7 +6671,7 @@ td.visible-print {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   margin: 0 15px 10px;
   padding: 0;
-  color: #999;
+  color: #898989;
 }
 #coding-skills .coding-skills-frontend {
   left: -160px;
@@ -6707,19 +6715,19 @@ td.visible-print {
   height: 30px;
   border-radius: 30px;
   display: block;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #4c2d58;
   position: relative;
   cursor: pointer;
   margin: 5px 0 5px 120px;
   transition: all ease 0.5s;
 }
 .coding-skills-navigation > li > a.active {
-  background-color: #b6d671;
+  background-color: #201325;
 }
 .coding-skills-navigation > li > a .coding-skills-tooltip {
   position: absolute;
   width: 80px;
-  color: #FFF;
+  color: #ffffff;
   left: -90px;
   top: 4px;
   text-align: right;
@@ -6734,7 +6742,7 @@ td.visible-print {
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #000000;
+  background-color: #86509b;
   border-radius: 8px;
   top: 11px;
   left: 11px;
@@ -6748,6 +6756,7 @@ td.visible-print {
   border-radius: 10px;
   top: 10px;
   left: 10px;
+  background-color: #ffffff;
   animation: zoomDot 0.2s;
   -o-animation: zoomDot 0.2s ;
   -moz-animation: zoomDot 0.2s;
@@ -6762,8 +6771,8 @@ body {
   height: 100%;
 }
 body {
-  background-color: #bdb669;
-  color: #000000;
+  background-color: #5a4974;
+  color: #ffffff;
   transition: all ease 0.5s;
   background-position: center 100%;
 }
@@ -6790,6 +6799,7 @@ body {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   letter-spacing: 2px;
   overflow: hidden;
+  color: #aa95b1;
 }
 .page > header {
   color: #FFFFFF;
@@ -6837,4 +6847,8 @@ body {
   right: 0;
   line-height: 30px;
   padding: 30px 0;
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #aa95b1;
 }
