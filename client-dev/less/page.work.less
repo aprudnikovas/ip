@@ -1,3 +1,104 @@
+
+.work-layout-switch {
+  display: block;
+  text-align: center;
+
+  .work-layout-icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border: 2px solid @page-work-foreground;
+    border-radius: 35px;
+    margin: 0 3px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .work-layout-grid {
+
+    .square {
+      display: block;
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      background-color: @page-work-foreground;
+      transition: all ease 0.2s;
+
+      &.top {
+        top: 50%;
+        margin-top: -12px;
+      }
+      &.bottom {
+        bottom: 50%;
+        margin-bottom: -12px;
+      }
+      &.left {
+        left: 50%;
+        margin-left: -12px;
+      }
+      &.right {
+        right: 50%;
+        margin-right: -12px;
+      }
+    }
+    &:hover .square,
+    &:focus .square {
+      &.top {
+        margin-top: -14px;
+      }
+      &.bottom {
+        margin-bottom: -14px;
+      }
+      &.left {
+        margin-left: -14px;
+      }
+      &.right {
+        margin-right: -14px;
+      }
+    }
+  }
+
+  .work-layout-time {
+    .square {
+      display: block;
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      background-color: @page-work-foreground;
+      transition: all ease 0.2s;
+
+      &.left {
+        top: 50%;
+        left: 50%;
+        margin-top: -14px;
+        margin-left: -17px;
+      }
+      &.right {
+        top: 50%;
+        right: 50%;
+        margin-top: -4px;
+        margin-right: -17px;
+      }
+    }
+    .dot {
+      display: block;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: @page-work-foreground;
+      border-radius: 3px;
+      left: 50%;
+      bottom: 0;
+      margin-left: -3px;
+
+      &.i2 {margin-bottom:9px}
+      &.i3 {margin-bottom:18px}
+      &.i4 {margin-bottom:27px}
+      &.i5 {margin-bottom:36px}
+    }
+  }
+}
+
 .work-portfolio {
 
   .thumbnail-title {
@@ -5,5 +106,131 @@
     text-align: center;
   }
 
+
+}
+
+
+#timeline {
+  overflow: hidden;
+  position: relative;
+
+  .timeline-year {
+
+    position: relative;
+    left:0;
+    top:0;
+
+    .timeline-year-value {
+      font-size: 9px;
+      text-align: center;
+      line-height: 20px;
+      height: 20px;
+      display:block;
+    }
+
+    .timeline-month {
+      display: block;
+      height: 8px;
+      position: relative;
+
+      .dot {
+        width: 4px;
+        height: 4px;
+        background-color: @page-work-line-background;
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -2px;
+        margin-top: -2px;
+      }
+    }
+
+  }
+
+  .timeline-job {
+    position: absolute;
+    display: block;
+
+    &:nth-child(even){
+      left: 53%;
+
+      .timeline-job-label {
+        left: 25px;
+      }
+      .timeline-job-label:before {
+        left: -5px;
+        .rotate(45deg);
+      }
+    }
+
+    &:nth-child(odd){
+      right: 53%;
+
+      .timeline-job-label {
+        right: 25px;
+      }
+      .timeline-job-label:before {
+        right: -5px;
+        .rotate(-135deg);
+      }
+    }
+
+    .timeline-job-line {
+      display: block;
+      width: 8px;
+      border: 1px solid @page-work-line-border;
+      border-radius: 4px;
+      background-color: @page-work-line-background;
+      position: absolute;
+      left: 50%;
+      margin-left: -4px;
+
+      .timeline-job-label {
+        position: absolute;
+        top: 50%;
+        display: block;
+        min-width: 140px;
+        height: 60px;
+        line-height: 20px;
+        margin-top: -30px;
+        padding: 20px;
+        text-align:center;
+        font-weight: bold;
+        color: @page-work-label-foreground;
+        background-color: @page-work-label-background;
+        border-radius: 4px;
+
+        box-shadow: 0 0 15px darken(@page-work-background,10%);
+      }
+
+      .timeline-job-label:before {
+        content: '';
+        position: absolute;
+        border-width: 0px 12px 12px 0px;
+        border-color: transparent transparent @page-work-label-background transparent;
+        border-style: solid;
+        display: block;
+        top: 50%;
+        margin-top: -6px;
+      }
+
+    }
+  }
+
+
+  .timeline-end {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+
+    .timeline-end-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: @page-work-foreground;
+    }
+  }
 
 }
