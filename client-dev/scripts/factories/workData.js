@@ -7,10 +7,6 @@ angular.module('tApp')
 
 			// resp has data,status,header,config
 
-			console.log("success")
-
-			console.log( JSON.stringify( resp.data ) )
-
 			cachedData = resp.data;
 			return cachedData;
 		};
