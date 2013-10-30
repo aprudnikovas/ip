@@ -1,10 +1,12 @@
 <div class="col-md-3">
     <div class="list-group">
-        <a ui-sref="main.work" class="list-group-item">
-            Back to gallery
+        <a ui-sref="main.work.timeline" class="list-group-item">
+            Back to timeline
         </a>
-        <a ui-sref="main.work.item({itemId:1})" class="list-group-item" ng-repeat="workItem in workData">
-            {{workItem.title}}
+        <a ui-sref="main.work.timeline.item({itemId:company.id})"
+           class="list-group-item"
+           ng-repeat="company in workHistoryData.companies">
+            {{company.name}}
         </a>
     </div>
 </div>

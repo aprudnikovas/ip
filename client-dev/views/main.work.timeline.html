@@ -1,11 +1,11 @@
 <div class="work-layout-switch">
-    <div class="work-layout-icon work-layout-grid">
+    <div class="work-layout-icon work-layout-grid" ui-sref="main.work.gallery">
         <div class="square top left"></div>
         <div class="square top right"></div>
         <div class="square bottom left"></div>
         <div class="square bottom right"></div>
     </div>
-    <div class="work-layout-icon work-layout-time">
+    <div class="work-layout-icon work-layout-time" ui-sref="main.work.timeline">
         <div class="dot i1"></div>
         <div class="dot i2"></div>
         <div class="dot i3"></div>
@@ -35,7 +35,7 @@
 
         <div class="timeline-job-line"
              ng-attr-style="height:{{jobLineHeight(job)}}px;top:-{{jobLineHeight(job)}}px">
-            <div class="timeline-job-label" >
+            <div class="timeline-job-label" ui-sref="main.work.timeline.item({itemId:job.id})">
                 {{job.name}}
             </div>
         </div>
@@ -48,16 +48,4 @@
         <div class="timeline-end-dot"></div>
     </div>
 
-</div>
-
-
-
-
-
-
-<div class="col-sm-6 col-md-3" ng-repeat="workItem in workData">
-    <a ui-sref="main.work.item({itemId:1})" class="thumbnail">
-        <img src="{{workItem.imgThumbUrl}}"/>
-        <span class="thumbnail-title">{{workItem.title}}</span>
-    </a>
 </div>

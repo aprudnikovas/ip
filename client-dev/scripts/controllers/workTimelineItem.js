@@ -1,10 +1,10 @@
 angular.module('tApp')
-	.controller('WorkGalleryItemController', ['WorkData','$scope','$stateParams', function (WorkData, $scope, $stateParams) {
+	.controller('WorkTimelineItemController', ['WorkData','$scope','$stateParams', function (WorkData, $scope, $stateParams) {
 
 		var id = $stateParams.itemId
 
-		var projects = WorkData.data().projects;
+		var items = WorkData.data().companies;
 
-		$scope.project = _.find(projects, function(project){ return project.id == id })
+		$scope.item = _.find(items, function(item){ return item.id === id })
 
 	}]);
