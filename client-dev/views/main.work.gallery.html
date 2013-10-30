@@ -1,11 +1,11 @@
 <div class="work-layout-switch">
-    <div class="work-layout-icon work-layout-grid">
+    <div class="work-layout-icon work-layout-grid" ui-sref="main.work.gallery">
         <div class="square top left"></div>
         <div class="square top right"></div>
         <div class="square bottom left"></div>
         <div class="square bottom right"></div>
     </div>
-    <div class="work-layout-icon work-layout-time">
+    <div class="work-layout-icon work-layout-time" ui-sref="main.work.timeline">
         <div class="dot i1"></div>
         <div class="dot i2"></div>
         <div class="dot i3"></div>
@@ -16,48 +16,9 @@
     </div>
 </div>
 
-<div id="timeline">
-
-    <div ng-repeat="year in [2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003]" class="timeline-year {{year}}">
-
-        <div ng-repeat="month in [12,11,10,9,8,7,6,5,4,3,2,1]" class="timeline-month {{year}}">
-            <div class="dot"></div>
-        </div>
-
-        <div class="timeline-year-value">{{year}}</div>
-
-
-    </div>
-
-    <div ng-repeat="job in workHistoryData.companies"
-         class="timeline-job"
-         ng-attr-style="top:{{jobDistanceFromNow(job)}}px;">
-
-        <div class="timeline-job-line"
-             ng-attr-style="height:{{jobLineHeight(job)}}px;top:-{{jobLineHeight(job)}}px">
-            <div class="timeline-job-label" >
-                {{job.name}}
-            </div>
-        </div>
-
-    </div>
-
-    <div class="timeline-end">
-        <div class="timeline-end-dot"></div>
-        <div class="timeline-end-dot"></div>
-        <div class="timeline-end-dot"></div>
-    </div>
-
-</div>
-
-
-
-
-
-
-<div class="col-sm-6 col-md-3" ng-repeat="workItem in workData">
-    <a ui-sref="main.work.item({itemId:1})" class="thumbnail">
-        <img src="{{workItem.imgThumbUrl}}"/>
-        <span class="thumbnail-title">{{workItem.title}}</span>
+<div class="col-sm-6 col-md-3" ng-repeat="project in workHistoryData.projects">
+    <a ui-sref="main.work.gallery.item({itemId:project.id})" class="thumbnail">
+        <img src="#"/>
+        <span class="thumbnail-title">{{project.title}}</span>
     </a>
 </div>

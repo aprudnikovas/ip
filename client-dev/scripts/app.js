@@ -3,8 +3,6 @@ angular.module('tApp', ['ui.router'])
 		$rootScope.menuIsActive = false;
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
-				console.log("toState:" + toState.name + ", fromState:" + fromState.name)
-
 				$rootScope.stateName = toState.name.replace(/\./g,'_');
 			})
 	})
@@ -52,27 +50,56 @@ angular.module('tApp', ['ui.router'])
 					"main@" : {
 						templateUrl: 'views/main.work.html',
 						controller: 'WorkController'
-					},
-					"list@main.work" : {
-						templateUrl: 'views/main.work.gallery.html',
-						controller: 'WorkController'
 					}
 				}
 			})
-			.state("main.work.item", {
+			.state("main.work.gallery", {
+				url: "/gallery",
+				views: {
+					"list@main.work" : {
+						templateUrl: 'views/main.work.gallery.html',
+						controller: 'WorkGalleryController'
+					}
+				}
+			})
+			.state("main.work.gallery.item", {
 				url: '/:itemId',
 				views: {
 					"list@main.work" : {
-						templateUrl: 'views/main.work.list.html',
-						controller: 'WorkController'
+						templateUrl: 'views/main.work.gallery.list.html',
+						controller: 'WorkGalleryController'
 					},
 					// absolutely target content view
 					"item@main.work" : {
-						templateUrl: "views/main.work.item.html",
-						controller: 'WorkItemController'
+						templateUrl: "views/main.work.gallery.item.html",
+						controller: 'WorkGalleryItemController'
 					}
 				}
 			})
+			.state("main.work.timeline", {
+				url: "/timeline",
+				views: {
+					"list@main.work" : {
+						templateUrl: 'views/main.work.timeline.html',
+						controller: 'WorkTimelineController'
+					}
+				}
+			})
+			.state("main.work.timeline.item", {
+				url: '/:itemId',
+				views: {
+					"list@main.work" : {
+						templateUrl: 'views/main.work.timeline.list.html',
+						controller: 'WorkTimelineController'
+					},
+					// absolutely target content view
+					"item@main.work" : {
+						templateUrl: "views/main.work.timeline.item.html",
+						controller: 'WorkTimelineItemController'
+					}
+				}
+			})
+
 			.state("main.hire", {
 				url: "/hire",
 				views: {
