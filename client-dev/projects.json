@@ -1,0 +1,227 @@
+{
+
+	"projects": [
+
+		{
+			"id": "1",
+			"company_id": "1",
+			"title": "Vrroo",
+			"description": "Web video app for kids",
+			"from": "1367362800000",
+			"to": "1376521200000",
+			"images" : [ "http://vrroo.com/images/logo_hero_wide.png" ],
+			"skills" : [ "1","3","4","5" ],
+			"languages" : [ "1","9","11","12","13" ]
+		},
+
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "My Council",
+			"description": "My Council is an app both for Andriod and iOS",
+			"from": "2012 Dec 11",
+			"to": "",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Freedom to roam",
+			"description": "Freedom to roam is Android app marketplace website",
+			"from": "2012 Aug 15",
+			"to": "2012 Nov 01",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "My Landlord",
+			"description": "",
+			"from": "2012 Mar 10",
+			"to": "",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Letshelpyou.co.uk",
+			"description": "Property rental website",
+			"from": "2011 Oct 7",
+			"to": "",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Boomboom theme",
+			"description": "Magento commerce theme.",
+			"from": "2011 Jun 15",
+			"to": "2011 Oct 20",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Shildek",
+			"description": "shildek.com site",
+			"from": "2011 Jan 5",
+			"to": "2011 Mar 15",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "IvarPrudnikov older",
+			"description": "ivarprudnikov.com older site",
+			"from": "2012 Jan 20",
+			"to": "2012 Feb 15",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+
+
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "T reconstruction",
+			"description": "Summer house reconstruction",
+			"from": "2007 Mar 1",
+			"to": "2007 Apr 15",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Tutkus",
+			"description": "Visualizations for interior design studio Retroforma",
+			"from": "2006 Aug 1",
+			"to": "2006 Aug 20",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "BKC",
+			"description": "Technical drawings and visualizations of Birzai Culture Centre",
+			"from": "2006 Nov 20",
+			"to": "2007 Feb 10",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Bajoras",
+			"description": "Architectural solution for a new dwelling",
+			"from": "2008 Feb 20",
+			"to": "2008 Jun 20",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "Rus",
+			"description": "Architectural solution for a new dwelling",
+			"from": "2009 Jun 1",
+			"to": "2008 Jun 20",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "rendu.lt site",
+			"description": "Website for Rendu",
+			"from": "2009 Mar 1",
+			"to": "2009 Apr 20",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "t-shirt",
+			"description": "T-Shirt design",
+			"from": "2010 Oct 3",
+			"to": "2010 Oct 4",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "urbanizmus",
+			"description": "Series of illustrations",
+			"from": "2009 Jun 27",
+			"to": "2009 Jul 30",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "underwater adventures",
+			"description": "Illustration",
+			"from": "2009 May 21",
+			"to": "2009 Aug 1",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		},
+
+		{
+			"id": "x",
+			"company_id": "x",
+			"title": "star wars",
+			"description": "Illustration",
+			"from": "2009 Nov 15",
+			"to": "2009 Nov 20",
+			"images" : [  ],
+			"skills" : [  ],
+			"languages" : [  ]
+		}
+
+	]
+}
