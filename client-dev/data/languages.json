@@ -1,14 +1,14 @@
 {
 	"companies": [
 		{
-			"id": "2",
+			"id": "1",
 			"name": "Vrroo",
 			"position": "Senior web developer",
 			"from": "1367362800000",
 			"to": ""
 		},
 		{
-			"id": "1",
+			"id": "2",
 			"name": "Cognovi",
 			"position": "Web developer",
 			"from": "1317942000000",
