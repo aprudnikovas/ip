@@ -16,9 +16,16 @@
     </div>
 </div>
 
-<div class="col-sm-6 col-md-3" ng-repeat="project in workHistoryData.projects">
-    <a ui-sref="main.work.gallery.item({itemId:project.id})" class="thumbnail">
-        <img src="#"/>
-        <span class="thumbnail-title">{{project.title}}</span>
-    </a>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-sm-6 col-md-4 projects-gallery" ng-repeat="project in projects">
+            <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
+                <div class="projects-gallery-item-image">
+                    <img src="#" />
+                </div>
+                <span class="projects-gallery-item-label">{{project.title}}</span>
+            </a>
+        </div>
+    </div>
 </div>

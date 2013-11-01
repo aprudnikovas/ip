@@ -2,14 +2,15 @@
 .work-layout-switch {
   display: block;
   text-align: center;
+  margin-bottom: 20px;
 
   .work-layout-icon {
     display: inline-block;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     border: 2px solid @page-work-foreground;
-    border-radius: 35px;
-    margin: 0 3px;
+    border-radius: 20px;
+    margin: 0 2px;
     cursor: pointer;
     position: relative;
   }
@@ -19,41 +20,41 @@
     .square {
       display: block;
       position: absolute;
-      width: 11px;
-      height: 11px;
+      width: 8px;
+      height: 8px;
       background-color: @page-work-foreground;
       transition: all ease 0.2s;
 
       &.top {
         top: 50%;
-        margin-top: -12px;
+        margin-top: -9px;
       }
       &.bottom {
         bottom: 50%;
-        margin-bottom: -12px;
+        margin-bottom: -9px;
       }
       &.left {
         left: 50%;
-        margin-left: -12px;
+        margin-left: -9px;
       }
       &.right {
         right: 50%;
-        margin-right: -12px;
+        margin-right: -9px;
       }
     }
     &:hover .square,
     &:focus .square {
       &.top {
-        margin-top: -14px;
+        margin-top: -11px;
       }
       &.bottom {
-        margin-bottom: -14px;
+        margin-bottom: -11px;
       }
       &.left {
-        margin-left: -14px;
+        margin-left: -11px;
       }
       &.right {
-        margin-right: -14px;
+        margin-right: -11px;
       }
     }
   }
@@ -62,39 +63,39 @@
     .square {
       display: block;
       position: absolute;
-      width: 11px;
-      height: 11px;
+      width: 10px;
+      height: 8px;
       background-color: @page-work-foreground;
       transition: all ease 0.2s;
 
       &.left {
         top: 50%;
         left: 50%;
-        margin-top: -14px;
-        margin-left: -17px;
+        margin-top: -10px;
+        margin-left: -14px;
       }
       &.right {
         top: 50%;
         right: 50%;
-        margin-top: -4px;
-        margin-right: -17px;
+        margin-top: -2px;
+        margin-right: -14px;
       }
     }
     .dot {
       display: block;
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 4px;
+      height: 4px;
       background-color: @page-work-foreground;
-      border-radius: 3px;
+      border-radius: 2px;
       left: 50%;
       bottom: 0;
-      margin-left: -3px;
+      margin-left: -2px;
 
-      &.i2 {margin-bottom:9px}
-      &.i3 {margin-bottom:18px}
-      &.i4 {margin-bottom:27px}
-      &.i5 {margin-bottom:36px}
+      &.i2 {margin-bottom:6px}
+      &.i3 {margin-bottom:12px}
+      &.i4 {margin-bottom:18px}
+      &.i5 {margin-bottom:24px}
     }
   }
 }
@@ -153,7 +154,8 @@
     display: block;
 
     &:nth-child(even){
-      left: 53%;
+      left: 50%;
+      margin-left: 30px;
 
       .timeline-job-label {
         left: 25px;
@@ -165,7 +167,8 @@
     }
 
     &:nth-child(odd){
-      right: 53%;
+      right: 50%;
+      margin-right: 30px;
 
       .timeline-job-label {
         right: 25px;
@@ -235,3 +238,29 @@
   }
 
 }
+
+
+.projects-gallery {
+
+  .projects-gallery-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .projects-gallery-item-image {
+      display: block;
+      background-color: #FFFFFF;
+      margin-bottom: 10px;
+      max-height: 200px;
+      min-height: 120px;
+    }
+    .projects-gallery-item-label {
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+  }
+
+}
+
+

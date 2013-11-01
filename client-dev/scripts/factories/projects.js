@@ -1,5 +1,5 @@
 angular.module('tApp')
-	.factory('WorkData', ['$http', function ($http) {
+	.factory('Projects', ['$http', function ($http) {
 
 		var cachedData = null;
 
@@ -17,14 +17,16 @@ angular.module('tApp')
 			return cachedData;
 		};
 
-		var json = $http.get('/work_data.json').then(successFn,errorFn);
+		var json = $http.get('/data/projects.json').then(successFn,errorFn);
+
+		var getData = function(){
+			if(cachedData != null)
+				return cachedData;
+			return json;
+		}
 
 		return {
-			data: function(){
-				if(cachedData != null)
-					return cachedData;
-				return json;
-			}
+			data: getData
 		}
 
 	}]);

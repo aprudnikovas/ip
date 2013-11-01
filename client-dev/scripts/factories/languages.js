@@ -1,5 +1,5 @@
 angular.module('tApp')
-	.factory('Skills', ['$http', function ($http) {
+	.factory('Languages', ['$http', function ($http) {
 
 		var cachedData = null;
 
@@ -17,7 +17,7 @@ angular.module('tApp')
 			return cachedData;
 		};
 
-		var json = $http.get('/data/skills.json').then(successFn,errorFn);
+		var json = $http.get('/data/languages.json').then(successFn,errorFn);
 
 		return {
 			data: function(){

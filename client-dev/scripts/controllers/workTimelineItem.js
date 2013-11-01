@@ -1,9 +1,9 @@
 angular.module('tApp')
-	.controller('WorkTimelineItemController', ['WorkData','$scope','$stateParams', function (WorkData, $scope, $stateParams) {
+	.controller('WorkTimelineItemController', ['Companies','$scope','$stateParams', function (Companies, $scope, $stateParams) {
 
 		var id = $stateParams.itemId
 
-		var items = WorkData.data().companies;
+		var items = Companies.data();
 
 		$scope.item = _.find(items, function(item){ return item.id === id })
 
