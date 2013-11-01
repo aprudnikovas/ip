@@ -1,5 +1,5 @@
 angular.module('tApp')
-	.controller('WorkController', ['WorkData','$scope','$rootScope','$timeout', function (WorkData,$scope,$rootScope,$timeout) {
+	.controller('WorkController', ['$scope','$rootScope','$timeout', function ($scope,$rootScope,$timeout) {
 
 		var codeTimer;
 

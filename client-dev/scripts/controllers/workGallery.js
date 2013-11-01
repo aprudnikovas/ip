@@ -1,9 +1,17 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['WorkData','$scope','$rootScope','$timeout', function (WorkData,$scope,$rootScope,$timeout) {
+	.controller('WorkGalleryController', ['Projects','$scope','$rootScope','$timeout','$stateParams',
+		function (Projects,$scope,$rootScope,$timeout,$stateParams) {
 
 		var yearHeight, yearLabelHeight, monthHeight, codeTimer;
 
-		$scope.workHistoryData = WorkData.data();
+
+			// TODO change data depending on state params !!
+			//////////////////////////////////////////////
+
+		var data = Projects.data();
+		$scope.max = 6;
+		$scope.offset = 0;
+		$scope.projects = data; //.slice($scope.offset,$scope.max-1);
 
 		// MOVING TEXT
 

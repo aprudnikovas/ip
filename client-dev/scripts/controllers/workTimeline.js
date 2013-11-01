@@ -1,5 +1,5 @@
 angular.module('tApp')
-	.controller('WorkTimelineController', ['WorkData','$scope','$rootScope','$timeout', function (WorkData,$scope,$rootScope,$timeout) {
+	.controller('WorkTimelineController', ['Companies','$scope','$rootScope','$timeout', function (Companies,$scope,$rootScope,$timeout) {
 
 		var yearHeight, yearLabelHeight, monthHeight, codeTimer;
 
@@ -7,7 +7,7 @@ angular.module('tApp')
 		yearLabelHeight = 20;
 		monthHeight = (yearHeight - yearLabelHeight) / 12;
 
-		$scope.workHistoryData = WorkData.data();
+		$scope.companies = Companies.data();
 
 		$scope.jobLineHeight = function(job){
 			return ($scope.jobDistanceFromNow(job) - $scope.jobDistanceToEnd(job))
