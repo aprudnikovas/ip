@@ -2,19 +2,28 @@ angular.module('tApp')
 	.controller('WorkGalleryController', ['Projects','$scope','$rootScope','$timeout','$stateParams',
 		function (Projects,$scope,$rootScope,$timeout,$stateParams) {
 
-		var yearHeight, yearLabelHeight, monthHeight, codeTimer;
+		var codeTimer, params = $stateParams;
 
 
-			// TODO change data depending on state params !!
-			//////////////////////////////////////////////
+		// watch state params changes and renew data
+		////////////////////////////////////////////
+		$scope.$watch('params', function(){
 
-		var data = Projects.data();
-		$scope.max = 6;
-		$scope.offset = 0;
-		$scope.projects = data; //.slice($scope.offset,$scope.max-1);
+			$scope.max = parseInt(params.max) || 6;
+			$scope.offset = parseInt(params.offset) || 0;
+
+			$scope.prevOffset = ($scope.offset - $scope.max) > 0 ? ($scope.offset - $scope.max) : 0;
+			$scope.nextOffset = $scope.offset + $scope.max
+
+			Projects.data().then(function(projects){
+				$scope.projects = projects.slice($scope.offset,($scope.max + $scope.offset));
+			})
+
+		});
+
 
 		// MOVING TEXT
-
+		///////////////////
 		$scope.codeText = '010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001'
 
 		$scope.execCodeTimer = function(){

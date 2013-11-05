@@ -6,7 +6,7 @@ angular.module('tApp', ['ui.router'])
 				$rootScope.stateName = toState.name.replace(/\./g,'_');
 			})
 	})
-  .config(['$stateProvider', '$urlRouterProvider',
+	.config(['$stateProvider', '$urlRouterProvider',
 		function ( $stateProvider, $urlRouterProvider ) {
 
 		$urlRouterProvider.otherwise('/main')
@@ -54,7 +54,7 @@ angular.module('tApp', ['ui.router'])
 				}
 			})
 			.state("main.work.gallery", {
-				url: "/gallery",
+				url: "/gallery?max&offset",
 				views: {
 					"list@main.work" : {
 						templateUrl: 'views/main.work.gallery.html',

@@ -16,6 +16,7 @@
     </div>
 </div>
 
+<p>{{nextUrl()}}, {{max}}, {{offset}}, {{prevOffset}}, {{nextOffset}}</p>
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -29,3 +30,12 @@
         </div>
     </div>
 </div>
+
+<ul>
+    <li><a ng-if="true" ui-sref="main.work.gallery({max:max,offset:prevOffset})" >Previous</a></li>
+    <li><a ng-if="true" ui-sref="main.work.gallery({max:max,offset:nextOffset})" >Next</a></li>
+</ul>
+
+
+
+
