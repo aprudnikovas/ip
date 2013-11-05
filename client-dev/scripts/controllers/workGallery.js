@@ -1,6 +1,6 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['Projects','$scope','$rootScope','$timeout','$stateParams',
-		function (Projects,$scope,$rootScope,$timeout,$stateParams) {
+	.controller('WorkGalleryController', ['Projects','Companies','$scope','$rootScope','$timeout','$stateParams',
+		function (Projects,Companies,$scope,$rootScope,$timeout,$stateParams) {
 
 		var codeTimer, params = $stateParams;
 
@@ -11,13 +11,27 @@ angular.module('tApp')
 
 			$scope.max = parseInt(params.max) || 6;
 			$scope.offset = parseInt(params.offset) || 0;
+			$scope.company_id = params.company_id || "";
 
-			$scope.prevOffset = ($scope.offset - $scope.max) > 0 ? ($scope.offset - $scope.max) : 0;
-			$scope.nextOffset = $scope.offset + $scope.max
+			Companies.data().then(function(companies){
+
+				
+
+			});
 
 			Projects.data().then(function(projects){
-				$scope.projects = projects.slice($scope.offset,($scope.max + $scope.offset));
-			})
+
+				var filteredByProperty = projects, filtered;
+
+				if( !!parseInt($scope.company_id) )
+					filteredByProperty = _.filter(projects, function(proj){ return proj.company_id === ($scope.company_id + "") })
+
+				filtered = filteredByProperty.slice($scope.offset,($scope.max + $scope.offset));
+
+				$scope.projects = filtered;
+				$scope.prevOffset = ($scope.offset - $scope.max) > -1 ? ($scope.offset - $scope.max) : null;
+				$scope.nextOffset = ($scope.offset + $scope.max) >= filteredByProperty.length ? null : ($scope.offset + $scope.max)
+			});
 
 		});
 

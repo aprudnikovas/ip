@@ -1,11 +1,11 @@
 <div class="work-layout-switch">
-    <div class="work-layout-icon work-layout-grid" ui-sref="main.work.gallery">
+    <div class="work-layout-icon work-layout-grid" ui-sref="main.work.gallery" ng-class="stateName === 'main_work_gallery' ? 'active' : ''">
         <div class="square top left"></div>
         <div class="square top right"></div>
         <div class="square bottom left"></div>
         <div class="square bottom right"></div>
     </div>
-    <div class="work-layout-icon work-layout-time" ui-sref="main.work.timeline">
+    <div class="work-layout-icon work-layout-time" ui-sref="main.work.timeline" ng-class="stateName === 'main_work_timeline' ? 'active' : ''">
         <div class="dot i1"></div>
         <div class="dot i2"></div>
         <div class="dot i3"></div>
@@ -16,25 +16,37 @@
     </div>
 </div>
 
-<p>{{nextUrl()}}, {{max}}, {{offset}}, {{prevOffset}}, {{nextOffset}}</p>
+<div class="projects-gallery">
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="col-sm-6 col-md-4 projects-gallery" ng-repeat="project in projects">
-            <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
-                <div class="projects-gallery-item-image">
-                    <img src="#" />
-                </div>
-                <span class="projects-gallery-item-label">{{project.title}}</span>
-            </a>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 ">
+            <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
+                <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
+                    <div class="projects-gallery-item-image">
+                        <img src="#" />
+                    </div>
+                    <span class="projects-gallery-item-label">{{project.title}}</span>
+                </a>
+            </div>
         </div>
     </div>
+
+    <nav class="col-sm-12 projects-gallery-pagination">
+
+        <div class="projects-gallery-pagination-previous">
+            <a ng-if="prevOffset != null" ui-sref="main.work.gallery({max:max,offset:prevOffset})"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a ng-if="prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        </div>
+
+        <div class="projects-gallery-pagination-next">
+            <a ng-if="nextOffset != null" ui-sref="main.work.gallery({max:max,offset:nextOffset})"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a ng-if="nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+
+    </nav>
+
 </div>
 
-<ul>
-    <li><a ng-if="true" ui-sref="main.work.gallery({max:max,offset:prevOffset})" >Previous</a></li>
-    <li><a ng-if="true" ui-sref="main.work.gallery({max:max,offset:nextOffset})" >Next</a></li>
-</ul>
 
 
 

@@ -54,7 +54,7 @@ angular.module('tApp', ['ui.router'])
 				}
 			})
 			.state("main.work.gallery", {
-				url: "/gallery?max&offset",
+				url: "/gallery?max&offset&company_id",
 				views: {
 					"list@main.work" : {
 						templateUrl: 'views/main.work.gallery.html',
