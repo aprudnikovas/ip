@@ -2,17 +2,24 @@
 .work-layout-switch {
   display: block;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   .work-layout-icon {
     display: inline-block;
     height: 40px;
     width: 40px;
-    border: 2px solid @page-work-foreground;
+    border: 2px solid @page-work-link;
     border-radius: 20px;
     margin: 0 2px;
     cursor: pointer;
     position: relative;
+    transition: all ease 0.1s;
+
+    &:hover,
+    &:focus,
+    &.active {
+      border-color: @page-work-link-active;
+    }
   }
 
   .work-layout-grid {
@@ -22,8 +29,7 @@
       position: absolute;
       width: 8px;
       height: 8px;
-      background-color: @page-work-foreground;
-      transition: all ease 0.2s;
+      background-color: @page-work-link;
 
       &.top {
         top: 50%;
@@ -42,19 +48,33 @@
         margin-right: -9px;
       }
     }
-    &:hover .square,
-    &:focus .square {
-      &.top {
-        margin-top: -11px;
+
+    &:hover,
+    &:focus {
+
+      .square {
+
+        background-color: @page-work-link-active;
+
+        &.top {
+          margin-top: -10px;
+        }
+        &.bottom {
+          margin-bottom: -10px;
+        }
+        &.left {
+          margin-left: -10px;
+        }
+        &.right {
+          margin-right: -10px;
+        }
       }
-      &.bottom {
-        margin-bottom: -11px;
-      }
-      &.left {
-        margin-left: -11px;
-      }
-      &.right {
-        margin-right: -11px;
+
+    }
+
+    &.active {
+      .square {
+        background-color: @page-work-link-active;
       }
     }
   }
@@ -63,22 +83,22 @@
     .square {
       display: block;
       position: absolute;
-      width: 10px;
-      height: 8px;
-      background-color: @page-work-foreground;
+      width: 8px;
+      height: 7px;
+      background-color: @page-work-link;
       transition: all ease 0.2s;
 
       &.left {
         top: 50%;
         left: 50%;
         margin-top: -10px;
-        margin-left: -14px;
+        margin-left: -12px;
       }
       &.right {
         top: 50%;
         right: 50%;
         margin-top: -2px;
-        margin-right: -14px;
+        margin-right: -12px;
       }
     }
     .dot {
@@ -86,7 +106,7 @@
       position: absolute;
       width: 4px;
       height: 4px;
-      background-color: @page-work-foreground;
+      background-color: @page-work-link;
       border-radius: 2px;
       left: 50%;
       bottom: 0;
@@ -97,6 +117,29 @@
       &.i4 {margin-bottom:18px}
       &.i5 {margin-bottom:24px}
     }
+
+    &:hover,
+    &:focus {
+      .square,
+      .dot {
+        background-color: @page-work-link-active;
+      }
+
+      .square.left {
+        margin-top: -2px;
+      }
+      .square.right {
+        margin-top: -10px;
+      }
+    }
+
+    &.active {
+      .square,
+      .dot {
+        background-color: @page-work-link-active;
+      }
+    }
+
   }
 }
 
@@ -261,6 +304,49 @@
 
   }
 
+  .projects-gallery-pagination {
+    display: block;
+    text-align: center;
+    margin: 10px 0 0;
+    list-style: none;
+    padding: 0;
+
+    .projects-gallery-pagination-previous,
+    .projects-gallery-pagination-next {
+      display: inline-block;
+      margin: 0 2px;
+      position: relative;
+
+      a {
+        display: block;
+        height: 40px;
+        line-height: 30px;
+        padding: 4px;
+        width: 40px;
+        border: 2px solid @page-work-link;
+        color: @page-work-link;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all ease 0.1s;
+
+        &:hover:not(.inactive),
+        &:focus:not(.inactive) {
+          border-color: @page-work-link-active;
+          color: @page-work-link-active;
+        }
+
+        &.inactive {
+          cursor: default;
+          border-color: @page-work-link-inactive;
+          color: @page-work-link-inactive;
+        }
+      }
+    }
+
+  }
+
 }
+
+
 
 

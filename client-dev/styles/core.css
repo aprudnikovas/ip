@@ -6216,7 +6216,7 @@ td.visible-print {
   width: 500px;
   left: 50%;
   margin-left: -250px;
-  color: #aa95b1;
+  color: #7d6c96;
 }
 .body-hover-link-bio {
   background: url("../images/handprint.png") no-repeat center center fixed;
@@ -6285,7 +6285,7 @@ td.visible-print {
   line-height: 1;
   font-weight: 800;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  color: #aa95b1;
+  color: #7d6c96;
 }
 .home-block .home-block-nav {
   position: absolute;
@@ -6767,25 +6767,30 @@ td.visible-print {
 .work-layout-switch {
   display: block;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .work-layout-switch .work-layout-icon {
   display: inline-block;
   height: 40px;
   width: 40px;
-  border: 2px solid #ffffff;
+  border: 2px solid #aa95b1;
   border-radius: 20px;
   margin: 0 2px;
   cursor: pointer;
   position: relative;
+  transition: all ease 0.1s;
+}
+.work-layout-switch .work-layout-icon:hover,
+.work-layout-switch .work-layout-icon:focus,
+.work-layout-switch .work-layout-icon.active {
+  border-color: #ffffff;
 }
 .work-layout-switch .work-layout-grid .square {
   display: block;
   position: absolute;
   width: 8px;
   height: 8px;
-  background-color: #ffffff;
-  transition: all ease 0.2s;
+  background-color: #aa95b1;
 }
 .work-layout-switch .work-layout-grid .square.top {
   top: 50%;
@@ -6803,48 +6808,55 @@ td.visible-print {
   right: 50%;
   margin-right: -9px;
 }
+.work-layout-switch .work-layout-grid:hover .square,
+.work-layout-switch .work-layout-grid:focus .square {
+  background-color: #ffffff;
+}
 .work-layout-switch .work-layout-grid:hover .square.top,
 .work-layout-switch .work-layout-grid:focus .square.top {
-  margin-top: -11px;
+  margin-top: -10px;
 }
 .work-layout-switch .work-layout-grid:hover .square.bottom,
 .work-layout-switch .work-layout-grid:focus .square.bottom {
-  margin-bottom: -11px;
+  margin-bottom: -10px;
 }
 .work-layout-switch .work-layout-grid:hover .square.left,
 .work-layout-switch .work-layout-grid:focus .square.left {
-  margin-left: -11px;
+  margin-left: -10px;
 }
 .work-layout-switch .work-layout-grid:hover .square.right,
 .work-layout-switch .work-layout-grid:focus .square.right {
-  margin-right: -11px;
+  margin-right: -10px;
+}
+.work-layout-switch .work-layout-grid.active .square {
+  background-color: #ffffff;
 }
 .work-layout-switch .work-layout-time .square {
   display: block;
   position: absolute;
-  width: 10px;
-  height: 8px;
-  background-color: #ffffff;
+  width: 8px;
+  height: 7px;
+  background-color: #aa95b1;
   transition: all ease 0.2s;
 }
 .work-layout-switch .work-layout-time .square.left {
   top: 50%;
   left: 50%;
   margin-top: -10px;
-  margin-left: -14px;
+  margin-left: -12px;
 }
 .work-layout-switch .work-layout-time .square.right {
   top: 50%;
   right: 50%;
   margin-top: -2px;
-  margin-right: -14px;
+  margin-right: -12px;
 }
 .work-layout-switch .work-layout-time .dot {
   display: block;
   position: absolute;
   width: 4px;
   height: 4px;
-  background-color: #ffffff;
+  background-color: #aa95b1;
   border-radius: 2px;
   left: 50%;
   bottom: 0;
@@ -6861,6 +6873,24 @@ td.visible-print {
 }
 .work-layout-switch .work-layout-time .dot.i5 {
   margin-bottom: 24px;
+}
+.work-layout-switch .work-layout-time:hover .square,
+.work-layout-switch .work-layout-time:focus .square,
+.work-layout-switch .work-layout-time:hover .dot,
+.work-layout-switch .work-layout-time:focus .dot {
+  background-color: #ffffff;
+}
+.work-layout-switch .work-layout-time:hover .square.left,
+.work-layout-switch .work-layout-time:focus .square.left {
+  margin-top: -2px;
+}
+.work-layout-switch .work-layout-time:hover .square.right,
+.work-layout-switch .work-layout-time:focus .square.right {
+  margin-top: -10px;
+}
+.work-layout-switch .work-layout-time.active .square,
+.work-layout-switch .work-layout-time.active .dot {
+  background-color: #ffffff;
 }
 .work-portfolio .thumbnail-title {
   display: block;
@@ -6993,6 +7023,45 @@ td.visible-print {
   color: #FFFFFF;
   line-height: 1;
 }
+.projects-gallery .projects-gallery-pagination {
+  display: block;
+  text-align: center;
+  margin: 10px 0 0;
+  list-style: none;
+  padding: 0;
+}
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous,
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next {
+  display: inline-block;
+  margin: 0 2px;
+  position: relative;
+}
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a,
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a {
+  display: block;
+  height: 40px;
+  line-height: 30px;
+  padding: 4px;
+  width: 40px;
+  border: 2px solid #aa95b1;
+  color: #aa95b1;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all ease 0.1s;
+}
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a:hover:not(.inactive),
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a:hover:not(.inactive),
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a:focus:not(.inactive),
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a:focus:not(.inactive) {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a.inactive,
+.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a.inactive {
+  cursor: default;
+  border-color: #675680;
+  color: #675680;
+}
 html,
 body {
   height: 100%;
@@ -7026,7 +7095,7 @@ body {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   letter-spacing: 2px;
   overflow: hidden;
-  color: #aa95b1;
+  color: #7d6c96;
 }
 .page > header {
   color: #FFFFFF;
@@ -7069,7 +7138,6 @@ body {
 }
 .footer {
   text-align: center;
-  color: #ffffff;
   bottom: 0;
   right: 0;
   line-height: 30px;
