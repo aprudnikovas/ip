@@ -3,7 +3,7 @@ angular.module('tApp')
 
 		var id = $stateParams.itemId
 
-		var items = Companies.data();
+		var items = Companies.query();
 
 		$scope.item = _.find(items, function(item){ return item.id === id })
 

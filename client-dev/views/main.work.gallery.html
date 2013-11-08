@@ -16,10 +16,64 @@
     </div>
 </div>
 
+
 <div class="projects-gallery">
 
     <div class="row">
+        <div class="col-sm-12 projects-gallery-pagination-filters">
+
+            <div class="btn-toolbar">
+
+                <div class="btn-group">
+                    <a class="btn btn-default dropdown-toggle" id="dropdownMenu1">
+                        Company
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a ui-sref="main.work.gallery({company_id:1})" role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-ok-sign"></i> Action</a></li>
+                        <li role="presentation"><a ui-sref="main.work.gallery({company_id:2})" role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-unchecked"></i> Another action</a></li>
+                        <li role="presentation"><a ui-sref="main.work.gallery({company_id:3})" role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-unchecked"></i> Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a ui-sref="main.work.gallery({company_id:null})" role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-remove-circle"></i> Clear filters</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <a class="btn btn-default dropdown-toggle"  id="dropdownMenu2">
+                        Year
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-ok-sign"></i> 2013</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-unchecked"></i> 2012</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-unchecked"></i> 2011</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-remove-circle"></i> Clear filters</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group ">
+                    <a class="btn btn-default dropdown-toggle" id="dropdownMenu3">
+                        Tags
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-ok-sign"></i> x</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-unchecked"></i> y</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-unchecked"></i> z</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" ><i class="glyphicon glyphicon-remove-circle"></i> Clear filters</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 ">
+
             <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
                 <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
                     <div class="projects-gallery-item-image">
@@ -28,22 +82,22 @@
                     <span class="projects-gallery-item-label">{{project.title}}</span>
                 </a>
             </div>
+
         </div>
     </div>
 
-    <nav class="col-sm-12 projects-gallery-pagination">
-
-        <div class="projects-gallery-pagination-previous">
-            <a ng-if="prevOffset != null" ui-sref="main.work.gallery({max:max,offset:prevOffset})"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            <a ng-if="prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
-        </div>
-
-        <div class="projects-gallery-pagination-next">
-            <a ng-if="nextOffset != null" ui-sref="main.work.gallery({max:max,offset:nextOffset})"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            <a ng-if="nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-
-    </nav>
+    <div class="row">
+        <nav class="col-sm-12 projects-gallery-pagination">
+            <div class="projects-gallery-pagination-previous">
+                <a ng-if="prevOffset != null" ui-sref="main.work.gallery({max:max,offset:prevOffset})"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a ng-if="prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            </div>
+            <div class="projects-gallery-pagination-next">
+                <a ng-if="nextOffset != null" ui-sref="main.work.gallery({max:max,offset:nextOffset})"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a ng-if="nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </nav>
+    </div>
 
 </div>
 

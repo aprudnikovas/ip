@@ -1,23 +1,27 @@
 angular.module('tApp')
-	.factory('Companies', ['$http', function ($http) {
+	.factory('Companies', ['$resource', function ($resource) {
 
-		var cachedData = null;
+		return $resource('/data/companies.json', {}, {
+			getAll: { method:'GET', isArray: true }
+		});
 
-		var errorHandler = function(resp){
-			// data,status,header,config
-			throw new Error("Something bad happened. Data:" + resp.data);
-		};
-
-		var getData = function(callback){
-			return $http.get('/data/companies.json')
-				.then(function(resp){
-					//data,status,header,config
-					return cachedData = cachedData || resp.data;
-				}, errorHandler)
-		}
-
-		return {
-			data: getData
-		}
+//		var cachedData = null;
+//
+//		var errorHandler = function(resp){
+//			// data,status,header,config
+//			throw new Error("Something bad happened. Data:" + resp.data);
+//		};
+//
+//		var getData = function(callback){
+//			return $http.get('/data/companies.json')
+//				.then(function(resp){
+//					//data,status,header,config
+//					return cachedData = cachedData || resp.data;
+//				}, errorHandler)
+//		}
+//
+//		return {
+//			data: getData
+//		}
 
 	}]);

@@ -1,39 +1,54 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['Projects','Companies','$scope','$rootScope','$timeout','$stateParams',
-		function (Projects,Companies,$scope,$rootScope,$timeout,$stateParams) {
+	.controller('WorkGalleryController', ['Projects', 'Companies','$scope','$rootScope','$timeout','$stateParams','$location',
+		function (Projects,Companies,$scope,$rootScope,$timeout,$stateParams,$location) {
 
-		var codeTimer, params = $stateParams;
+		var codeTimer, searchFilter, params, allCompanies, allProjects;
+
+		// TODO merge state params into filter to allow link sharing/bookmarking
+
+//		params = $stateParams;
+//		$scope.max = parseInt(params.max) || 6;
+//		$scope.offset = parseInt(params.offset) || 0;
+//		$scope.company_id = params.company_id || "";
+
+		searchFilter = $scope.searchFilter = {
+			max : 6,
+			offset : 0,
+			company_ids : [],
+			years : [],
+			tags : []
+		};
 
 
-		// watch state params changes and renew data
+		// watch filter and update model
 		////////////////////////////////////////////
-		$scope.$watch('params', function(){
 
-			$scope.max = parseInt(params.max) || 6;
-			$scope.offset = parseInt(params.offset) || 0;
-			$scope.company_id = params.company_id || "";
+		$scope.companies = Companies.getAll();
+		allProjects = Projects.getAll(filterAndSortPortfolio);
 
-			Companies.data().then(function(companies){
+		$scope.$watch( 'searchFilter', filterAndSortPortfolio, true);
 
-				
+		function filterAndSortPortfolio(){
+			var filtered, filteredByProperty = allProjects;
+			$scope.projects = []
 
-			});
+			// filter
+			if(searchFilter.company_ids.length){
+				filteredByProperty = _.filter(filteredByProperty, function(proj){
+					return _.contains(searchFilter.company_ids, parseInt(proj.company_id) )
+				});
+			}
 
-			Projects.data().then(function(projects){
+			// sort
 
-				var filteredByProperty = projects, filtered;
+			// paginate
+			filtered = filteredByProperty.slice(searchFilter.offset,(searchFilter.max + searchFilter.offset));
 
-				if( !!parseInt($scope.company_id) )
-					filteredByProperty = _.filter(projects, function(proj){ return proj.company_id === ($scope.company_id + "") })
+			$scope.projects = filtered;
+//			$scope.prevOffset = ($scope.offset - $scope.max) > -1 ? ($scope.offset - $scope.max) : null;
+//			$scope.nextOffset = ($scope.offset + $scope.max) >= filteredByProperty.length ? null : ($scope.offset + $scope.max)
 
-				filtered = filteredByProperty.slice($scope.offset,($scope.max + $scope.offset));
-
-				$scope.projects = filtered;
-				$scope.prevOffset = ($scope.offset - $scope.max) > -1 ? ($scope.offset - $scope.max) : null;
-				$scope.nextOffset = ($scope.offset + $scope.max) >= filteredByProperty.length ? null : ($scope.offset + $scope.max)
-			});
-
-		});
+		}
 
 
 		// MOVING TEXT
