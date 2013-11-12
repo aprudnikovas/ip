@@ -1,30 +1,8 @@
 angular.module('tApp')
-	.factory('Skills', ['$http', function ($http) {
+	.factory('Skills', ['$resource', function ($resource) {
 
-		var cachedData = null;
-
-		var successFn = function(resp){
-
-			// resp has data,status,header,config
-
-			cachedData = resp.data;
-			return cachedData;
-		};
-		var errorFn = function(resp){
-
-			console.error("error code:" + resp.status)
-
-			return cachedData;
-		};
-
-		var json = $http.get('/data/skills.json').then(successFn,errorFn);
-
-		return {
-			data: function(){
-				if(cachedData != null)
-					return cachedData;
-				return json;
-			}
-		}
+		return $resource('/data/skills.json', {}, {
+			getAll: { method:'GET', isArray: true }
+		});
 
 	}]);
