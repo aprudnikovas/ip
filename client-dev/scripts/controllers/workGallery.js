@@ -12,16 +12,16 @@ angular.module('tApp')
 			DEFAULT_OFFSET = 0;
 
 			/**
-			 * Populate object of available years
-			 * { "2013": {selected:false}, .... }
+			 * Populate array of available years
+			 * [ { year:"2013", selected:false }, .... ]
 			 */
 			years = $scope.years = _.reduce(
-					( _.range(2003, (new Date).getFullYear() + 1 ) ).reverse(),
+					( _.range(2003, (new Date).getFullYear() + 1).reverse() ),
 					function(memo, year){
-						memo[year] = {selected:false}
+						memo.push( { year:year, selected:false } )
 						return memo
 					},
-					{}
+					[]
 				)
 
 			// TODO merge state params into filter to allow link sharing/bookmarking
@@ -61,10 +61,6 @@ angular.module('tApp')
 				// filter
 				if(searchFilter.company_ids.length){
 
-					// RESET MAX & OFFSET
-					pagination.offset = DEFAULT_OFFSET
-					pagination.max = DEFAULT_MAX
-
 					filteredByProperty = _.filter(filteredByProperty, function(proj){
 						return _.contains(searchFilter.company_ids, parseInt(proj.company_id) )
 					});
@@ -72,33 +68,37 @@ angular.module('tApp')
 				}
 				if(searchFilter.years.length){
 
-					// RESET MAX & OFFSET
-					pagination.offset = DEFAULT_OFFSET
-					pagination.max = DEFAULT_MAX
-
 					filteredByProperty = _.filter(filteredByProperty, function(proj){
 
 						// check if project from/to fields value matches
 						// years selected
 
-						var fromDate, fromYear, toDate, toYear;
+						var fromDate, fromYear, toDate, toYear,
+							yearsToCheck = [], contains = false;
+
+						fromDate = new Date()
+						toDate = new Date()
 
 						if(proj.from){
-							fromDate = new Date()
 							fromDate.setTime(proj.from)
-							fromYear = fromDate.getFullYear();
 						}
-
 						if(proj.to){
-							toDate = new Date()
-							toDate.setTime(proj.from)
-							toYear = toDate.getFullYear();
+							toDate.setTime(proj.to)
 						}
 
-						return !!(
-							_.contains(searchFilter.years, fromYear ) ||
-							_.contains(searchFilter.years, toYear )
-							)
+						fromYear = fromDate.getFullYear();
+						toYear = toDate.getFullYear();
+
+						if(fromYear === toYear)
+							yearsToCheck = [toYear];
+						else
+							yearsToCheck = _.range(fromYear,toYear)
+
+						contains = _.some(searchFilter.years, function(yearValue){
+							return _.contains(yearsToCheck, yearValue )
+						})
+
+						return contains
 					});
 
 				}
@@ -115,17 +115,56 @@ angular.module('tApp')
 				$scope.projects = filtered;
 			}
 
+
+
 			// public methods allowing filtering
 			////////////////////////////////////////////
 
+			$scope.toggleCompany = function(companyId){
+
+				// TODO add toggleCompany filter function
+				////////////////////////////////////////////
+
+				// RESET MAX & OFFSET
+				pagination.offset = DEFAULT_OFFSET
+				pagination.max = DEFAULT_MAX
+
+			}
+
 			$scope.toggleYear = function(y){
-				if(y != null && years[y]){
-					years[y].selected == !years[y].selected;
+
+				// RESET MAX & OFFSET
+				pagination.offset = DEFAULT_OFFSET
+				pagination.max = DEFAULT_MAX
+
+				if(y != null){
+					_.each(years, function(obj, index, list){
+						if(obj.year === y){
+
+							// change state
+							obj.selected = !obj.selected
+
+							// update search filter
+							if( _.indexOf(searchFilter.years, obj.year) > -1 ){
+								searchFilter.years = _.difference(searchFilter.years, [obj.year])
+							} else {
+								searchFilter.years = _.union(searchFilter.years, [obj.year])
+							}
+						}
+					})
+				} else {
+					_.each(years, function(obj, index, list){
+						obj.selected = false;
+					})
+					searchFilter.years = [];
 				}
 
-				// trigger change to filter
-				//searchFilter.ttt = (new Date).getTime()
+				// TRIGGER CHANGE
+				searchFilter.ttt = (new Date).getTime()
 			}
+
+
+
 
 			// public methods allowing pagination
 			////////////////////////////////////////////
