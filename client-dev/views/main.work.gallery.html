@@ -32,12 +32,12 @@
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
                         <li ng-repeat="c in companies">
-                            <a tabindex="-1">
+                            <a tabindex="-1" ng-click="toggleCompany(c.id)">
                                 <i class="glyphicon " ng-class="c.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{c.name}}
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1" ><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
+                        <li><a tabindex="-1" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
 
                     </ul>
                 </div>
@@ -49,13 +49,13 @@
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
 
-                        <li ng-repeat="(key, value) in years">
-                            <a tabindex="-1" ng-click="toggleYear(key)">
-                                <i class="glyphicon " ng-class="value.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{key}}
+                        <li ng-repeat="obj in years">
+                            <a tabindex="-1" ng-click="toggleYear(obj.year)">
+                                <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.year}}
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1" ><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
+                        <li><a tabindex="-1" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
 
                     </ul>
                 </div>
