@@ -1,18 +1,13 @@
-<div class="work-layout-switch">
-    <div class="work-layout-icon work-layout-grid" ui-sref="main.work.gallery" ng-class="stateName === 'main_work_gallery' ? 'active' : ''">
-        <div class="square top left"></div>
-        <div class="square top right"></div>
-        <div class="square bottom left"></div>
-        <div class="square bottom right"></div>
-    </div>
-    <div class="work-layout-icon work-layout-time" ui-sref="main.work.timeline" ng-class="stateName === 'main_work_timeline' ? 'active' : ''">
-        <div class="dot i1"></div>
-        <div class="dot i2"></div>
-        <div class="dot i3"></div>
-        <div class="dot i4"></div>
-        <div class="dot i5"></div>
-        <div class="square left"></div>
-        <div class="square right"></div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 ">
+
+        <nav class="navbar navbar-default work-navigation" role="navigation">
+            <ul class="nav navbar-nav">
+                <li ng-class="stateName === 'main_work_gallery' ? 'active' : ''"><a ui-sref="main.work.gallery">Grid</a></li>
+                <li ng-class="stateName === 'main_work_timeline' ? 'active' : ''"><a ui-sref="main.work.timeline">Timeline</a></li>
+            </ul>
+        </nav>
+
     </div>
 </div>
 
