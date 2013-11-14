@@ -1,10 +1,11 @@
-<div class="row">
+<div class="work-navigation clearfix">
+
     <div class="col-md-8 col-md-offset-2 ">
 
-        <nav class="navbar navbar-default work-navigation" role="navigation">
+        <nav class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav">
-                <li ng-class="stateName === 'main_work_gallery' ? 'active' : ''"><a ui-sref="main.work.gallery">Grid</a></li>
-                <li ng-class="stateName === 'main_work_timeline' ? 'active' : ''"><a ui-sref="main.work.timeline">Timeline</a></li>
+                <li ng-class="stateName === 'main_work_gallery' ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
+                <li ng-class="stateName === 'main_work_timeline' ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
             </ul>
         </nav>
 

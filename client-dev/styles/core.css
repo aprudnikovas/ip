@@ -6876,6 +6876,49 @@ td.visible-print {
   -moz-animation: zoomDot 0.2s;
   -webkit-animation: zoomDot 0.2s ;
 }
+.work-navigation .navbar {
+  border: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid #ffffff;
+  min-height: 30px;
+  margin-bottom: 40px;
+}
+.work-navigation .navbar .navbar-nav > li > a {
+  padding-bottom: 8px;
+  padding-top: 8px;
+  color: #aa95b1;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+.work-navigation .navbar .navbar-nav > li > a .caret {
+  border-top-color: #aa95b1;
+  border-bottom-color: #aa95b1;
+}
+.work-navigation .navbar .navbar-nav > .active > a,
+.work-navigation .navbar .navbar-nav > li > a:hover,
+.work-navigation .navbar .navbar-nav > li > a:focus {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.work-navigation .navbar .navbar-nav > .active > a .caret,
+.work-navigation .navbar .navbar-nav > li > a:hover .caret,
+.work-navigation .navbar .navbar-nav > li > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.work-navigation .navbar + .navbar-filter {
+  margin-top: -40px;
+  margin-bottom: 30px;
+}
+.work-navigation .navbar.navbar-filter {
+  border: 0;
+}
+.work-navigation .navbar.navbar-filter .navbar-nav > li > a {
+  border: 0;
+}
 .work-portfolio .thumbnail-title {
   display: block;
   text-align: center;
@@ -6991,9 +7034,6 @@ td.visible-print {
   border-radius: 5px;
   background-color: #ffffff;
 }
-.projects-gallery .projects-gallery-pagination-filters {
-  margin-bottom: 30px;
-}
 .projects-gallery .projects-gallery-item {
   display: block;
   width: 100%;
@@ -7010,21 +7050,21 @@ td.visible-print {
   color: #FFFFFF;
   line-height: 1;
 }
-.projects-gallery .projects-gallery-pagination {
+.projects-gallery-pagination {
   display: block;
   text-align: center;
   margin: 10px 0 0;
   list-style: none;
   padding: 0;
 }
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous,
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next {
+.projects-gallery-pagination .projects-gallery-pagination-previous,
+.projects-gallery-pagination .projects-gallery-pagination-next {
   display: inline-block;
   margin: 0 2px;
   position: relative;
 }
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a,
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a {
+.projects-gallery-pagination .projects-gallery-pagination-previous a,
+.projects-gallery-pagination .projects-gallery-pagination-next a {
   display: block;
   height: 40px;
   line-height: 30px;
@@ -7036,15 +7076,15 @@ td.visible-print {
   cursor: pointer;
   transition: all ease 0.1s;
 }
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a:hover:not(.inactive),
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a:hover:not(.inactive),
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a:focus:not(.inactive),
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a:focus:not(.inactive) {
+.projects-gallery-pagination .projects-gallery-pagination-previous a:hover:not(.inactive),
+.projects-gallery-pagination .projects-gallery-pagination-next a:hover:not(.inactive),
+.projects-gallery-pagination .projects-gallery-pagination-previous a:focus:not(.inactive),
+.projects-gallery-pagination .projects-gallery-pagination-next a:focus:not(.inactive) {
   border-color: #ffffff;
   color: #ffffff;
 }
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-previous a.inactive,
-.projects-gallery .projects-gallery-pagination .projects-gallery-pagination-next a.inactive {
+.projects-gallery-pagination .projects-gallery-pagination-previous a.inactive,
+.projects-gallery-pagination .projects-gallery-pagination-next a.inactive {
   cursor: default;
   border-color: #675680;
   color: #675680;
@@ -7086,7 +7126,7 @@ body {
 .page > header {
   color: #FFFFFF;
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 30px;
 }
 .page > header h1 {
   position: relative;
@@ -7094,7 +7134,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 65px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 300;
   font-family: "la_belle_auroreregular", sans-serif;
 }

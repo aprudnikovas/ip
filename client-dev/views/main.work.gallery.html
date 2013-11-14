@@ -1,17 +1,24 @@
-<div class="row">
+<div class="work-navigation clearfix">
+
     <div class="col-md-8 col-md-offset-2 ">
 
-        <nav class="navbar navbar-default work-navigation" role="navigation">
+        <nav class="navbar navbar-default " role="navigation">
             <ul class="nav navbar-nav">
-                <li ng-class="stateName === 'main_work_gallery' ? 'active' : ''"><a ui-sref="main.work.gallery">Grid</a></li>
-                <li ng-class="stateName === 'main_work_timeline' ? 'active' : ''"><a ui-sref="main.work.timeline">Timeline</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ><a>Filter</a></li>
+                <li ng-class="stateName === 'main_work_gallery' ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
+                <li ng-class="stateName === 'main_work_timeline' ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
             </ul>
         </nav>
 
-        <div class="work-navigation-filter">
+        <nav class="navbar navbar-filter " role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>Compenies <span class="caret"></span></a></li>
+                <li><a>Years <span class="caret"></span></a></li>
+                <li><a>Skills <span class="caret"></span></a></li>
+                <li><a>Languages <span class="caret"></span></a></li>
+            </ul>
+        </nav>
+
+        <div class="work-navigation-filter" style="display: none;">
 
             <div class="col-md-3">
                 <h3>Companies</h3>
@@ -70,38 +77,39 @@
     </div>
 </div>
 
+<div class="projects-gallery clearfix">
 
-<div class="projects-gallery">
+    <div class="col-md-8 col-md-offset-2 ">
 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 ">
+        <div class="row">
 
-            <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
-                <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
-                    <div class="projects-gallery-item-image">
-                        <img src="#" />
-                    </div>
-                    <span class="projects-gallery-item-label">{{project.title}}</span>
-                </a>
-            </div>
+        <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
+            <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
+                <div class="projects-gallery-item-image">
+                    <img src="#" />
+                </div>
+                <span class="projects-gallery-item-label">{{project.title}}</span>
+            </a>
+        </div>
 
         </div>
-    </div>
 
-    <div class="row">
-        <nav class="col-sm-12 projects-gallery-pagination">
-            <div class="projects-gallery-pagination-previous">
-                <a ng-if="pagination.prevOffset != null" ng-click="prevPage()"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                <a ng-if="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            </div>
-            <div class="projects-gallery-pagination-next">
-                <a ng-if="pagination.nextOffset != null" ng-click="nextPage()"><span class="glyphicon glyphicon-chevron-right"></span></a>
-                <a ng-if="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </nav>
     </div>
 
 </div>
+
+
+<nav class="projects-gallery-pagination">
+    <div class="projects-gallery-pagination-previous">
+        <a ng-if="pagination.prevOffset != null" ng-click="prevPage()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a ng-if="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    </div>
+    <div class="projects-gallery-pagination-next">
+        <a ng-if="pagination.nextOffset != null" ng-click="nextPage()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a ng-if="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</nav>
+
 
 
 
