@@ -6876,11 +6876,14 @@ td.visible-print {
   -moz-animation: zoomDot 0.2s;
   -webkit-animation: zoomDot 0.2s ;
 }
+body[class*="main_work"] {
+  background-color: #3b3347;
+}
 .work-navigation .navbar {
   border: 0;
   background-color: transparent;
   border-radius: 0;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #e7d7ec;
   min-height: 30px;
   margin-bottom: 40px;
 }
@@ -6947,7 +6950,7 @@ td.visible-print {
 #timeline .timeline-year .timeline-month .dot {
   width: 4px;
   height: 4px;
-  background-color: #ffffff;
+  background-color: #ff8c8c;
   border-radius: 4px;
   position: absolute;
   top: 50%;
@@ -6963,11 +6966,23 @@ td.visible-print {
   left: 50%;
   margin-left: 30px;
 }
+#timeline .timeline-job:nth-child(even) > :before {
+  right: 0;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#timeline .timeline-job:nth-child(even) > :after {
+  right: 0;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
 #timeline .timeline-job:nth-child(even) .timeline-job-label {
   left: 25px;
 }
 #timeline .timeline-job:nth-child(even) .timeline-job-label:before {
-  left: -5px;
+  left: -6px;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -6976,24 +6991,54 @@ td.visible-print {
   right: 50%;
   margin-right: 30px;
 }
+#timeline .timeline-job:nth-child(odd) > :before {
+  left: 0;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#timeline .timeline-job:nth-child(odd) > :after {
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
 #timeline .timeline-job:nth-child(odd) .timeline-job-label {
   right: 25px;
 }
 #timeline .timeline-job:nth-child(odd) .timeline-job-label:before {
-  right: -5px;
+  right: -6px;
   -webkit-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
 #timeline .timeline-job .timeline-job-line {
   display: block;
-  width: 8px;
+  width: 6px;
   border: 1px solid #4c2d58;
-  border-radius: 4px;
-  background-color: #ffffff;
+  border-radius: 3px;
+  background-color: #e7d7ec;
   position: absolute;
   left: 50%;
-  margin-left: -4px;
+  margin-left: -3px;
+}
+#timeline .timeline-job .timeline-job-line:before {
+  content: '';
+  position: absolute;
+  border-width: 0px 12px 12px 0px;
+  border-color: transparent transparent #e7d7ec transparent;
+  border-style: solid;
+  display: block;
+  top: 0;
+}
+#timeline .timeline-job .timeline-job-line:after {
+  content: '';
+  position: absolute;
+  border-width: 0px 12px 12px 0px;
+  border-color: transparent transparent #e7d7ec transparent;
+  border-style: solid;
+  display: block;
+  bottom: 0;
 }
 #timeline .timeline-job .timeline-job-line .timeline-job-label {
   position: absolute;
@@ -7006,17 +7051,18 @@ td.visible-print {
   padding: 20px;
   text-align: center;
   font-weight: bold;
-  color: #4c2d58;
-  background-color: #ffffff;
+  color: #aa95b1;
+  background-color: #3b3347;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 0 15px #423555;
+  border: 1px solid #aa95b1;
+  box-shadow: 0 0 15px #2f2838;
 }
 #timeline .timeline-job .timeline-job-line .timeline-job-label:before {
   content: '';
   position: absolute;
   border-width: 0px 12px 12px 0px;
-  border-color: transparent transparent #ffffff transparent;
+  border-color: transparent transparent #aa95b1 transparent;
   border-style: solid;
   display: block;
   top: 50%;
@@ -7037,23 +7083,43 @@ td.visible-print {
 .projects-gallery .projects-gallery-item {
   display: block;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
+  position: relative;
+  transition: all ease 0.2s;
 }
 .projects-gallery .projects-gallery-item .projects-gallery-item-image {
   display: block;
   background-color: #FFFFFF;
-  margin-bottom: 10px;
   max-height: 200px;
   min-height: 120px;
 }
 .projects-gallery .projects-gallery-item .projects-gallery-item-label {
-  color: #FFFFFF;
-  line-height: 1;
+  color: #222222;
+  display: block;
+  padding: 12px 12px;
+  background: #dcdcdc;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 16px;
+  font-size: 13px;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  transition: all ease 0.2s;
+}
+.projects-gallery .projects-gallery-item:hover {
+  margin-top: -40px;
+  padding-bottom: 40px;
+}
+.projects-gallery .projects-gallery-item:hover .projects-gallery-item-label {
+  transform: rotateX(0deg);
 }
 .projects-gallery-pagination {
   display: block;
   text-align: center;
-  margin: 10px 0 0;
+  margin: 0;
   list-style: none;
   padding: 0;
 }
@@ -7086,8 +7152,8 @@ td.visible-print {
 .projects-gallery-pagination .projects-gallery-pagination-previous a.inactive,
 .projects-gallery-pagination .projects-gallery-pagination-next a.inactive {
   cursor: default;
-  border-color: #675680;
-  color: #675680;
+  border-color: #443d4e;
+  color: #443d4e;
 }
 html,
 body {
