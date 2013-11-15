@@ -11,68 +11,32 @@
 
         <nav class="navbar navbar-filter " role="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a>Compenies <span class="caret"></span></a></li>
-                <li><a>Years <span class="caret"></span></a></li>
-                <li><a>Skills <span class="caret"></span></a></li>
-                <li><a>Languages <span class="caret"></span></a></li>
+                <filterdropdown title="Companies">
+                    <a class="navbar-filter-toggler" ng-repeat="c in companies" tabindex="-1" ng-click="toggleCompany(c.id)">
+                        <i class="glyphicon " ng-class="c.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{c.name}}
+                    </a>
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+                </filterdropdown>
+                <filterdropdown title="Years">
+                    <a class="navbar-filter-toggler" ng-repeat="obj in years" tabindex="-1" ng-click="toggleYear(obj.year)">
+                        <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.year}}
+                    </a>
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+                </filterdropdown>
+                <filterdropdown title="Skills">
+                    <a class="navbar-filter-toggler" ng-repeat="obj in skills" tabindex="-1" ng-click="toggleSkill(obj.id)">
+                        <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
+                    </a>
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleSkill()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+                </filterdropdown>
+                <filterdropdown title="Languages">
+                    <a class="navbar-filter-toggler" ng-repeat="obj in languages" tabindex="-1" ng-click="toggleLanguage(obj.id)">
+                        <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
+                    </a>
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleLanguage()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+                </filterdropdown>
             </ul>
         </nav>
-
-        <div class="work-navigation-filter" style="display: none;">
-
-            <div class="col-md-3">
-                <h3>Companies</h3>
-                <ul class="">
-                    <li ng-repeat="c in companies">
-                        <a tabindex="-1" ng-click="toggleCompany(c.id)">
-                            <i class="glyphicon " ng-class="c.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{c.name}}
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-3">
-                <h3>Years</h3>
-                <ul class="">
-
-                    <li ng-repeat="obj in years">
-                        <a tabindex="-1" ng-click="toggleYear(obj.year)">
-                            <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.year}}
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
-
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3>Skills</h3>
-                <ul class="">
-                    <li ng-repeat="obj in skills">
-                        <a tabindex="-1" ng-click="toggleSkill(obj.id)">
-                            <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" ng-click="toggleSkill()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3>Languages</h3>
-                <ul class="">
-                    <li ng-repeat="obj in languages">
-                        <a tabindex="-1" ng-click="toggleLanguage(obj.id)">
-                            <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" ng-click="toggleLanguage()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a></li>
-                </ul>
-            </div>
-
-        </div>
 
     </div>
 </div>
