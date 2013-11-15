@@ -1,0 +1,24 @@
+.filterdropdown_root {
+
+  > .filterdropdown_dropdown {
+    display:none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9999;
+    border: 1px solid rgb(231, 231, 231);
+    padding: 15px;
+    border-radius: 3px;
+  }
+
+  &.filterdropdown_open > .filterdropdown_link {
+    color: rgb(255, 255, 255);
+  }
+
+  &.filterdropdown_open > .filterdropdown_dropdown {
+    display: block;
+  }
+}
