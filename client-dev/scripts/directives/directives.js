@@ -9,15 +9,30 @@ angular.module('tApp')
 		return {
 			restrict: 'EA',
 			template: '<li class="filterdropdown_root" ng-class="{filterdropdown_open:active}">'+
-				'<a class="filterdropdown_link" ng-click="toggle()">{{title}} <span class="caret"></span></a>'+
+				'<a class="filterdropdown_link" ng-click="toggle()" tabindex="0">{{title}} <span class="caret"></span></a>'+
 				'<div class="filterdropdown_dropdown" ng-transclude></div>'+
 				'</li>',
 			scope: { title: '@', active:'&' },
-			controller: ['$scope', '$element', '$transclude',function($scope,$element,$transclude){
+			controller: ['$scope', '$element', '$document', function($scope,$element,$document){
+
 				$scope.active = false;
+
 				$scope.toggle = function(){
-					$scope.active = !$scope.active;
+					$scope.active ? $scope.hide() : $scope.show();
 				}
+				$scope.show = function(){
+					$scope.$parent.$broadcast('filterdropdown_opening');
+					$scope.active = true;
+
+				}
+				$scope.hide = function(){
+					$scope.active = false;
+				}
+
+				$scope.$on('filterdropdown_opening',$scope.hide);
+
+				$element.on('mouseleave',$scope.hide)
+
 			}],
 			replace: true,
 			transclude: true
