@@ -3,8 +3,8 @@ angular.module('tApp')
 
 		var id = $stateParams.itemId
 
-		var items = Projects.data();
-
-		$scope.item = _.find(items, function(item){ return item.id == id })
+		Projects.getAll(function(projects){
+			$scope.item = _.find(projects, function(item){ return item.id == id })
+		});
 
 	}]);
