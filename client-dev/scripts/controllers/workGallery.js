@@ -1,11 +1,12 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout','$stateParams','$location',
-		function (Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout,$stateParams,$location) {
+	.controller('WorkGalleryController', ['Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout',
+		function (Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout) {
 
 			var
 				codeTimer, DEFAULT_MAX, DEFAULT_OFFSET,
-				searchFilter, pagination, params,
-				allProjects, allCompanies, allSkills, allLanguages, years
+				searchFilter, pagination,
+				allProjects, allCompanies, allSkills, allLanguages, years,
+				rootSearch
 				;
 
 			DEFAULT_MAX = 6;
@@ -24,13 +25,10 @@ angular.module('tApp')
 					[]
 				)
 
-			// TODO merge state params into filter to allow link sharing/bookmarking
-
-			//		params = $stateParams;
-			//		$scope.max = parseInt(params.max) || 6;
-			//		$scope.offset = parseInt(params.offset) || 0;
-			//		$scope.company_id = params.company_id || "";
-
+			/**
+			 * Main search, observable search object
+			 * @type {{company_ids: Array, years: Array, skill_ids: Array, language_ids: Array, ttt: null}}
+			 */
 			searchFilter = $scope.searchFilter = {
 				company_ids : [],
 				years : [],
@@ -39,6 +37,10 @@ angular.module('tApp')
 				ttt : null // when it is necessary to trigger change
 			};
 
+			/**
+			 * Pagination observable object
+			 * @type {{max: number, offset: number, nextOffset: null, prevOffset: null}}
+			 */
 			pagination = $scope.pagination = {
 				max : DEFAULT_MAX,
 				offset : DEFAULT_OFFSET,
@@ -46,6 +48,33 @@ angular.module('tApp')
 				prevOffset: null
 			}
 
+			/**
+			 * Save search params for reuse when coming back
+			 * from single project view
+			 */
+			function updateLocationSearch(){
+				var updatedSearchObject = _.extend( _.omit(searchFilter, 'ttt'), _.omit(pagination, ["nextOffset","prevOffset"]), {} );
+				$rootScope.gallerySearch = updatedSearchObject;
+			}
+
+			/**
+			 * check if search options exist in
+			 * $rootScope.gallerySearch and merge
+			 * into search filters if true
+			 */
+			rootSearch = $rootScope.gallerySearch;
+			if( _.isObject(rootSearch) && _.size(rootSearch)){
+
+				_.each( _.keys(pagination), function(k){
+					if(rootSearch[k])
+						pagination[k] = rootSearch[k];
+				});
+
+				_.each( _.keys(searchFilter), function(k){
+					if(rootSearch[k])
+						searchFilter[k] = rootSearch[k];
+				});
+			}
 
 			// watch filter and update model
 			////////////////////////////////////////////
@@ -129,6 +158,9 @@ angular.module('tApp')
 
 				// paginate results
 				filtered = filteredByProperty.slice(pagination.offset,(pagination.max + pagination.offset));
+
+				// save preferences
+				updateLocationSearch();
 
 				$scope.projects = filtered;
 			}

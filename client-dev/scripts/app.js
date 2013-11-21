@@ -54,7 +54,7 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource'])
 				}
 			})
 			.state("main.work.gallery", {
-				url: "/gallery?max&offset&company_id",
+				url: "/gallery",
 				views: {
 					"list@main.work" : {
 						templateUrl: 'views/main.work.gallery.html',
