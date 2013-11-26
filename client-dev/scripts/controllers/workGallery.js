@@ -95,6 +95,19 @@ angular.module('tApp')
 					filteredByProperty = _.filter(filteredByProperty, function(proj){
 						return _.contains(searchFilter.company_ids, proj.company_id )
 					});
+
+					// reflect selected companies
+					_.each(allCompanies, function(obj, index, list){
+						if( _.indexOf(searchFilter.company_ids, obj.id) > -1 ){
+							obj.selected = true;
+						} else {
+							obj.selected = false;
+						}
+					});
+				} else {
+					_.each(allCompanies, function(obj, index, list){
+						obj.selected = false;
+					});
 				}
 
 				if(searchFilter.years.length){
@@ -132,6 +145,19 @@ angular.module('tApp')
 						return contains
 					});
 
+					// reflect selected years
+					_.each(years, function(obj, index, list){
+						if( _.indexOf(searchFilter.years, obj.year) > -1 ){
+							obj.selected = true;
+						} else {
+							obj.selected = false;
+						}
+					});
+
+				} else {
+					_.each(years, function(obj, index, list){
+						obj.selected = false;
+					});
 				}
 
 				if(searchFilter.skill_ids.length){
@@ -140,6 +166,19 @@ angular.module('tApp')
 							return _.contains(proj.skills, filterSkillId )
 						})
 					});
+
+					// reflect selected skills
+					_.each(allSkills, function(obj, index, list){
+						if( _.indexOf(searchFilter.skill_ids, obj.id) > -1 ){
+							obj.selected = true;
+						} else {
+							obj.selected = false;
+						}
+					});
+				} else {
+					_.each(allSkills, function(obj, index, list){
+						obj.selected = false;
+					});
 				}
 
 				if(searchFilter.language_ids.length){
@@ -147,6 +186,19 @@ angular.module('tApp')
 						return _.some(searchFilter.language_ids, function(filterLanguageId){
 							return _.contains(proj.languages, filterLanguageId )
 						})
+					});
+
+					// reflect selected languages
+					_.each(allLanguages, function(obj, index, list){
+						if( _.indexOf(searchFilter.language_ids, obj.id) > -1 ){
+							obj.selected = true;
+						} else {
+							obj.selected = false;
+						}
+					});
+				} else {
+					_.each(allLanguages, function(obj, index, list){
+						obj.selected = false;
 					});
 				}
 
@@ -176,32 +228,19 @@ angular.module('tApp')
 				pagination.offset = DEFAULT_OFFSET
 				pagination.max = DEFAULT_MAX
 
+				// update search filter
 				if(companyId != null){
-					_.each(allCompanies, function(obj, index, list){
-						if(obj.id === companyId){
-
-							// change state
-							obj.selected = !(!!obj.selected)
-
-							// update search filter
-							if( _.indexOf(searchFilter.company_ids, obj.id) > -1 ){
-								searchFilter.company_ids = _.difference(searchFilter.company_ids, [obj.id])
-							} else {
-								searchFilter.company_ids = _.union(searchFilter.company_ids, [obj.id])
-							}
-
-						}
-					})
+					if( _.indexOf(searchFilter.company_ids, companyId) > -1 ){
+						searchFilter.company_ids = _.difference(searchFilter.company_ids, [companyId])
+					} else {
+						searchFilter.company_ids = _.union(searchFilter.company_ids, [companyId])
+					}
 				} else {
-					_.each(allCompanies, function(obj, index, list){
-						obj.selected = false;
-					})
 					searchFilter.company_ids = [];
 				}
 
 				// TRIGGER CHANGE
 				searchFilter.ttt = (new Date).getTime()
-
 			}
 
 			$scope.toggleYear = function(y){
@@ -211,24 +250,13 @@ angular.module('tApp')
 				pagination.max = DEFAULT_MAX
 
 				if(y != null){
-					_.each(years, function(obj, index, list){
-						if(obj.year === y){
-
-							// change state
-							obj.selected = !obj.selected
-
-							// update search filter
-							if( _.indexOf(searchFilter.years, obj.year) > -1 ){
-								searchFilter.years = _.difference(searchFilter.years, [obj.year])
-							} else {
-								searchFilter.years = _.union(searchFilter.years, [obj.year])
-							}
-						}
-					})
+					// update search filter
+					if( _.indexOf(searchFilter.years, y) > -1 ){
+						searchFilter.years = _.difference(searchFilter.years, [y])
+					} else {
+						searchFilter.years = _.union(searchFilter.years, [y])
+					}
 				} else {
-					_.each(years, function(obj, index, list){
-						obj.selected = false;
-					})
 					searchFilter.years = [];
 				}
 
@@ -243,25 +271,13 @@ angular.module('tApp')
 				pagination.max = DEFAULT_MAX
 
 				if(id != null){
-					_.each(allSkills, function(obj, index, list){
-						if(obj.id === id){
-
-							// change state
-							obj.selected = !(!!obj.selected)
-
-							// update search filter
-							if( _.indexOf(searchFilter.skill_ids, obj.id) > -1 ){
-								searchFilter.skill_ids = _.difference(searchFilter.skill_ids, [obj.id])
-							} else {
-								searchFilter.skill_ids = _.union(searchFilter.skill_ids, [obj.id])
-							}
-
-						}
-					})
+					// update search filter
+					if( _.indexOf(searchFilter.skill_ids, id) > -1 ){
+						searchFilter.skill_ids = _.difference(searchFilter.skill_ids, [id])
+					} else {
+						searchFilter.skill_ids = _.union(searchFilter.skill_ids, [id])
+					}
 				} else {
-					_.each(allSkills, function(obj, index, list){
-						obj.selected = false;
-					})
 					searchFilter.skill_ids = [];
 				}
 
@@ -273,29 +289,16 @@ angular.module('tApp')
 			$scope.toggleLanguage = function(id){
 
 				// RESET MAX & OFFSET
-				pagination.offset = DEFAULT_OFFSET
-				pagination.max = DEFAULT_MAX
+				pagination.offset = DEFAULT_OFFSET;
+				pagination.max = DEFAULT_MAX;
 
 				if(id != null){
-					_.each(allLanguages, function(obj, index, list){
-						if(obj.id === id){
-
-							// change state
-							obj.selected = !(!!obj.selected)
-
-							// update search filter
-							if( _.indexOf(searchFilter.language_ids, obj.id) > -1 ){
-								searchFilter.language_ids = _.difference(searchFilter.language_ids, [obj.id])
-							} else {
-								searchFilter.language_ids = _.union(searchFilter.language_ids, [obj.id])
-							}
-
-						}
-					})
+					if( _.indexOf(searchFilter.language_ids, id) > -1 ){
+						searchFilter.language_ids = _.difference(searchFilter.language_ids, [id])
+					} else {
+						searchFilter.language_ids = _.union(searchFilter.language_ids, [id])
+					}
 				} else {
-					_.each(allLanguages, function(obj, index, list){
-						obj.selected = false;
-					})
 					searchFilter.language_ids = [];
 				}
 
