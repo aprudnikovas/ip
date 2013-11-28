@@ -20,7 +20,7 @@ angular.module('tApp')
 					( _.range(2003, (new Date).getFullYear() + 1).reverse() ),
 					function(memo, year){
 						memo.push( { year:year, selected:false } )
-						return memo
+						return memo;
 					},
 					[]
 				)
@@ -86,9 +86,17 @@ angular.module('tApp')
 
 			$scope.$watch( 'searchFilter', filterAndSortPortfolio, true);
 
+			/**
+			 * one big massive filter function
+			 * Will filter results based on filter contents.
+			 * Will update `selected` state for result objects.
+			 * Will update pagination obj
+			 * Will sync rootScope filter details
+			 */
 			function filterAndSortPortfolio(){
+
 				var filtered, filteredByProperty = allProjects;
-				$scope.projects = []
+				$scope.projects = [];
 
 				// filter
 				if(searchFilter.company_ids.length){
@@ -120,8 +128,8 @@ angular.module('tApp')
 						var fromDate, fromYear, toDate, toYear,
 							yearsToCheck = [], contains = false;
 
-						fromDate = new Date()
-						toDate = new Date()
+						fromDate = new Date();
+						toDate = new Date();
 
 						if(proj.from){
 							fromDate.setTime(proj.from)
@@ -142,7 +150,7 @@ angular.module('tApp')
 							return _.contains(yearsToCheck, yearValue )
 						})
 
-						return contains
+						return contains;
 					});
 
 					// reflect selected years
