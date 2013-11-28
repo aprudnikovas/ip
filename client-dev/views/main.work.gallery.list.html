@@ -1,4 +1,15 @@
-<div class="col-md-3">
+<div class="col-sm-12">
+
+    <ul class="work-items">
+        <li ng-repeat="project in projects">
+            <a ui-sref="main.work.gallery.item({itemId:project.id})"
+               class="" >
+                {{project.title}}
+            </a>
+        </li>
+    </ul>
+
+    <!--
     <div class="list-group">
         <a ui-sref="main.work.gallery" class="list-group-item">
             Back to gallery
@@ -9,4 +20,6 @@
             {{project.title}}
         </a>
     </div>
+    -->
+
 </div>
