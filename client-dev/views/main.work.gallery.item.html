@@ -1,17 +1,31 @@
-<div class="col-md-9">
 
-    <header><h2>Project</h2></header>
+<div class="col-sm-6">
 
-    <section>
-        <p>ID: {{item.id}}</p>
-        <p>COMPANY ID: {{item.company_id}}</p>
-        <p>TITLE: {{item.title}}</p>
-        <p>DESCRIPTION: {{item.description}}</p>
-        <p>FROM: {{item.from}}</p>
-        <p>TO: {{item.to}}</p>
-        <p>IMAGES: {{item.images}}</p>
-        <p>SKILLS: {{item.skills}}</p>
-        <p>LANGUAGES: {{item.languages}}</p>
-    </section>
+    <div ng-if="item.images && item.images.length" class="project-images pull-right">
+
+        <img src="images/work/{{item.images[0]}}" class="project-images-primary" />
+
+    </div>
 
 </div>
+
+<div class="col-sm-6">
+
+    <h1 class="project-title">{{item.title}}</h1>
+    <p class="project-text">{{item.description}}</p>
+
+    <h2 class="project-title">Company</h2>
+    <p class="project-text">{{item.company_id}}</p>
+
+    <h2 class="project-title">Languages / Frameworks</h2>
+    <p class="project-text"><a class="btn btn-default" ng-repeat="lang in item.languages">{{lang}}</a></p>
+
+    <h2 class="project-title">Skills</h2>
+    <p class="project-text"><a class="btn btn-default" ng-repeat="skill in item.skills">{{skill}}</a></p>
+
+    <h2 class="project-title">Time period</h2>
+    <p class="project-text">{{item.from}} - {{item.to}}</p>
+
+</div>
+
+

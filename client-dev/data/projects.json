@@ -204,7 +204,7 @@
 		"description": "Illustration",
 		"from": "1242860400000",
 		"to": "1249081200000",
-		"images" : [  ],
+		"images" : [ "underwater_adventures.png" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	},
