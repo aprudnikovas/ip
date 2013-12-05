@@ -1,16 +1,22 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout',
-		function (Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout) {
+	.controller('WorkGalleryController', ['Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout','$stateParams',
+		function (Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout,$stateParams) {
 
 			var
 				codeTimer, DEFAULT_MAX, DEFAULT_OFFSET,
 				searchFilter, pagination,
 				allProjects, allCompanies, allSkills, allLanguages, years,
-				rootSearch
+				rootSearch, active_project_id
 				;
 
 			DEFAULT_MAX = 6;
 			DEFAULT_OFFSET = 0;
+
+			/**
+			 * use project id when viewing one item
+			 * @type {*}
+			 */
+			$scope.active_project_id = $stateParams.itemId;
 
 			/**
 			 * Populate array of available years
@@ -335,6 +341,14 @@ angular.module('tApp')
 					// trigger change to filter
 					searchFilter.ttt = (new Date).getTime()
 				}
+			}
+
+
+			// other public methods
+			////////////////////////////////////////////
+
+			$scope.isAnyItemSelected = function(itemObjectList){
+				return _.some(itemObjectList,function(x){return x.selected})
 			}
 
 

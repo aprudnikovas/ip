@@ -1,30 +1,45 @@
 
-<div class="col-sm-6">
+<div class="col-sm-12 text-center">
+    <a ui-sref="main.work.gallery" class="gallery-item-back-link">Back</a>
+</div>
+
+<div class="col-sm-5 col-sm-offset-1">
 
     <div ng-if="item.images && item.images.length" class="project-images pull-right">
 
-        <img src="images/work/{{item.images[0]}}" class="project-images-primary" />
+        <img src="images/work/{{item.images[0]}}" class="project-images-primary img-responsive" />
 
     </div>
 
 </div>
 
-<div class="col-sm-6">
+<div class="col-sm-5">
 
     <h1 class="project-title">{{item.title}}</h1>
     <p class="project-text">{{item.description}}</p>
 
+    <h2 class="project-title">Period</h2>
+    <p class="project-text">{{ item.from | date:'mediumDate' }}
+        <span ng-if="item.to"> --- {{ item.to | date:'mediumDate' }}</span>
+        <span ng-if="!item.to"> --- Still maintaining</span>
+    </p>
+
     <h2 class="project-title">Company</h2>
-    <p class="project-text">{{item.company_id}}</p>
+    <p class="project-text">
+        <a class="btn btn-default project-btn">{{company.name}}</a>
+    </p>
 
-    <h2 class="project-title">Languages / Frameworks</h2>
-    <p class="project-text"><a class="btn btn-default" ng-repeat="lang in item.languages">{{lang}}</a></p>
+    <h2 class="project-title" ng-show="item.languages">Languages / Frameworks</h2>
+    <p class="project-text" ng-show="item.languages">
+        <a class="btn btn-default project-btn" ng-repeat="lang in languages">{{lang.name}}</a>
+    </p>
 
-    <h2 class="project-title">Skills</h2>
-    <p class="project-text"><a class="btn btn-default" ng-repeat="skill in item.skills">{{skill}}</a></p>
+    <h2 class="project-title" ng-show="item.skills">Skills</h2>
+    <p class="project-text" ng-show="item.skills">
+        <a class="btn btn-default project-btn" ng-repeat="skill in skills">{{skill.name}}</a>
+    </p>
 
-    <h2 class="project-title">Time period</h2>
-    <p class="project-text">{{item.from}} - {{item.to}}</p>
+
 
 </div>
 

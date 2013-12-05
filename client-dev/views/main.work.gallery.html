@@ -11,29 +11,41 @@
 
         <nav class="navbar navbar-filter " role="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <filterdropdown title="Companies">
+                <filterdropdown title="Companies" class="{{ isAnyItemSelected(companies) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(companies)" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                     <a class="navbar-filter-toggler" ng-repeat="c in companies" tabindex="-1" ng-click="toggleCompany(c.id)">
                         <i class="glyphicon " ng-class="c.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{c.name}}
                     </a>
-                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                 </filterdropdown>
-                <filterdropdown title="Years">
+                <filterdropdown title="Years" class="{{ isAnyItemSelected(years) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(years)" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                     <a class="navbar-filter-toggler" ng-repeat="obj in years" tabindex="-1" ng-click="toggleYear(obj.year)">
                         <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.year}}
                     </a>
-                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                 </filterdropdown>
-                <filterdropdown title="Skills">
+                <filterdropdown title="Skills" class="{{ isAnyItemSelected(skills) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(skills)" ng-click="toggleSkill()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                     <a class="navbar-filter-toggler" ng-repeat="obj in skills" tabindex="-1" ng-click="toggleSkill(obj.id)">
                         <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
                     </a>
-                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleSkill()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                 </filterdropdown>
-                <filterdropdown title="Languages">
+                <filterdropdown title="Languages" class="{{ isAnyItemSelected(languages) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(languages)" ng-click="toggleLanguage()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                     <a class="navbar-filter-toggler" ng-repeat="obj in languages" tabindex="-1" ng-click="toggleLanguage(obj.id)">
                         <i class="glyphicon " ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
                     </a>
-                    <a class="navbar-filter-toggler" tabindex="-1" ng-click="toggleLanguage()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
                 </filterdropdown>
             </ul>
         </nav>

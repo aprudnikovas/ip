@@ -1,5 +1,18 @@
 .filterdropdown_root {
 
+  &.selected:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: #52FF00;
+    border-radius: 3px;
+    margin-top: -3px;
+  }
+
   > .filterdropdown_dropdown {
     display:none;
     position: absolute;
@@ -12,6 +25,7 @@
     border: 1px solid rgb(231, 231, 231);
     padding: 15px;
     border-radius: 3px;
+
   }
 
   &.filterdropdown_open > .filterdropdown_link {
