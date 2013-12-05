@@ -1,25 +1,24 @@
-<div class="col-sm-12">
+<div ng-if="projects && projects.length > 1" class="col-sm-12 hidden-xs">
 
     <ul class="work-items">
-        <li ng-repeat="project in projects">
+
+        <li class="projects-gallery-pagination-previous">
+            <a ng-if="pagination.prevOffset != null" ng-click="prevPage()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a ng-if="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        </li>
+
+        <li ng-repeat="project in projects"
+                ng-class="{active: project.id === active_project_id}">
             <a ui-sref="main.work.gallery.item({itemId:project.id})"
                class="" >
                 {{project.title}}
             </a>
         </li>
-    </ul>
 
-    <!--
-    <div class="list-group">
-        <a ui-sref="main.work.gallery" class="list-group-item">
-            Back to gallery
-        </a>
-        <a ui-sref="main.work.gallery.item({itemId:project.id})"
-           class="list-group-item"
-           ng-repeat="project in projects">
-            {{project.title}}
-        </a>
-    </div>
-    -->
+        <li class="projects-gallery-pagination-next">
+            <a ng-if="pagination.nextOffset != null" ng-click="nextPage()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a ng-if="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </li>
+    </ul>
 
 </div>

@@ -7235,19 +7235,95 @@ body.main_work_gallery_item .footer {
   padding: 0;
   list-style: none;
   text-align: center;
+  line-height: 1;
 }
 .work-items > li {
   display: inline-block;
+  position: relative;
+}
+.work-items > li.active > a {
+  border-bottom-width: 3px;
 }
 .work-items > li > a {
   display: block;
-  width: 130px;
-  height: 70px;
+  width: 100px;
+  height: 60px;
   overflow: hidden;
   background-color: #ffffff;
   border-bottom: 1px solid #c1272d;
   margin: 0 5px;
   color: #ffffff;
+  cursor: pointer;
+}
+.work-items > li.projects-gallery-pagination-previous a,
+.work-items > li.projects-gallery-pagination-next a {
+  width: 40px;
+  height: 60px;
+  border: 0;
+  background-color: transparent;
+  color: #c1272d;
+  line-height: 60px;
+}
+.work-items > li.projects-gallery-pagination-previous a.inactive,
+.work-items > li.projects-gallery-pagination-next a.inactive {
+  color: #cccccc;
+  cursor: not-allowed;
+}
+.gallery-item-back-link {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: transparent;
+  border: 1px solid #c1272d;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+.gallery-item-back-link:before,
+.gallery-item-back-link:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  background-color: #c1272d;
+  top: 24px;
+  left: 10px;
+  transition: all 0.3s ease;
+}
+.gallery-item-back-link:before {
+  transform: rotateZ(45deg);
+}
+.gallery-item-back-link:after {
+  transform: rotateZ(-45deg);
+}
+.gallery-item-back-link:hover {
+  color: transparent;
+}
+.gallery-item-back-link:hover:before {
+  transform: rotateZ(225deg);
+}
+.gallery-item-back-link:hover:after {
+  transform: rotateZ(135deg);
+}
+.project-btn {
+  border: 1px solid #c1272d;
+  color: #c1272d;
+  background: transparent;
+  margin-right: 3px;
+}
+.filterdropdown_root.selected:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #52FF00;
+  border-radius: 3px;
+  margin-top: -3px;
 }
 .filterdropdown_root > .filterdropdown_dropdown {
   display: none;
@@ -7305,7 +7381,7 @@ body {
 .page > header {
   color: #FFFFFF;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .page > header h1 {
   position: relative;
