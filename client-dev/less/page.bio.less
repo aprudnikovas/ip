@@ -1,22 +1,11 @@
+@page-bio-background: @brand-bg;
+@page-bio-foreground: @brand-fg;
+@page-bio-link: @brand-link;
+@page-bio-dim: @brand-dim;
+
+
 .main_bio {
-  background-color: @page-bio-background;
-}
-
-.main_bio .footer {
-  color: lighten(@page-bio-background,25%);
-}
-
-.main_bio .page .separator {
-  color: lighten(@page-bio-background,25%);
-}
-
-.radialMixin(@url: ""; @inner-color: #555; @outer-color: #333) {
-  background-color: @inner-color;
-  background-image: url(@url);
-  background-image: url(@url), -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
-  background-image: url(@url), -webkit-radial-gradient(circle, @inner-color, @outer-color);
-  background-image: url(@url), -moz-radial-gradient(circle, @inner-color, @outer-color);
-  background-image: url(@url), radial-gradient(circle, @inner-color, @outer-color);
+  font-family: @dosis-font;
 }
 
 
@@ -42,6 +31,8 @@
   margin: 0 auto 2em;
   text-align: center;
 
+  border: 10px solid @page-bio-dim;
+
   > img {
     margin: 0 auto;
     height: 100%;
@@ -50,6 +41,10 @@
 .animation-block.active {
   transform: rotateY(0deg);
   box-sizing: border-box;
+
+  img {
+    box-shadow: @image-box-shadow;
+  }
 }
 
 
@@ -65,7 +60,7 @@
     height: 150px;
     margin-top: 75px;
     margin-bottom: 75px;
-    background-color: darken(@page-bio-background,5%);
+    background-color: @page-bio-dim;
     position: relative;
     transition: all ease 0.3s;
 
@@ -80,8 +75,8 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      background-color: darken(@page-bio-link, 15%);
-      color: @page-bio-foreground;
+      background-color: @page-bio-link;
+      color: @page-bio-background;
       border-radius: 20px;
       transition: all ease 0.4s;
 
@@ -185,7 +180,7 @@
           position: absolute;
           opacity: 0;
           border-width: 0px 30px 106px 0px;
-          border-color: transparent transparent darken(@page-bio-link, 15%) transparent;
+          border-color: transparent transparent @page-bio-link transparent;
           border-style: solid;
           display: block;
           top: -31px;
@@ -197,7 +192,7 @@
         }
         a:before {
           border-width: 0px 0px 106px 30px;
-          border-color: transparent transparent darken(@page-bio-link, 15%) transparent;
+          border-color: transparent transparent @page-bio-link transparent;
           transform-origin: bottom right;
           margin-left: -30px;
         }
@@ -209,13 +204,13 @@
           width: 150px;
           height: 150px;
           border-radius: 75px;
-          background-color: @page-bio-link;
-          .radialMixin(@img-sprite-bio-location,@page-bio-link,darken(@page-bio-link,10%));
+          background-color: @page-bio-background;
+          background-image: url(@img-sprite-bio-location);
           transition: all ease 0.2s;
           cursor: pointer;
           backface-visibility: hidden;
           z-index: 5001;
-          border: 2px solid lighten(@page-bio-link, 15%);
+          border: 1px solid lighten(@page-bio-link, 15%);
           padding-top: 50px;
           padding-bottom: 50px;
           line-height: 50px;
@@ -230,7 +225,8 @@
         }
         a .back {
           transform: rotate3d(1,0,0,180deg);
-          background: darken(@page-bio-link, 15%);
+          background: @page-bio-link;
+          color: @page-bio-background;
         }
 
 
@@ -330,8 +326,8 @@
     width: 0px;
     height: 280px;
     margin: 0 auto;
-    border-left: 1px solid @page-bio-foreground;
-    border-right: 1px solid @page-bio-foreground;
+    border-left: 1px solid @page-bio-dim;
+    border-right: 1px solid @page-bio-dim;
     position: relative;
     transition: all ease 0.2s;
     font-family: @code-font;
@@ -344,6 +340,7 @@
     .description {
       overflow: hidden;
       color: @page-bio-foreground;
+      font-family: @dosis-font;
 
       .coding-skills-language {
         margin: 0 0 0.5em;
@@ -358,10 +355,10 @@
     position: absolute;
 
     .coding-skills-title {
-      font-family: @code-font;
+      font-family: @dosis-font;
       margin: 0 15px 10px;
       padding:0;
-      color: lighten(@page-bio-background,15%);
+      color: @page-bio-foreground;
     }
   }
 
@@ -419,20 +416,16 @@
     height: 30px;
     border-radius: 30px;
     display: block;
-    background-color: @page-bio-link;
+    background-color: transparent;
+    border: 1px solid @page-bio-link;
     position: relative;
     cursor: pointer;
     margin: 5px 0 5px 120px;
-    transition: all ease 0.5s;
-
-    &.active {
-      background-color: darken(@page-bio-link, 15%);
-    }
 
     .coding-skills-tooltip {
       position: absolute;
       width: 80px;
-      color: @page-bio-foreground;
+      color: @page-bio-link;
       left: -90px;
       top: 4px;
       text-align: right;
@@ -452,27 +445,35 @@
       height: 8px;
       background-color: lighten(@page-bio-link, 20%);
       border-radius: 8px;
-      top:11px;
-      left: 11px;
+      top:10px;
+      left: 10px;
       position: absolute;
       transition: all ease 0.1s;
     }
 
   }
 
-  a:hover .d-o-t,
-  a.active .d-o-t {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    top:10px;
-    left: 10px;
-    background-color: @page-bio-foreground;
+  a:hover,
+  a:focus,
+  a.active {
 
-    animation:zoomDot 0.2s;
-    -o-animation:zoomDot 0.2s ;
-    -moz-animation:zoomDot 0.2s;
-    -webkit-animation:zoomDot 0.2s ;
+    background-color: @page-bio-link;
+
+    .d-o-t{
+
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      top: 9px;
+      left: 9px;
+      background-color: @page-bio-background;
+
+      animation:zoomDot 0.2s;
+      -o-animation:zoomDot 0.2s ;
+      -moz-animation:zoomDot 0.2s;
+      -webkit-animation:zoomDot 0.2s ;
+
+    }
   }
 
 }
