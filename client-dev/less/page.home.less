@@ -1,28 +1,13 @@
+@main-background-color: @brand-bg;
+@main-foreground-color: @brand-fg;
+@main-link-color: @brand-link;
+@main-dim-color: @brand-dim;
+
 .main_home .footer {
   position: absolute;
   width: 500px;
   left: 50%;
   margin-left: -250px;
-  color: @main-dim-color;
-}
-
-.body-hover-link-bio {
-  background: url(@img-hand-location) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-color: @main-background-color;
-}
-.body-hover-link-work {
-  background: url(@img-code-location) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-color: @main-background-color;
-}
-.body-hover-link-hire {
 }
 
 .home-block {
@@ -34,8 +19,6 @@
   left: 50%;
   margin-top: -160px;
   margin-left: -400px;
-  color:#FFFFFF;
-
 
   h1 {
     position: absolute;
@@ -104,7 +87,7 @@
           display: block;
           position: relative;
           padding: 20px 40px 20px 100px;
-          color: #FFF;
+          color: @main-link-color;
 
           &:hover,
           &:focus {

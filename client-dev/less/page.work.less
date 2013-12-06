@@ -1,8 +1,8 @@
-@page-work-background: #F8F8F8;
-@page-work-foreground: #888;
-@page-work-inactive: #eee;
-@page-work-img-background: #fff;
-@page-work-bright: #34AEDD;
+@page-work-background: @brand-bg;
+@page-work-foreground: @brand-fg;
+@page-work-inactive: @brand-dim;
+@page-work-img-background: @brand-bg-light;
+@page-work-bright: @brand-bright;
 
 @page-work-line-background: @page-work-bright;
 
@@ -10,51 +10,19 @@
 @page-work-label-foreground: @page-work-link;
 
 @page-work-dot-background: @page-work-foreground;
-@page-work-link: #D37575;
+@page-work-link: @brand-link;
 @page-work-link-inactive: @page-work-inactive;
-@page-work-link-active: #D37575;
+@page-work-link-active: @brand-link;
 
 
 
 body[class*="main_work"] {
-  background-color: @page-work-background;
-  color: @page-work-foreground;
   font-family: @dosis-font;
-
-  .page > header h1,
-  .page > header h1 a{
-    color: @page-work-foreground;
-  }
 
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: @dosis-font;
   }
-
-  .page .separator {
-    color: @page-work-inactive;
-  }
-
-  .navigation{
-    background-color: @page-work-link;
-  }
-  .navigation-toggler {
-    background-color: transparent;
-    border: 1px solid @page-work-link;
-    padding-top: 11px;
-
-    .navigation-toggler-bar {
-      height: 2px;
-      background-color: @page-work-link;
-      width: 22px;
-    }
-  }
-
-  .footer {
-    color: @page-work-link;
-    font-family: @dosis-font;
-  }
-
 
 }
 

@@ -6,24 +6,24 @@
             <span class="navigation-toggler-bar"></span>
         </a>
         <ul>
-            <li class="home">
+            <li class="home" ng-class="{active: stateMatches('main.home')}">
                 <a ui-sref="main">
                     <span class="">ip</span>
                 </a>
             </li>
-            <li>
-                <a ui-sref="main.bio">
+            <li ng-class="{active: stateMatches('main.bio')}">
+                <a ui-sref="main.bio" >
                 <span class="navigation-bg navigation-bg-bio"></span>
                 <span class="jumping-letter">Bio</span>
                 </a>
             </li>
-            <li>
-                <a ui-sref="main.work.gallery">
+            <li ng-class="{active: stateMatches('main.work')}">
+                <a ui-sref="main.work.gallery" >
                     <span class="navigation-bg navigation-bg-work"></span>
                     <span class="jumping-letter">Work</span>
                 </a>
             </li>
-            <li>
+            <li ng-class="{active: stateMatches('main.hire')}">
                 <a ui-sref="main.hire">
                     <span class="navigation-bg navigation-bg-hire"></span>
                     <span class="jumping-letter">Hire</span>

@@ -1,9 +1,9 @@
 // variables in use in this file
 
-@nav-bg: @sidebar-background;
-@nav-fg: @sidebar-color;
+@nav-bg: @brand-link;
+@nav-fg: @brand-bg-light;
 @brand-font: @hand-font;
-@nav-font: @code-font;
+@nav-font: @dosis-font;
 @sprite-p: @sprite-path;
 
 .navigation {
@@ -29,7 +29,7 @@
   right: -55px;
   width: 44px;
   height: 40px;
-  background-color: @nav-bg;
+  background-color: transparent;
   cursor: pointer;
   padding-top: 12px;
   padding-bottom: 11px;
@@ -40,7 +40,7 @@
     display: block;
     height: 2px;
     width: 22px;
-    background-color: @nav-fg;
+    background-color: @nav-bg;
     margin: 0 auto 5px;
     border-radius: 2px;
   }
@@ -53,6 +53,11 @@
 
   > li {
     text-align: center;
+
+    &.active {
+      color: @nav-fg;
+      background-color: darken(@nav-bg,10%);
+    }
 
     a {
       display: block;

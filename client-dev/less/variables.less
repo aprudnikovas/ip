@@ -42,9 +42,14 @@
 @font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
-@font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
+@code-font: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif ;
+@hand-font: "la_belle_auroreregular", sans-serif;
+@dosis-font: 'Dosis Light', sans-serif;
+
+@font-family-base:        @dosis-font;
+
+@font-size-base:          16px;
 @font-size-large:         ceil(@font-size-base * 1.25); // ~18px
 @font-size-small:         ceil(@font-size-base * 0.85); // ~12px
 
@@ -58,7 +63,7 @@
 @line-height-base:        1.428571429; // 20/14
 @line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
 
-@headings-font-family:    @font-family-base;
+@headings-font-family:    @hand-font;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
@@ -656,17 +661,14 @@
 @dosis-font: 'Dosis Light', sans-serif;
 
 
-@main-background-color: #5A4974;
-@main-foreground-color: #FFFFFF;
-@main-link-color: #aa95b1;
-@main-dim-color: #7D6C96;
+@brand-bg-light: #FFF;
+@brand-bg: #f8f8f8;
+@brand-fg: #888;
+@brand-link: #d37575;
+@brand-dim: #eee;
+@brand-bright: #34AEDD;
+@image-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
-@sidebar-background: #4C2D58;
-@sidebar-color: #FFFFFF;
-
-@page-bio-background: #636363;
-@page-bio-foreground: #FFFFFF;
-@page-bio-link: #4C2D58;
 
 
 
