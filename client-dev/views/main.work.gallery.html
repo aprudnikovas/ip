@@ -10,8 +10,8 @@
         </nav>
 
         <nav class="navbar navbar-filter " role="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <filterdropdown title="Companies" class="{{ isAnyItemSelected(companies) ? 'selected' : 'not-selected' }}">
+            <ul class="nav navbar-nav ">
+                <filterdropdown title="Companies"  class="{{ isAnyItemSelected(companies) ? 'selected' : 'not-selected' }}">
 
                     <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(companies)" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
 
@@ -20,7 +20,7 @@
                     </a>
 
                 </filterdropdown>
-                <filterdropdown title="Years" class="{{ isAnyItemSelected(years) ? 'selected' : 'not-selected' }}">
+                <filterdropdown title="Years"  class="{{ isAnyItemSelected(years) ? 'selected' : 'not-selected' }}">
 
                     <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(years)" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
 
@@ -29,7 +29,7 @@
                     </a>
 
                 </filterdropdown>
-                <filterdropdown title="Skills" class="{{ isAnyItemSelected(skills) ? 'selected' : 'not-selected' }}">
+                <filterdropdown title="Skills"  class="{{ isAnyItemSelected(skills) ? 'selected' : 'not-selected' }}">
 
                     <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(skills)" ng-click="toggleSkill()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
 
@@ -38,7 +38,7 @@
                     </a>
 
                 </filterdropdown>
-                <filterdropdown title="Languages" class="{{ isAnyItemSelected(languages) ? 'selected' : 'not-selected' }}">
+                <filterdropdown title="Languages"  class="{{ isAnyItemSelected(languages) ? 'selected' : 'not-selected' }}">
 
                     <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(languages)" ng-click="toggleLanguage()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
 
@@ -77,11 +77,11 @@
 
 <nav class="projects-gallery-pagination">
     <div class="projects-gallery-pagination-previous">
-        <a ng-if="pagination.prevOffset != null" ng-click="prevPage()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a ng-if="pagination.prevOffset != null" tabindex="0" ng-click="prevPage()" ui-keypress="{13:'prevPage()'}"><span class="glyphicon glyphicon-chevron-left"></span></a>
         <a ng-if="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
     </div>
     <div class="projects-gallery-pagination-next">
-        <a ng-if="pagination.nextOffset != null" ng-click="nextPage()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a ng-if="pagination.nextOffset != null" tabindex="0" ng-click="nextPage()" ui-keypress="{13:'nextPage()'}"><span class="glyphicon glyphicon-chevron-right"></span></a>
         <a ng-if="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
 </nav>

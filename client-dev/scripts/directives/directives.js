@@ -9,7 +9,7 @@ angular.module('tApp')
 		return {
 			restrict: 'EA',
 			template: '<li class="filterdropdown_root" ng-class="{filterdropdown_open:active}">'+
-				'<a class="filterdropdown_link" ng-click="toggle()" tabindex="0">{{title}} <span class="caret"></span></a>'+
+				'<a class="filterdropdown_link" ng-click="toggle()" tabindex="-1">{{title}} <span class="caret"></span></a>'+
 				'<div class="filterdropdown_dropdown" ng-transclude></div>'+
 				'</li>',
 			scope: { title: '@', active:'&' },

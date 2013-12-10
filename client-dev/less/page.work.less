@@ -89,6 +89,9 @@ body[class*="main_work"] {
 
   .navbar.navbar-filter {
     border: 0;
+    .navbar-nav {
+      float: right;
+    }
     .navbar-nav > li > a {
       border: 0;
     }
@@ -244,9 +247,17 @@ body[class*="main_work"] {
         font-weight: bold;
         color: @page-work-label-foreground;
         background-color: @page-work-label-background;
-        border-radius: 4px;
         cursor: pointer;
         border: 1px solid @page-work-label-foreground;
+        border-top-color: transparent;
+        transition: all ease 0.1s;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          border-top-color: @page-work-label-foreground;
+          border-bottom-width: 4px;
+        }
       }
 
       .timeline-job-label:before {
@@ -314,7 +325,8 @@ body[class*="main_work"] {
       transition: all ease 0.1s;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
 
       margin-top: -4px;
       padding-bottom: 4px;

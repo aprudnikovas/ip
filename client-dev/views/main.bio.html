@@ -38,7 +38,11 @@
             <div class="expertise-item-description">
                 <div ng-if="expertiseDescription.text" class="expertise-description-text">
                     <span class="close-description">
-                        <span class="glyphicon glyphicon-remove" ng-click="updateExpertise()"></span>
+                        <span
+                                tabindex="0"
+                                class="glyphicon glyphicon-remove"
+                                ng-click="updateExpertise()"
+                                ui-keypress="{13:'updateExpertise()'}"></span>
                     </span>
                     {{ expertiseDescription.text }}
                 </div>
@@ -54,7 +58,8 @@
                     <li ng-repeat="exp in expertiseBack" class="{{exp.className}}">
                         <a tabindex="0"
                            ng-class="expertiseDescription && exp.title === expertiseDescription.title ? 'active' : ''"
-                           ng-click="updateExpertise('back',$index)">
+                           ng-click="updateExpertise('back',$index)"
+                           ui-keypress="{13:'updateExpertise(\'back\',$index)'}">
 
                             <span class="face front"></span>
                             <span class="face back">{{exp.title}}</span>
@@ -74,7 +79,8 @@
                     <li ng-repeat="exp in expertiseFront" class="{{exp.className}}">
                         <a tabindex="0"
                            ng-class="expertiseDescription && exp.title === expertiseDescription.title ? 'active' : ''"
-                           ng-click="updateExpertise('front',$index)">
+                           ng-click="updateExpertise('front',$index)"
+                           ui-keypress="{13:'updateExpertise(\'front\',$index)'}">
 
                             <span class="face front"></span>
                             <span class="face back">{{exp.title}}</span>
@@ -101,7 +107,8 @@
 
                         <a tabindex="0" title="{{language.lang}}"
                            ng-class="language.lang === languageBlock.lang ? 'active' : ''"
-                           ng-click="updateLanguageBlock('front',$index)">
+                           ng-click="updateLanguageBlock('front',$index)"
+                           ui-keypress="{13:'updateLanguageBlock(\'front\',$index)'}">
 
                             <span class="coding-skills-tooltip">{{language.lang}}</span>
                             <span class="d-o-t"></span>
@@ -119,7 +126,8 @@
 
                         <a tabindex="0" title="{{language.lang}}"
                            ng-class="language.lang === languageBlock.lang ? 'active' : ''"
-                           ng-click="updateLanguageBlock('back',$index)">
+                           ng-click="updateLanguageBlock('back',$index)"
+                           ui-keypress="{13:'updateLanguageBlock(\'back\',$index)'}">
 
                             <span class="coding-skills-tooltip">{{language.lang}}</span>
                             <span class="d-o-t"></span>
