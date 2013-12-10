@@ -33,8 +33,10 @@
   cursor: pointer;
   padding-top: 12px;
   padding-bottom: 11px;
-  border-radius: 4px;
   border: 1px solid @nav-bg;
+  border-top-color: transparent;
+
+  transition: all ease 0.1s;
 
   .navigation-toggler-bar {
     display: block;
@@ -43,6 +45,13 @@
     background-color: @nav-bg;
     margin: 0 auto 5px;
     border-radius: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    height: 43px;
+    border-bottom-width: 4px;
+    border-top-color: @nav-bg;
   }
 }
 

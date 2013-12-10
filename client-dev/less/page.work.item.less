@@ -129,8 +129,21 @@ body.main_work_gallery_item {
 }
 
 .project-btn {
+  position: relative;
   border: 1px solid @page-work-item-red;
   color: @page-work-item-red;
   background: transparent;
   margin-right: 3px;
+  margin-top: 3px;
+  border-top-color: transparent;
+  border-radius: 0;
+  transition: all ease 0.1s;
+
+  &:hover,
+  &:focus {
+    margin-top: 0;
+    background: transparent;
+    border-color: @page-work-item-red;
+    border-bottom-width: 4px;
+  }
 }
