@@ -14,6 +14,9 @@
 
 <div id="timeline">
 
+    <div class="timeline-year {{years[0] + 1}}">
+        <div class="timeline-year-value">{{years[0] + 1}}</div>
+    </div>
     <div ng-repeat="year in years" class="timeline-year {{year}}">
 
         <div ng-repeat="month in months" class="timeline-month {{year}}">
