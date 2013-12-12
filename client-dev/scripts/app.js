@@ -1,4 +1,4 @@
-angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress'])
+angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','ui.event'])
 	.run(function($rootScope) {
 		$rootScope.menuIsActive = false;
 		$rootScope.$on('$stateChangeStart',

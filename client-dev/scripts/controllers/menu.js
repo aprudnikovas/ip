@@ -17,6 +17,19 @@ angular.module('tApp')
 				$('body').removeClass($scope.activeMenuClass)
 		}
 
+		$scope.mouseOpenNavigation = function(){
+			if(!$rootScope.menuIsActive){
+				$('body').addClass($scope.activeMenuClass);
+				$scope.menuIsActive = true;
+			}
+		}
+		$scope.mouseHideNavigation = function(){
+			if(!$rootScope.menuIsActive){
+				$('body').removeClass($scope.activeMenuClass);
+				$scope.menuIsActive = false;
+			}
+		}
+
 
 		$scope.stateMatches =  function(stateName){
 

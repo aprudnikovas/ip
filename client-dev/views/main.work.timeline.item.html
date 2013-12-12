@@ -22,7 +22,7 @@
                      ng-attr-style="height:{{jobLineHeight(item)}}px;top:-{{jobLineHeight(item)}}px">
 
                     <div class="timeline-job-line-marker from">from {{ item.from | date:'MMMM, yyyy' }}</div>
-                    <div class="timeline-job-line-marker to">{{ item.to ? 'to ' : 'Still here' }}{{ item.to | date:'MMMM, yyyy' }}</div>
+                    <div class="timeline-job-line-marker to">{{ item.to ? 'until ' : 'Still here' }}{{ item.to | date:'MMMM, yyyy' }}</div>
                 </div>
 
             </div>
@@ -36,12 +36,12 @@
     <div class="description-container">
 
         <section class="timeline-item-section">
-            <h2 class="timeline-item-title">Company</h2>
+            <h2 class="timeline-item-title">{{ item.education ? 'Institution' : 'Company' }}</h2>
             <p class="timeline-item-text-lead">{{ item.name }}</p>
         </section>
 
         <section class="timeline-item-section">
-            <h2 class="timeline-item-title">Position</h2>
+            <h2 class="timeline-item-title">{{ item.education ? 'Course' : 'Position' }}</h2>
             <p class="timeline-item-text-lead">{{ item.position }}</p>
         </section>
 
@@ -53,21 +53,31 @@
         <section ng-if="projects && projects.length" class="timeline-item-section">
             <h2 class="timeline-item-title">Projects</h2>
             <p class="timeline-item-text">
-                <a ng-repeat="p in projects" class="btn project-btn">{{p.title}}</a>
+                <a ng-repeat="p in projects" class="btn project-btn" ui-sref="main.work.gallery.item({itemId:p.id})">{{p.title}}</a>
             </p>
         </section>
 
         <section ng-if="skills && skills.length" class="timeline-item-section">
             <h2 class="timeline-item-title">Skills</h2>
             <p class="timeline-item-text">
-                <a ng-repeat="s in skills" class="btn project-btn">{{s}}</a>
+                <a ng-repeat="s in skills"
+                   tabindex="0"
+                   popover-trigger="focus"
+                   popover="{{s.description}}"
+                   popover-title="{{s.name}}"
+                   class="btn project-btn btn-popover">{{s.name}}</a>
             </p>
         </section>
 
         <section ng-if="languages && languages.length" class="timeline-item-section">
             <h2 class="timeline-item-title">Languages/Frameworks</h2>
             <p class="timeline-item-text">
-                <a ng-repeat="l in languages" class="btn project-btn">{{l}}</a>
+                <a ng-repeat="l in languages"
+                   tabindex="0"
+                   popover-trigger="focus"
+                   popover="{{l.description}}"
+                   popover-title="{{l.name}}"
+                   class="btn project-btn btn-popover">{{l.name}}</a>
             </p>
         </section>
 

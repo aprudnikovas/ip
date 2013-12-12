@@ -1,6 +1,6 @@
 angular.module('tApp')
-	.controller('WorkTimelineItemController', ['Companies','Projects','$scope','$stateParams',
-		function (Companies, Projects, $scope, $stateParams) {
+	.controller('WorkTimelineItemController', ['Companies','Projects','Skills','Languages','$scope','$stateParams',
+		function (Companies, Projects, Skills, Languages, $scope, $stateParams) {
 
 		var id, yearHeight, yearLabelHeight, monthHeight;
 
@@ -12,7 +12,7 @@ angular.module('tApp')
 
 		$scope.months = _.range(1, 13).reverse();
 
-		Companies.query(function(items){
+		Companies.getAll(function(items){
 
 			var fromDate, toDate, fromYear, toYear;
 
@@ -29,14 +29,22 @@ angular.module('tApp')
 			$scope.jobYears = _.range(fromYear, toYear + 1).reverse();
 
 			Projects.getAll(function(projects){
+
 				// company projects
 				$scope.projects = _.filter(projects, function(item){ return item.company_id === id });
 
 				// company skills
-				$scope.skills = _.flatten( _.pluck($scope.projects,'skills') );
+				Skills.getAll(function(skills){
+					var skillIds = _.flatten( _.pluck($scope.projects,'skills') );
+					$scope.skills = _.filter(skills, function(s){ return _.indexOf(skillIds, s.id) > -1 });
+				});
 
 				// company languages/frameworks used
-				$scope.languages = _.flatten( _.pluck($scope.projects,'languages') );
+				Languages.getAll(function(languages){
+					var languageIds = _.flatten( _.pluck($scope.projects,'languages') );
+					$scope.languages = _.filter(languages, function(l){ return _.indexOf(languageIds, l.id) > -1 });
+				});
+
 			})
 
 
