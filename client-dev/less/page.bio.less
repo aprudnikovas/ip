@@ -221,10 +221,10 @@
         }
 
         a .front {
-          transform: rotate3d(1,0,0,0deg);
+          transform: rotate3d(0,1,0,0deg);
         }
         a .back {
-          transform: rotate3d(1,0,0,180deg);
+          transform: scale(0) rotate3d(0,1,0,180deg);
           background: @page-bio-link;
           color: @page-bio-background;
         }
@@ -297,10 +297,11 @@
       ul > li > a.active {
 
         .front {
-          transform: rotate3d(0,1,0,180deg);
+          //transform: rotate3d(0,1,0,180deg);
         }
         .back {
-          transform: rotate3d(0,1,0, 0deg);
+          z-index: 5002;
+          transform: scale(1) rotate3d(0,1,0, 0deg);
         }
 
       }

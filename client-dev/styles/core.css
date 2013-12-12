@@ -6604,10 +6604,10 @@ td.visible-print {
   color: #888888;
 }
 #expertise .expertise-stripe .expertise-group ul > li a .front {
-  transform: rotate3d(1, 0, 0, 0deg);
+  transform: rotate3d(0, 1, 0, 0deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li a .back {
-  transform: rotate3d(1, 0, 0, 180deg);
+  transform: scale(0) rotate3d(0, 1, 0, 180deg);
   background: #d37575;
   color: #f8f8f8;
 }
@@ -6671,15 +6671,11 @@ td.visible-print {
 #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a .face {
   background-position: center -750px;
 }
-#expertise .expertise-stripe .expertise-group ul > li > a:hover .front,
-#expertise .expertise-stripe .expertise-group ul > li > a:focus .front,
-#expertise .expertise-stripe .expertise-group ul > li > a.active .front {
-  transform: rotate3d(0, 1, 0, 180deg);
-}
 #expertise .expertise-stripe .expertise-group ul > li > a:hover .back,
 #expertise .expertise-stripe .expertise-group ul > li > a:focus .back,
 #expertise .expertise-stripe .expertise-group ul > li > a.active .back {
-  transform: rotate3d(0, 1, 0, 0deg);
+  z-index: 5002;
+  transform: scale(1) rotate3d(0, 1, 0, 0deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li > a.active:before,
 #expertise .expertise-stripe .expertise-group ul > li > a.active:after {
@@ -6897,6 +6893,80 @@ body[class*="main_work"] .h6 {
 }
 #timeline {
   position: relative;
+}
+#timeline.timeline-single {
+  position: absolute;
+  right: 0;
+  margin-right: -12px;
+}
+#timeline.timeline-single .timeline-year .timeline-year-value {
+  font-size: 13px;
+}
+#timeline.timeline-single .timeline-year .timeline-month {
+  height: 12px;
+}
+#timeline.timeline-single .timeline-year .timeline-month .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #eeeeee;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+#timeline.timeline-single .timeline-job,
+#timeline.timeline-single .timeline-job:nth-child(even),
+#timeline.timeline-single .timeline-job:nth-child(odd) {
+  right: 50%;
+  left: initial;
+  margin-right: 50px;
+  margin-left: initial;
+}
+#timeline.timeline-single .timeline-job > :before,
+#timeline.timeline-single .timeline-job:nth-child(even) > :before,
+#timeline.timeline-single .timeline-job:nth-child(odd) > :before {
+  left: 0;
+  right: initial;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#timeline.timeline-single .timeline-job > :after,
+#timeline.timeline-single .timeline-job:nth-child(even) > :after,
+#timeline.timeline-single .timeline-job:nth-child(odd) > :after {
+  left: 0;
+  right: initial;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+#timeline.timeline-single .timeline-job .timeline-job-label,
+#timeline.timeline-single .timeline-job:nth-child(even) .timeline-job-label,
+#timeline.timeline-single .timeline-job:nth-child(odd) .timeline-job-label {
+  right: 25px;
+  left: initial;
+}
+#timeline.timeline-single .timeline-job .timeline-job-label:before,
+#timeline.timeline-single .timeline-job:nth-child(even) .timeline-job-label:before,
+#timeline.timeline-single .timeline-job:nth-child(odd) .timeline-job-label:before {
+  right: -6px;
+  left: initial;
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+#timeline.timeline-single .timeline-job-line-marker {
+  position: absolute;
+  right: 15px;
+  text-align: right;
+  font-size: 21px;
+  line-height: 1;
+  width: 10em;
+  font-family: "la_belle_auroreregular", sans-serif;
+}
+#timeline.timeline-single .timeline-job-line-marker.from {
+  bottom: -10px;
+}
+#timeline.timeline-single .timeline-job-line-marker.to {
+  top: -5px;
 }
 #timeline .timeline-year {
   position: relative;
@@ -7135,6 +7205,33 @@ body.main_work_gallery_item .project-title {
 }
 body.main_work_gallery_item .project-text {
   font-size: 16px;
+}
+.timeline-container,
+.description-container {
+  width: 50%;
+  float: left;
+  position: relative;
+}
+.timeline-container .timeline-item-section,
+.description-container .timeline-item-section {
+  margin-left: 40px;
+}
+.timeline-container .timeline-item-section .timeline-item-title,
+.description-container .timeline-item-section .timeline-item-title {
+  font-size: 14px;
+  color: #34aedd;
+  text-transform: lowercase;
+  margin: 0 0 5px;
+}
+.timeline-container .timeline-item-section .timeline-item-text-lead,
+.description-container .timeline-item-section .timeline-item-text-lead {
+  font-size: 21px;
+  margin: 0 0 20px;
+}
+.timeline-container .timeline-item-section .timeline-item-text,
+.description-container .timeline-item-section .timeline-item-text {
+  font-size: 16px;
+  margin: 0 0 20px;
 }
 .work-items {
   margin: 0 0 20px;

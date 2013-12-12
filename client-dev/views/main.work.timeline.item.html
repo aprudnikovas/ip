@@ -1,15 +1,76 @@
-<div class="col-md-9">
+<div class="col-sm-12 ">
 
-    <header><h2>Timeline Item</h2></header>
+    <div class="timeline-container" ng-attr-style="height:{{timelineBlockHeight()}}px;">
 
-    <section>
+        <div id="timeline" class="timeline-single">
 
-        <p>ID: {{ item.id }}</p>
-        <p>NAME: {{ item.name }}</p>
-        <p>POSITION: {{ item.position }}</p>
-        <p>FROM: {{ item.from }}</p>
-        <p>TO: {{ item.to }}</p>
+            <div class="timeline-year {{jobYears[0] + 1}}">
+                <div class="timeline-year-value">{{jobYears[0] + 1}}</div>
+            </div>
+            <div ng-repeat="year in jobYears" class="timeline-year {{year}}">
+                <div ng-repeat="month in months" class="timeline-month {{year}}">
+                    <div class="dot"></div>
+                </div>
+                <div class="timeline-year-value">{{year}}</div>
+            </div>
 
-    </section>
+
+            <div class="timeline-job"
+                 ng-attr-style="top:{{jobDistanceFromNow(item)}}px;">
+
+                <div class="timeline-job-line"
+                     ng-attr-style="height:{{jobLineHeight(item)}}px;top:-{{jobLineHeight(item)}}px">
+
+                    <div class="timeline-job-line-marker from">from {{ item.from | date:'MMMM, yyyy' }}</div>
+                    <div class="timeline-job-line-marker to">{{ item.to ? 'to ' : 'Still here' }}{{ item.to | date:'MMMM, yyyy' }}</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="description-container">
+
+        <section class="timeline-item-section">
+            <h2 class="timeline-item-title">Company</h2>
+            <p class="timeline-item-text-lead">{{ item.name }}</p>
+        </section>
+
+        <section class="timeline-item-section">
+            <h2 class="timeline-item-title">Position</h2>
+            <p class="timeline-item-text-lead">{{ item.position }}</p>
+        </section>
+
+        <section class="timeline-item-section">
+            <h2 class="timeline-item-title">Description</h2>
+            <p class="timeline-item-text">{{ item.description }}</p>
+        </section>
+
+        <section ng-if="projects && projects.length" class="timeline-item-section">
+            <h2 class="timeline-item-title">Projects</h2>
+            <p class="timeline-item-text">
+                <a ng-repeat="p in projects" class="btn project-btn">{{p.title}}</a>
+            </p>
+        </section>
+
+        <section ng-if="skills && skills.length" class="timeline-item-section">
+            <h2 class="timeline-item-title">Skills</h2>
+            <p class="timeline-item-text">
+                <a ng-repeat="s in skills" class="btn project-btn">{{s}}</a>
+            </p>
+        </section>
+
+        <section ng-if="languages && languages.length" class="timeline-item-section">
+            <h2 class="timeline-item-title">Languages/Frameworks</h2>
+            <p class="timeline-item-text">
+                <a ng-repeat="l in languages" class="btn project-btn">{{l}}</a>
+            </p>
+        </section>
+
+    </div>
 
 </div>
