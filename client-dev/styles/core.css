@@ -7234,6 +7234,8 @@ body.main_work_gallery_item .project-text {
   list-style: none;
   text-align: center;
   line-height: 1;
+  white-space: nowrap;
+  max-width: 100%;
 }
 .work-items > li {
   display: inline-block;
@@ -7242,10 +7244,14 @@ body.main_work_gallery_item .project-text {
 .work-items > li.active > a {
   border-bottom: 1px solid #d37575;
 }
+.work-items > li.work-items-thumb-wrap {
+  max-width: 13%;
+}
 .work-items > li > a {
   display: block;
   position: relative;
   width: 100px;
+  max-width: 100%;
   height: 60px;
   overflow: hidden;
   background-color: #ffffff;
@@ -7253,6 +7259,11 @@ body.main_work_gallery_item .project-text {
   color: #ffffff;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 700px) {
+  .work-items > li > a {
+    margin: 0;
+  }
 }
 .work-items > li:hover:not(.active) > a {
   bottom: 2px;
@@ -7279,7 +7290,7 @@ body.main_work_gallery_item .project-text {
   height: 50px;
   background: transparent;
   color: transparent;
-  border: 1px solid #c1272d;
+  border: 1px solid #d37575;
   border-radius: 25px;
   margin-bottom: 20px;
 }
@@ -7432,6 +7443,7 @@ body {
 .page > section {
   font-family: 'Dosis Light', sans-serif;
   color: #888888;
+  max-width: 100%;
 }
 .page > section > header {
   text-align: center;
