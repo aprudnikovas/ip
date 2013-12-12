@@ -165,16 +165,26 @@ body.main_work_gallery_item {
   color: @page-work-item-red;
   background: transparent;
   margin-right: 3px;
-  margin-top: 3px;
   border-top-color: transparent;
   border-radius: 0;
   transition: all ease 0.1s;
 
   &:hover,
   &:focus {
-    margin-top: 0;
-    background: transparent;
+    background-color: @page-work-item-red;
     border-color: @page-work-item-red;
-    border-bottom-width: 4px;
+    color:@page-work-item-white;
   }
+}
+
+.btn-popover:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-width: 0px 8px 8px 0px;
+  border-color: transparent transparent @page-work-item-red transparent;
+  border-style: solid;
+  display: block;
+  bottom: 0;
+  left: 0;
 }
