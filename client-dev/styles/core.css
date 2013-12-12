@@ -6818,70 +6818,6 @@ body[class*="main_work"] .h5,
 body[class*="main_work"] .h6 {
   font-family: 'Dosis Light', sans-serif;
 }
-.work-navigation .navbar {
-  border: 0;
-  background-color: transparent;
-  border-radius: 0;
-  border-bottom: 1px solid #d37575;
-  min-height: 30px;
-  margin-bottom: 40px;
-}
-.work-navigation .navbar .navbar-nav > li > a {
-  padding-bottom: 8px;
-  padding-top: 8px;
-  color: #d37575;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-.work-navigation .navbar .navbar-nav > li > a .caret {
-  border-top-color: #d37575;
-  border-bottom-color: #d37575;
-}
-.work-navigation .navbar .navbar-nav > .active > a,
-.work-navigation .navbar .navbar-nav > li > a:hover,
-.work-navigation .navbar .navbar-nav > li > a:focus,
-.work-navigation .navbar .navbar-nav > li > a:active {
-  background-color: transparent;
-  color: #d37575;
-  border-color: #d37575;
-}
-.work-navigation .navbar .navbar-nav > .active > a .caret,
-.work-navigation .navbar .navbar-nav > li > a:hover .caret,
-.work-navigation .navbar .navbar-nav > li > a:focus .caret,
-.work-navigation .navbar .navbar-nav > li > a:active .caret {
-  border-top-color: #d37575;
-  border-bottom-color: #d37575;
-}
-.work-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link {
-  border-top: 2px solid transparent;
-}
-.work-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link:hover,
-.work-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link:focus {
-  border-top-color: #d37575;
-}
-.work-navigation .navbar .navbar-nav > .filterdropdown_root.selected .filterdropdown_link {
-  border-top-color: #d37575;
-}
-.work-navigation .navbar + .navbar-filter {
-  margin-top: -40px;
-  margin-bottom: 30px;
-}
-.work-navigation .navbar.navbar-filter {
-  border: 0;
-}
-.work-navigation .navbar.navbar-filter .navbar-nav {
-  float: right;
-}
-.work-navigation .navbar.navbar-filter .navbar-nav > li > a {
-  border: 0;
-}
-.work-navigation .navbar-filter-toggler {
-  display: block;
-  padding: 6px 6px;
-  cursor: pointer;
-  color: #d37575;
-}
 .work-portfolio .thumbnail-title {
   display: block;
   text-align: center;
@@ -7380,6 +7316,70 @@ body.main_work_gallery_item .project-text {
 }
 .filterdropdown_root.filterdropdown_open > .filterdropdown_dropdown {
   display: block;
+}
+.page-navigation .navbar {
+  border: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid #d37575;
+  min-height: 30px;
+  margin-bottom: 40px;
+}
+.page-navigation .navbar .navbar-nav > li > a {
+  padding-bottom: 8px;
+  padding-top: 8px;
+  color: #d37575;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+.page-navigation .navbar .navbar-nav > li > a .caret {
+  border-top-color: #d37575;
+  border-bottom-color: #d37575;
+}
+.page-navigation .navbar .navbar-nav > .active > a,
+.page-navigation .navbar .navbar-nav > li > a:hover,
+.page-navigation .navbar .navbar-nav > li > a:focus,
+.page-navigation .navbar .navbar-nav > li > a:active {
+  background-color: transparent;
+  color: #d37575;
+  border-color: #d37575;
+}
+.page-navigation .navbar .navbar-nav > .active > a .caret,
+.page-navigation .navbar .navbar-nav > li > a:hover .caret,
+.page-navigation .navbar .navbar-nav > li > a:focus .caret,
+.page-navigation .navbar .navbar-nav > li > a:active .caret {
+  border-top-color: #d37575;
+  border-bottom-color: #d37575;
+}
+.page-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link {
+  border-top: 2px solid transparent;
+}
+.page-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link:hover,
+.page-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link:focus {
+  border-top-color: #d37575;
+}
+.page-navigation .navbar .navbar-nav > .filterdropdown_root.selected .filterdropdown_link {
+  border-top-color: #d37575;
+}
+.page-navigation .navbar + .navbar-filter {
+  margin-top: -40px;
+  margin-bottom: 30px;
+}
+.page-navigation .navbar.navbar-filter {
+  border: 0;
+}
+.page-navigation .navbar.navbar-filter .navbar-nav {
+  float: right;
+}
+.page-navigation .navbar.navbar-filter .navbar-nav > li > a {
+  border: 0;
+}
+.page-navigation .navbar-filter-toggler {
+  display: block;
+  padding: 6px 6px;
+  cursor: pointer;
+  color: #d37575;
 }
 html,
 body {
