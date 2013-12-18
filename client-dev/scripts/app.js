@@ -1,9 +1,19 @@
 angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','ui.event'])
-	.run(function($rootScope) {
+	.run(function($rootScope,$timeout) {
 		$rootScope.menuIsActive = false;
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
-				$rootScope.stateName = toState.name.replace(/\./g,'_');
+
+				var stateName = toState.name.replace(/\./g,'_');
+
+				$rootScope.stateName = stateName + " animationPending ";
+
+				$rootScope.animationStartChange = false;
+				$timeout(function() {
+					$rootScope.animationStartChange = true;
+					$rootScope.stateName = stateName + " animationExecute ";
+				}, 50);
+
 			})
 	})
 	.config(['$stateProvider', '$urlRouterProvider',
@@ -109,5 +119,14 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 					}
 				}
 			})
+			.state("main.hire.form", {
+				url: "/form",
+				views: {
+					"hireContent" : {
+						templateUrl: 'views/main.hire.form.html'
+					}
+				}
+			})
+
 
   }]);

@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="styles/core.css">
 
 </head>
-  <body ng-app="tApp" ng-class="stateName">
+  <body ng-app="tApp" ng-class="stateName" >
 
-    <div ui-view="navigation"></div>
+    <div ui-view="navigation" ></div>
 
     <div class="main-content">
-        <div class="main" ui-view="main"></div>
+        <div class="main page-wrapper" ui-view="main" ></div>
         <div class="footer" ui-view="footer"></div>
     </div>
 
@@ -36,6 +36,7 @@
 
     <script src="scripts/directives/directives.js"></script>
 
+    <script src="scripts/factories/animations.js"></script>
     <script src="scripts/factories/companies.js"></script>
     <script src="scripts/factories/languages.js"></script>
     <script src="scripts/factories/projects.js"></script>

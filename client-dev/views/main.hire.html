@@ -7,38 +7,21 @@
 
         <div class="row">
 
-        <div class="page-navigation clearfix">
+            <div class="page-navigation clearfix">
 
-            <div class="col-md-8 col-md-offset-2 ">
-                <nav class="navbar navbar-default " role="navigation">
-                    <ul class="nav navbar-nav">
-                        <li><a>Current Locations</a></li>
-                        <li><a>Future Considerations</a></li>
-                        <li><a>Contact Form</a></li>
-                        <li><a>Documents</a></li>
-                    </ul>
-                </nav>
+                <div class="col-md-8 col-md-offset-2 ">
+                    <nav class="navbar navbar-default " role="navigation">
+                        <ul class="nav navbar-nav">
+                            <li><a ui-sref="main.hire.locations">Current Locations</a></li>
+                            <li><a ui-sref="main.hire.future">Future Considerations</a></li>
+                            <li><a ui-sref="main.hire.form">Contact Form</a></li>
+                            <li><a ui-sref="main.hire.documents">Documents</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
 
-
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non neque non turpis placerat sodales. Sed
-            varius lorem in lacus faucibus eleifend. Aliquam hendrerit lectus sed rutrum feugiat. Etiam ipsum mauris,
-            fringilla vel nulla at, interdum sodales arcu. Donec a sagittis velit, sit amet tristique velit. Aliquam a
-            metus massa. Quisque viverra tristique lectus, in ultricies mauris aliquam iaculis. Suspendisse eu nunc vel
-            nulla consequat tempor at a magna. Suspendisse pretium, massa in feugiat rutrum, ligula purus lobortis
-            turpis, vitae viverra dui nibh sit amet purus.</p>
-
-        <p>Donec vitae lectus dui. Mauris leo nulla, sagittis at vehicula ac, adipiscing vel eros. Quisque enim dui,
-            blandit quis libero vel, rhoncus vehicula mi. Praesent lobortis laoreet ultricies. Donec condimentum purus
-            sollicitudin massa consequat, ut tincidunt mauris tristique. Maecenas eleifend nisl erat, eu lobortis ante
-            suscipit sit amet. Sed suscipit pulvinar dui nec luctus. Cras tincidunt molestie leo, vitae lobortis purus.
-            Pellentesque sed sem euismod, consequat felis ac, adipiscing augue. Vivamus nec augue risus. Vivamus in
-            purus bibendum, mattis justo quis, vehicula massa. Aenean non augue id purus fringilla adipiscing in vitae
-            dolor. Maecenas vel sapien sit amet nisl malesuada volutpat quis imperdiet augue. Aliquam eu aliquet dui.
-            Proin tincidunt sapien quam, ut ultricies eros vulputate sed.</p>
-
+            <div class="" ui-view="hireContent"></div>
 
         </div>
 
