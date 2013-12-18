@@ -1,11 +1,11 @@
-<div class="page-navigation clearfix">
+<div class="page-navigation clearfix ">
 
     <div class="col-md-8 col-md-offset-2 ">
 
         <nav class="navbar navbar-default " role="navigation">
             <ul class="nav navbar-nav">
-                <li ng-class="stateName === 'main_work_gallery' ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
-                <li ng-class="stateName === 'main_work_timeline' ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
+                <li ng-class="stateName.indexOf('main_work_gallery') > -1 ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
+                <li ng-class="stateName.indexOf('main_work_timeline') > -1 ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
             </ul>
         </nav>
 
@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<div class="projects-gallery clearfix">
+<div class="projects-gallery clearfix {{animationClass}}">
 
     <div class="col-md-8 col-md-offset-2 ">
 

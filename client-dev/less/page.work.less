@@ -313,7 +313,6 @@ body[class*="main_work"] {
       height: 23px;
       line-height: 16px;
       font-size: 13px;
-      transition: all ease 0.1s;
     }
 
     &:hover,
@@ -327,6 +326,64 @@ body[class*="main_work"] {
       }
     }
 
+  }
+
+
+  // .animate_progress.animate_out - hides and moves left
+  // .animate_out.animate_prepare - hides and moves left
+  // .animate_in.animate_prepare - moves hidden right
+  // .animate_progress.animate_in - moves back from right and shows
+
+
+  // ANIMATIONS
+  &.animate_progress {
+
+    &.animate_out {
+      transition: all ease-out 0.1s;
+      opacity: 0;
+
+      &.animate_type_left {
+        transform: translateX(30%); // move right
+      }
+      &.animate_type_right {
+        transform: translateX(-30%); // move left
+      }
+    }
+
+    &.animate_in {
+      transform: translateX(0); // move back
+      opacity: 1;
+      &:not(.animate_type_fade){
+        transition: all ease-in-out 0.1s;
+      }
+      &.animate_type_fade {
+        transition: all ease-in-out 0.5s;
+      }
+    }
+  }
+
+  &.animate_prepare {
+    &.animate_out {
+      opacity: 0;
+
+      &.animate_type_left {
+        transform: translateX(30%); // move right
+      }
+      &.animate_type_right {
+        transform: translateX(-30%); // move left
+      }
+    }
+
+    &.animate_in {
+      opacity: 0;
+
+      &.animate_type_left {
+        transform: translateX(-30%); // move left
+      }
+      &.animate_type_right {
+        transform: translateX(30%); // move right
+      }
+    }
   }
 
 }

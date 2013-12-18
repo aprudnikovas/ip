@@ -57,6 +57,58 @@ body.main_work_gallery_item {
   white-space: nowrap;
   max-width: 100%;
 
+  // ANIMATIONS
+  &.animate_progress {
+
+    &.animate_out {
+      transition: all ease-out 0.1s;
+      opacity: 0;
+
+      &.animate_type_left {
+        transform: translateX(30%); // move right
+      }
+      &.animate_type_right {
+        transform: translateX(-30%); // move left
+      }
+    }
+
+    &.animate_in {
+      transform: translateX(0); // move back
+      opacity: 1;
+      &:not(.animate_type_fade){
+        transition: all ease-in-out 0.1s;
+      }
+      &.animate_type_fade {
+        transition: all ease-in-out 0.5s;
+      }
+    }
+  }
+
+  &.animate_prepare {
+    &.animate_out {
+      opacity: 0;
+
+      &.animate_type_left {
+        transform: translateX(30%); // move right
+      }
+      &.animate_type_right {
+        transform: translateX(-30%); // move left
+      }
+    }
+
+    &.animate_in {
+      opacity: 0;
+
+      &.animate_type_left {
+        transform: translateX(-30%); // move left
+      }
+      &.animate_type_right {
+        transform: translateX(30%); // move right
+      }
+    }
+  }
+
+
   > li {
     display: inline-block;
     position: relative;

@@ -1,12 +1,12 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout','$stateParams',
-		function (Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout,$stateParams) {
+	.controller('WorkGalleryController', ['Animations','Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout','$stateParams',
+		function (Animations,Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout,$stateParams) {
 
 			var
 				codeTimer, DEFAULT_MAX, DEFAULT_OFFSET,
 				searchFilter, pagination,
 				allProjects, allCompanies, allSkills, allLanguages, years,
-				rootSearch, active_project_id
+				rootSearch
 				;
 
 			DEFAULT_MAX = 6;
@@ -16,7 +16,7 @@ angular.module('tApp')
 			 * use project id when viewing one item
 			 * @type {*}
 			 */
-			$scope.active_project_id = $stateParams.itemId;
+			$scope.active_project_id = $stateParams["itemId"];
 
 			/**
 			 * Populate array of available years
@@ -25,11 +25,11 @@ angular.module('tApp')
 			years = $scope.years = _.reduce(
 					( _.range(2003, (new Date).getFullYear() + 1).reverse() ),
 					function(memo, year){
-						memo.push( { year:year, selected:false } )
+						memo.push( { year:year, selected:false } );
 						return memo;
 					},
 					[]
-				)
+				);
 
 			/**
 			 * Main search, observable search object
@@ -52,14 +52,15 @@ angular.module('tApp')
 				offset : DEFAULT_OFFSET,
 				nextOffset: null,
 				prevOffset: null
-			}
+			};
 
 			/**
 			 * Save search params for reuse when coming back
 			 * from single project view
 			 */
 			function updateLocationSearch(){
-				var updatedSearchObject = _.extend( _.omit(searchFilter, 'ttt'), _.omit(pagination, ["nextOffset","prevOffset"]), {} );
+				var updatedSearchObject;
+				updatedSearchObject = _.extend(_.omit(searchFilter, 'ttt'), _.omit(pagination, ["nextOffset", "prevOffset"]), {});
 				$rootScope.gallerySearch = updatedSearchObject;
 			}
 
@@ -92,6 +93,7 @@ angular.module('tApp')
 
 			$scope.$watch( 'searchFilter', filterAndSortPortfolio, true);
 
+
 			/**
 			 * one big massive filter function
 			 * Will filter results based on filter contents.
@@ -101,134 +103,167 @@ angular.module('tApp')
 			 */
 			function filterAndSortPortfolio(){
 
-				var filtered, filteredByProperty = allProjects;
-				$scope.projects = [];
+				executeFilter(function(projects){
 
-				// filter
-				if(searchFilter.company_ids.length){
-					filteredByProperty = _.filter(filteredByProperty, function(proj){
-						return _.contains(searchFilter.company_ids, proj.company_id )
-					});
+					paginate(projects, function(filteredAndPaginated, dir){
+						// save preferences
+						updateLocationSearch();
 
-					// reflect selected companies
-					_.each(allCompanies, function(obj, index, list){
-						if( _.indexOf(searchFilter.company_ids, obj.id) > -1 ){
-							obj.selected = true;
+						if($scope.projects && $scope.projects.length && Animations.type[dir] !== Animations.type.none ){
+							Animations.animateData($scope, {
+								data: filteredAndPaginated,
+								dataVarName: "projects",
+								animateVar: "animationClass",
+								type: Animations.type[dir]
+							});
 						} else {
-							obj.selected = false;
+							Animations.animateData($scope, {
+								data: filteredAndPaginated,
+								dataVarName: "projects",
+								animateVar: "animationClass",
+								type: Animations.type["fade"],
+								doAnimateOut: false,
+								duration : { in: 500 }
+							});
 						}
 					});
-				} else {
-					_.each(allCompanies, function(obj, index, list){
-						obj.selected = false;
-					});
+
+				});
+
+
+				function executeFilter(callback){
+
+					var filteredByProperty = allProjects;
+
+					// filter
+					if(searchFilter.company_ids.length){
+						filteredByProperty = _.filter(filteredByProperty, function(proj){
+							return _.contains(searchFilter.company_ids, proj["company_id"] );
+						});
+
+						// reflect selected companies
+						_.each(allCompanies, function(obj, index, list){
+							obj.selected = _.indexOf(searchFilter.company_ids, obj.id) > -1;
+						});
+					} else {
+						_.each(allCompanies, function(obj, index, list){
+							obj.selected = false;
+						});
+					}
+
+					if(searchFilter.years.length){
+
+						filteredByProperty = _.filter(filteredByProperty, function(proj){
+
+							// check if project from/to fields value matches
+							// years selected
+
+							var fromDate = new Date(), fromYear, toDate = new Date(), toYear,
+								yearsToCheck = [], contains;
+
+							if(proj.from){
+								fromDate.setTime(proj.from)
+							}
+							if(proj.to){
+								toDate.setTime(proj.to)
+							}
+
+							fromYear = fromDate.getFullYear();
+							toYear = toDate.getFullYear();
+
+							if(fromYear === toYear)
+								yearsToCheck = [toYear];
+							else
+								yearsToCheck = _.range(fromYear,toYear);
+
+							contains = _.some(searchFilter.years, function(yearValue){
+								return _.contains(yearsToCheck, yearValue )
+							});
+
+							return contains;
+						});
+
+						// reflect selected years
+						_.each(years, function(obj, index, list){
+							obj.selected = _.indexOf(searchFilter.years, obj.year) > -1;
+						});
+
+					} else {
+						_.each(years, function(obj, index, list){
+							obj.selected = false;
+						});
+					}
+
+					if(searchFilter.skill_ids.length){
+						filteredByProperty = _.filter(filteredByProperty, function(proj){
+							return _.some(searchFilter.skill_ids, function(filterSkillId){
+								return _.contains(proj.skills, filterSkillId )
+							})
+						});
+
+						// reflect selected skills
+						_.each(allSkills, function(obj, index, list){
+							obj.selected = _.indexOf(searchFilter.skill_ids, obj.id) > -1;
+						});
+					} else {
+						_.each(allSkills, function(obj, index, list){
+							obj.selected = false;
+						});
+					}
+
+					if(searchFilter.language_ids.length){
+						filteredByProperty = _.filter(filteredByProperty, function(proj){
+							return _.some(searchFilter.language_ids, function(filterLanguageId){
+								return _.contains(proj.languages, filterLanguageId )
+							})
+						});
+
+						// reflect selected languages
+						_.each(allLanguages, function(obj, index, list){
+							obj.selected = _.indexOf(searchFilter.language_ids, obj.id) > -1;
+						});
+					} else {
+						_.each(allLanguages, function(obj, index, list){
+							obj.selected = false;
+						});
+					}
+
+					if(callback != null && typeof callback === 'function'){
+						callback(filteredByProperty);
+					} else {
+						throw new Error("fn executeFilter requires callback function");
+					}
+
+				} // end executeFilter()
+
+
+				function paginate(projects,callback){
+
+					var paginated, direction;
+
+					if( pagination.offset === pagination.prevOffset ){
+						direction = Animations.type.left;
+					} else if ( pagination.offset === pagination.nextOffset ){
+						direction = Animations.type.right;
+					} else {
+						direction = Animations.type.none;
+					}
+
+					// save pagination details
+					pagination.prevOffset = (pagination.offset - pagination.max) > -1 ? (pagination.offset - pagination.max) : null;
+					pagination.nextOffset = (pagination.offset + pagination.max) >= projects.length ? null : (pagination.offset + pagination.max);
+
+					// paginate results
+					paginated = projects.slice(pagination.offset,(pagination.max + pagination.offset));
+
+					if(callback != null && typeof callback === 'function'){
+						callback(paginated,direction);
+					} else {
+						throw Error("fn paginate requires callback function");
+					}
+
 				}
 
-				if(searchFilter.years.length){
-
-					filteredByProperty = _.filter(filteredByProperty, function(proj){
-
-						// check if project from/to fields value matches
-						// years selected
-
-						var fromDate, fromYear, toDate, toYear,
-							yearsToCheck = [], contains = false;
-
-						fromDate = new Date();
-						toDate = new Date();
-
-						if(proj.from){
-							fromDate.setTime(proj.from)
-						}
-						if(proj.to){
-							toDate.setTime(proj.to)
-						}
-
-						fromYear = fromDate.getFullYear();
-						toYear = toDate.getFullYear();
-
-						if(fromYear === toYear)
-							yearsToCheck = [toYear];
-						else
-							yearsToCheck = _.range(fromYear,toYear)
-
-						contains = _.some(searchFilter.years, function(yearValue){
-							return _.contains(yearsToCheck, yearValue )
-						})
-
-						return contains;
-					});
-
-					// reflect selected years
-					_.each(years, function(obj, index, list){
-						if( _.indexOf(searchFilter.years, obj.year) > -1 ){
-							obj.selected = true;
-						} else {
-							obj.selected = false;
-						}
-					});
-
-				} else {
-					_.each(years, function(obj, index, list){
-						obj.selected = false;
-					});
-				}
-
-				if(searchFilter.skill_ids.length){
-					filteredByProperty = _.filter(filteredByProperty, function(proj){
-						return _.some(searchFilter.skill_ids, function(filterSkillId){
-							return _.contains(proj.skills, filterSkillId )
-						})
-					});
-
-					// reflect selected skills
-					_.each(allSkills, function(obj, index, list){
-						if( _.indexOf(searchFilter.skill_ids, obj.id) > -1 ){
-							obj.selected = true;
-						} else {
-							obj.selected = false;
-						}
-					});
-				} else {
-					_.each(allSkills, function(obj, index, list){
-						obj.selected = false;
-					});
-				}
-
-				if(searchFilter.language_ids.length){
-					filteredByProperty = _.filter(filteredByProperty, function(proj){
-						return _.some(searchFilter.language_ids, function(filterLanguageId){
-							return _.contains(proj.languages, filterLanguageId )
-						})
-					});
-
-					// reflect selected languages
-					_.each(allLanguages, function(obj, index, list){
-						if( _.indexOf(searchFilter.language_ids, obj.id) > -1 ){
-							obj.selected = true;
-						} else {
-							obj.selected = false;
-						}
-					});
-				} else {
-					_.each(allLanguages, function(obj, index, list){
-						obj.selected = false;
-					});
-				}
-
-				// sort
-
-				// save pagination details
-				pagination.prevOffset = (pagination.offset - pagination.max) > -1 ? (pagination.offset - pagination.max) : null;
-				pagination.nextOffset = (pagination.offset + pagination.max) >= filteredByProperty.length ? null : (pagination.offset + pagination.max)
-
-				// paginate results
-				filtered = filteredByProperty.slice(pagination.offset,(pagination.max + pagination.offset));
-
-				// save preferences
-				updateLocationSearch();
-
-				$scope.projects = filtered;
 			}
 
 
@@ -239,66 +274,66 @@ angular.module('tApp')
 			$scope.toggleCompany = function(companyId){
 
 				// RESET MAX & OFFSET
-				pagination.offset = DEFAULT_OFFSET
-				pagination.max = DEFAULT_MAX
+				pagination.offset = DEFAULT_OFFSET;
+				pagination.max = DEFAULT_MAX;
 
 				// update search filter
 				if(companyId != null){
 					if( _.indexOf(searchFilter.company_ids, companyId) > -1 ){
-						searchFilter.company_ids = _.difference(searchFilter.company_ids, [companyId])
+						searchFilter.company_ids = _.difference(searchFilter.company_ids, [companyId]);
 					} else {
-						searchFilter.company_ids = _.union(searchFilter.company_ids, [companyId])
+						searchFilter.company_ids = _.union(searchFilter.company_ids, [companyId]);
 					}
 				} else {
 					searchFilter.company_ids = [];
 				}
 
 				// TRIGGER CHANGE
-				searchFilter.ttt = (new Date).getTime()
-			}
+				searchFilter.ttt = (new Date).getTime();
+			};
 
 			$scope.toggleYear = function(y){
 
 				// RESET MAX & OFFSET
-				pagination.offset = DEFAULT_OFFSET
-				pagination.max = DEFAULT_MAX
+				pagination.offset = DEFAULT_OFFSET;
+				pagination.max = DEFAULT_MAX;
 
 				if(y != null){
 					// update search filter
 					if( _.indexOf(searchFilter.years, y) > -1 ){
-						searchFilter.years = _.difference(searchFilter.years, [y])
+						searchFilter.years = _.difference(searchFilter.years, [y]);
 					} else {
-						searchFilter.years = _.union(searchFilter.years, [y])
+						searchFilter.years = _.union(searchFilter.years, [y]);
 					}
 				} else {
 					searchFilter.years = [];
 				}
 
 				// TRIGGER CHANGE
-				searchFilter.ttt = (new Date).getTime()
-			}
+				searchFilter.ttt = (new Date).getTime();
+			};
 
 			$scope.toggleSkill = function(id){
 
 				// RESET MAX & OFFSET
-				pagination.offset = DEFAULT_OFFSET
-				pagination.max = DEFAULT_MAX
+				pagination.offset = DEFAULT_OFFSET;
+				pagination.max = DEFAULT_MAX;
 
 				if(id != null){
 					// update search filter
 					if( _.indexOf(searchFilter.skill_ids, id) > -1 ){
-						searchFilter.skill_ids = _.difference(searchFilter.skill_ids, [id])
+						searchFilter.skill_ids = _.difference(searchFilter.skill_ids, [id]);
 					} else {
-						searchFilter.skill_ids = _.union(searchFilter.skill_ids, [id])
+						searchFilter.skill_ids = _.union(searchFilter.skill_ids, [id]);
 					}
 				} else {
 					searchFilter.skill_ids = [];
 				}
 
 				// TRIGGER CHANGE
-				searchFilter.ttt = (new Date).getTime()
+				searchFilter.ttt = (new Date).getTime();
 
-			}
+			};
 
 			$scope.toggleLanguage = function(id){
 
@@ -308,18 +343,18 @@ angular.module('tApp')
 
 				if(id != null){
 					if( _.indexOf(searchFilter.language_ids, id) > -1 ){
-						searchFilter.language_ids = _.difference(searchFilter.language_ids, [id])
+						searchFilter.language_ids = _.difference(searchFilter.language_ids, [id]);
 					} else {
-						searchFilter.language_ids = _.union(searchFilter.language_ids, [id])
+						searchFilter.language_ids = _.union(searchFilter.language_ids, [id]);
 					}
 				} else {
 					searchFilter.language_ids = [];
 				}
 
 				// TRIGGER CHANGE
-				searchFilter.ttt = (new Date).getTime()
+				searchFilter.ttt = (new Date).getTime();
 
-			}
+			};
 
 
 			// public methods allowing pagination
@@ -327,21 +362,21 @@ angular.module('tApp')
 
 			$scope.prevPage = function(){
 				if(pagination.prevOffset != null){
-					pagination.offset = pagination.prevOffset
+					pagination.offset = pagination.prevOffset;
 
 					// trigger change to filter
 					searchFilter.ttt = (new Date).getTime()
 				}
-			}
+			};
 
 			$scope.nextPage = function(){
 				if(pagination.nextOffset != null){
-					pagination.offset = pagination.nextOffset
+					pagination.offset = pagination.nextOffset;
 
 					// trigger change to filter
 					searchFilter.ttt = (new Date).getTime()
 				}
-			}
+			};
 
 
 			// other public methods
@@ -349,12 +384,12 @@ angular.module('tApp')
 
 			$scope.isAnyItemSelected = function(itemObjectList){
 				return _.some(itemObjectList,function(x){return x.selected})
-			}
+			};
 
 
 			// MOVING TEXT
 			///////////////////
-			$scope.codeText = '010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001'
+			$scope.codeText = '010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001';
 
 			$scope.execCodeTimer = function(){
 				codeTimer = $timeout(function() {
@@ -366,12 +401,12 @@ angular.module('tApp')
 					$scope.execCodeTimer();
 
 				}, 200);
-			}
+			};
 
 
 			// EXECUTE TIMERS
 			//////////////////////
-			$scope.execCodeTimer()
+			$scope.execCodeTimer();
 
 
 			// CLEANUP
