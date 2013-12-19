@@ -12,10 +12,10 @@
                 <div class="col-md-8 col-md-offset-2 ">
                     <nav class="navbar navbar-default " role="navigation">
                         <ul class="nav navbar-nav">
-                            <li><a ui-sref="main.hire.locations">Current Locations</a></li>
-                            <li><a ui-sref="main.hire.future">Future Considerations</a></li>
-                            <li><a ui-sref="main.hire.form">Contact Form</a></li>
-                            <li><a ui-sref="main.hire.documents">Documents</a></li>
+                            <li ng-class="stateName.indexOf('main_hire ') > -1 ? 'active' : ''"><a ui-sref="main.hire">Contact Form</a></li>
+                            <li ng-class="stateName.indexOf('main_hire_locations') > -1 ? 'active' : ''"><a ui-sref="main.hire.locations">Current Locations</a></li>
+                            <li ng-class="stateName.indexOf('main_hire_future') > -1 ? 'active' : ''"><a ui-sref="main.hire.future">Future Considerations</a></li>
+                            <li ng-class="stateName.indexOf('main_hire_documents') > -1 ? 'active' : ''"><a ui-sref="main.hire.documents">Documents</a></li>
                         </ul>
                     </nav>
                 </div>

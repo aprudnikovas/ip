@@ -116,14 +116,33 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 					"main@" : {
 						templateUrl: 'views/main.hire.html',
 						controller: 'HireController'
+					},
+					"hireContent@main.hire" : {
+						templateUrl: 'views/main.hire.form.html'
 					}
 				}
 			})
-			.state("main.hire.form", {
-				url: "/form",
+			.state("main.hire.locations", {
+				url: "/locations",
 				views: {
 					"hireContent" : {
-						templateUrl: 'views/main.hire.form.html'
+						templateUrl: 'views/main.hire.locations.html'
+					}
+				}
+			})
+			.state("main.hire.future", {
+				url: "/future",
+				views: {
+					"hireContent" : {
+						templateUrl: 'views/main.hire.future.html'
+					}
+				}
+			})
+			.state("main.hire.documents", {
+				url: "/documents",
+				views: {
+					"hireContent" : {
+						templateUrl: 'views/main.hire.documents.html'
 					}
 				}
 			})
