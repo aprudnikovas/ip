@@ -1,0 +1,87 @@
+<div class="page-navigation clearfix">
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <nav class="navbar navbar-default" role="navigation">
+            <ul class="nav navbar-nav">
+                <li ng-class="stateName.indexOf('main_work_gallery') > -1 ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
+                <li ng-class="stateName.indexOf('main_work_timeline') > -1 ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
+            </ul>
+        </nav>
+
+        <nav class="navbar navbar-filter" role="navigation">
+            <ul class="nav navbar-nav">
+                <filterdropdown title="Companies" class="{{ isAnyItemSelected(companies) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(companies)" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
+                    <a class="navbar-filter-toggler" ng-repeat="c in companies" tabindex="-1" ng-click="toggleCompany(c.id)">
+                        <i class="glyphicon" ng-class="c.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{c.name}}
+                    </a>
+
+                </filterdropdown>
+                <filterdropdown title="Years" class="{{ isAnyItemSelected(years) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(years)" ng-click="toggleYear()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
+                    <a class="navbar-filter-toggler" ng-repeat="obj in years" tabindex="-1" ng-click="toggleYear(obj.year)">
+                        <i class="glyphicon" ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.year}}
+                    </a>
+
+                </filterdropdown>
+                <filterdropdown title="Skills" class="{{ isAnyItemSelected(skills) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(skills)" ng-click="toggleSkill()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
+                    <a class="navbar-filter-toggler" ng-repeat="obj in skills" tabindex="-1" ng-click="toggleSkill(obj.id)">
+                        <i class="glyphicon" ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
+                    </a>
+
+                </filterdropdown>
+                <filterdropdown title="Languages" class="{{ isAnyItemSelected(languages) ? 'selected' : 'not-selected' }}">
+
+                    <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(languages)" ng-click="toggleLanguage()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
+
+                    <a class="navbar-filter-toggler" ng-repeat="obj in languages" tabindex="-1" ng-click="toggleLanguage(obj.id)">
+                        <i class="glyphicon" ng-class="obj.selected ? 'glyphicon-ok-sign' : 'glyphicon-unchecked' "></i> {{obj.name}}
+                    </a>
+
+                </filterdropdown>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+<div class="projects-gallery clearfix {{animationClass}}">
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <div class="row">
+
+        <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
+            <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
+                <div class="projects-gallery-item-image">
+                    <img src="#">
+                </div>
+                <span class="projects-gallery-item-label">{{project.title}}</span>
+            </a>
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<nav class="projects-gallery-pagination">
+    <div class="projects-gallery-pagination-previous">
+        <a ng-if="pagination.prevOffset != null" tabindex="0" ng-click="prevPage()" ui-keypress="{13:'prevPage()'}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a ng-if="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    </div>
+    <div class="projects-gallery-pagination-next">
+        <a ng-if="pagination.nextOffset != null" tabindex="0" ng-click="nextPage()" ui-keypress="{13:'nextPage()'}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a ng-if="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</nav>
