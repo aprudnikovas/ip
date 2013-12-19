@@ -57,7 +57,7 @@ module.exports = function (grunt) {
       }
     },
     autoprefixer: {
-      options: ['last 1 version'],
+      options: ['last 10 version', 'ie 8', 'ie 7'],
       dist: {
         files: [{
           expand: true,
@@ -143,7 +143,7 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= yeoman.dist %>/fonts/*'
           ]
         }
       }
@@ -182,17 +182,31 @@ module.exports = function (grunt) {
       }
     },
     cssmin: {
-      // By default, your `index.html` <!-- Usemin Block --> will take care of
-      // minification. This option is pre-configured if you do not wish to use
-      // Usemin blocks.
-      // dist: {
-      //   files: {
-      //     '<%= yeoman.dist %>/styles/main.css': [
-      //       '.tmp/styles/{,*/}*.css',
-      //       '<%= yeoman.app %>/styles/{,*/}*.css'
-      //     ]
-      //   }
-      // }
+		options: {
+			banner:"" +
+				"/************************************************************************************* \n" +
+				"                            ____                                                       \n" +
+				"  ||                       ||   |                   ||            ||                   \n" +
+				"  ||          ____   ___   ||   |  ___           ___||    ___     || //   ___          \n" +
+				"  || \\\\    / //   | ||  |  ||___/ ||  | ||   |  /   || ||/   \\ || ||//  //   \\ \\\\    / \n" +
+				"  ||  \\\\  /  ||   | ||     ||     ||    ||   |  |   || ||    | || ||\\\\  ||   |  \\\\  /  \n" +
+				"  ||   \\\\/   \\\\___| ||     ||     ||    ||___|_ \\___|| ||    | || || \\\\ \\\\___/   \\\\/   \n" +
+				" \n" +
+				"  ************************************************************************************ \n" +
+				" \n" +
+				"  Stupid isn't it :D:D:D \n" +
+				" \n" +
+				"  ************************************************************************************/ \n",
+			report: 'min'
+		},
+      dist: {
+         files: {
+           '<%= yeoman.dist %>/styles/core.css': [
+             '.tmp/styles/{,*/}*.css',
+             '<%= yeoman.app %>/styles/{,*/}*.css'
+           ]
+         }
+      }
     },
     htmlmin: {
       dist: {
@@ -228,7 +242,8 @@ module.exports = function (grunt) {
             '.htaccess',
             'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',
-            'styles/fonts/*'
+            'fonts/*',
+			'data/{,*/}*'
           ]
         }, {
           expand: true,
