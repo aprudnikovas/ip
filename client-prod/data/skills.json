@@ -1,0 +1,32 @@
+[
+	{
+		"id": "1",
+		"name": "Illustrator",
+		"description":""
+	},
+	{
+		"id": "2",
+		"name": "Photoshop",
+		"description":""
+	},
+	{
+		"id": "3",
+		"name": "Version control",
+		"description":"GIT, SVN"
+	},
+	{
+		"id": "4",
+		"name": "Linux",
+		"description":""
+	},
+	{
+		"id": "5",
+		"name": "AWS",
+		"description":""
+	},
+	{
+		"id": "6",
+		"name": "Documentation",
+		"description":""
+	}
+]

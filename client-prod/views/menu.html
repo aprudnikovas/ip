@@ -1,0 +1,34 @@
+<div class="navigation" ng-class="{active:menuIsActive}" ng-controller="MenuController">
+    <nav class="navigation-main">
+        <a tabindex="0" class="navigation-toggler" ng-click="toggleNavigation()" ui-keypress="{13:'toggleNavigation()'}">
+            <span class="navigation-toggler-bar"></span>
+            <span class="navigation-toggler-bar"></span>
+            <span class="navigation-toggler-bar"></span>
+        </a>
+        <ul ui-event="{ mouseenter : 'mouseOpenNavigation()', mouseleave : 'mouseHideNavigation()' } ">
+            <li class="home">
+                <a ui-sref="main.home" ng-attr-tabindex="{{menuIsActive ? '0' : '-1'}}">
+                    <span class="">ip</span>
+                </a>
+            </li>
+            <li ng-class="{active: stateMatches('main.bio')}">
+                <a ui-sref="main.bio" ng-attr-tabindex="{{menuIsActive ? '0' : '-1'}}">
+                <span class="navigation-bg navigation-bg-bio"></span>
+                <span class="jumping-letter">Bio</span>
+                </a>
+            </li>
+            <li ng-class="{active: stateMatches('main.work')}">
+                <a ui-sref="main.work.gallery" ng-attr-tabindex="{{menuIsActive ? '0' : '-1'}}">
+                    <span class="navigation-bg navigation-bg-work"></span>
+                    <span class="jumping-letter">Work</span>
+                </a>
+            </li>
+            <li ng-class="{active: stateMatches('main.hire')}">
+                <a ui-sref="main.hire" ng-attr-tabindex="{{menuIsActive ? '0' : '-1'}}">
+                    <span class="navigation-bg navigation-bg-hire"></span>
+                    <span class="jumping-letter">Hire</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
