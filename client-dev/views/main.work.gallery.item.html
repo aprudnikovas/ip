@@ -26,12 +26,12 @@
 
     <h2 class="project-title">Company</h2>
     <p class="project-text">
-        <a class="btn btn-default project-btn" ui-sref="main.work.timeline.item({itemId:company.id})">{{company.name}}</a>
+        <a class="btn btn-default btn-branded" ui-sref="main.work.timeline.item({itemId:company.id})">{{company.name}}</a>
     </p>
 
     <h2 class="project-title" ng-show="item.languages">Languages / Frameworks</h2>
     <p class="project-text" ng-show="item.languages">
-        <a class="btn btn-default project-btn btn-popover"
+        <a class="btn btn-default btn-branded btn-popover"
            ng-repeat="lang in languages"
            tabindex="0"
            popover-trigger="focus"
@@ -41,7 +41,7 @@
 
     <h2 class="project-title" ng-show="item.skills">Skills</h2>
     <p class="project-text" ng-show="item.skills">
-        <a class="btn btn-default project-btn btn-popover"
+        <a class="btn btn-default btn-branded btn-popover"
            ng-repeat="skill in skills"
            tabindex="0"
            popover-trigger="focus"
