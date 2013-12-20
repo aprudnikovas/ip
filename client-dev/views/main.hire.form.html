@@ -68,7 +68,15 @@
                      ng-class="{'has-error': rc.hire.needsAttention(hire.message) && rc.hire.attempted, 'has-warning':rc.hire.needsAttention(hire.message) && !rc.hire.attempted }"
                         >
                     <label for="message">Message</label>
-                    <textarea rows="10" required ng-model="message" class="form-control" id="message" name="message" placeholder="eg: I am gathering new team for this awesome new project and I need your help ..." />
+                    <textarea rows="10"
+                              required
+                              ng-model="message"
+                              class="form-control"
+                              id="message"
+                              name="message"
+                              placeholder="eg: I am gathering new team for this awesome new project and I need your help ..."
+                            >
+                    </textarea>
                     <span class="help-block" ng-show="rc.hire.needsAttention(hire.message) && rc.hire.attempted">
                         Please add some meaningful text
                     </span>
