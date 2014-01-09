@@ -1,6 +1,6 @@
 <div class="page-navigation clearfix">
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
 
         <nav class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav">
@@ -20,7 +20,7 @@
     <div ng-repeat="year in years" class="timeline-year {{year}}">
 
         <div ng-repeat="month in months" class="timeline-month {{year}}">
-            <div class="dot"></div>
+            <div class="dot" title="{{monthName(month)}}"></div>
         </div>
 
         <div class="timeline-year-value">{{year}}</div>
