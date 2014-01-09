@@ -9,7 +9,7 @@
             </div>
             <div ng-repeat="year in jobYears" class="timeline-year {{year}}">
                 <div ng-repeat="month in months" class="timeline-month {{year}}">
-                    <div class="dot"></div>
+                    <div class="dot" title="{{monthName(month)}}"></div>
                 </div>
                 <div class="timeline-year-value">{{year}}</div>
             </div>
@@ -35,31 +35,31 @@
 
     <div class="description-container">
 
-        <section class="timeline-item-section">
-            <h2 class="timeline-item-title">{{ item.education ? 'Institution' : 'Company' }}</h2>
-            <p class="timeline-item-text-lead">{{ item.name }}</p>
+        <section class="timeline-item-section description-item-section">
+            <h2 class="description-item-title">{{ item.education ? 'Institution' : 'Company' }}</h2>
+            <p class="description-item-text-lead">{{ item.name }}</p>
         </section>
 
-        <section class="timeline-item-section">
-            <h2 class="timeline-item-title">{{ item.education ? 'Course' : 'Position' }}</h2>
-            <p class="timeline-item-text-lead">{{ item.position }}</p>
+        <section class="timeline-item-section description-item-section">
+            <h2 class="description-item-title">{{ item.education ? 'Course' : 'Position' }}</h2>
+            <p class="description-item-text-lead">{{ item.position }}</p>
         </section>
 
-        <section class="timeline-item-section">
-            <h2 class="timeline-item-title">Description</h2>
-            <p class="timeline-item-text">{{ item.description }}</p>
+        <section class="timeline-item-section description-item-section">
+            <h2 class="description-item-title">Description</h2>
+            <p class="description-item-text">{{ item.description }}</p>
         </section>
 
-        <section ng-if="projects && projects.length" class="timeline-item-section">
-            <h2 class="timeline-item-title">Projects</h2>
-            <p class="timeline-item-text">
+        <section ng-if="projects && projects.length" class="timeline-item-section description-item-section">
+            <h2 class="description-item-title">Projects</h2>
+            <p class="description-item-text">
                 <a ng-repeat="p in projects" class="btn btn-default btn-branded" ui-sref="main.work.gallery.item({itemId:p.id})">{{p.title}}</a>
             </p>
         </section>
 
-        <section ng-if="skills && skills.length" class="timeline-item-section">
-            <h2 class="timeline-item-title">Skills</h2>
-            <p class="timeline-item-text">
+        <section ng-if="skills && skills.length" class="timeline-item-section description-item-section">
+            <h2 class="description-item-title">Skills</h2>
+            <p class="description-item-text">
                 <a ng-repeat="s in skills"
                    tabindex="0"
                    popover-trigger="focus"
@@ -69,9 +69,9 @@
             </p>
         </section>
 
-        <section ng-if="languages && languages.length" class="timeline-item-section">
-            <h2 class="timeline-item-title">Languages/Frameworks</h2>
-            <p class="timeline-item-text">
+        <section ng-if="languages && languages.length" class="timeline-item-section description-item-section">
+            <h2 class="description-item-title">Languages/Frameworks</h2>
+            <p class="description-item-text">
                 <a ng-repeat="l in languages"
                    tabindex="0"
                    popover-trigger="focus"

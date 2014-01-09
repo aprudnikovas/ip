@@ -1,6 +1,6 @@
 <div class="page-navigation clearfix ">
 
-    <div class="col-md-8 col-md-offset-2 ">
+    <div class="col-md-10 col-md-offset-1 ">
 
         <nav class="navbar navbar-default " role="navigation">
             <ul class="nav navbar-nav">
@@ -55,15 +55,17 @@
 
 <div class="projects-gallery clearfix {{animationClass}}">
 
-    <div class="col-md-8 col-md-offset-2 ">
+    <div class="col-md-10 col-md-offset-1 ">
 
         <div class="row">
 
         <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
             <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
-                <div class="projects-gallery-item-image">
-                    <img src="#" />
-                </div>
+                <span class="projects-gallery-item-image-wrapper">
+                    <span class="projects-gallery-item-image-mask" style="background-image: url('{{projectImagePath}}{{project.images[0]}}')">
+                        <img class="projects-gallery-item-image" src="{{projectImagePath}}{{project.images[0]}}">
+                    </span>
+                </span>
                 <span class="projects-gallery-item-label">{{project.title}}</span>
             </a>
         </div>
