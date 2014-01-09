@@ -32,7 +32,7 @@
 		"description": "Freedom to roam is Android app marketplace website",
 		"from": "1344985200000",
 		"to": "1351728000000",
-		"images" : [  ],
+		"images" : [ "ftr-01.png", "ftr-02.png" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	},
@@ -57,7 +57,7 @@
 		"description": "Property rental website",
 		"from": "1317942000000",
 		"to": "",
-		"images" : [  ],
+		"images" : [ "letshelpyou-01.jpg", "letshelpyou-02.png" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	},
@@ -69,7 +69,7 @@
 		"description": "Magento commerce theme.",
 		"from": "1308092400000",
 		"to": "1319065200000",
-		"images" : [  ],
+		"images" : [ "boomboom-01.jpg", "boomboom-02.jpg", "boomboom-03.jpg", "boomboom-04.jpg" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	},
@@ -81,7 +81,7 @@
 		"description": "shildek.com site",
 		"from": "1294185600000",
 		"to": "1300147200000",
-		"images" : [  ],
+		"images" : [ "shildek-01.jpg", "shildek-02.jpg" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	},
@@ -204,7 +204,7 @@
 		"description": "Illustration",
 		"from": "1242860400000",
 		"to": "1249081200000",
-		"images" : [ "underwater_adventures.png" ],
+		"images" : [ "underwater-adventures-01.png","underwater-adventures-02.jpg" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	},
@@ -216,7 +216,7 @@
 		"description": "Illustration",
 		"from": "1258243200000",
 		"to": "1258675200000",
-		"images" : [  ],
+		"images" : [ "starwars-01.png", "starwars-02.png" ],
 		"skills" : [  ],
 		"languages" : [  ]
 	}
