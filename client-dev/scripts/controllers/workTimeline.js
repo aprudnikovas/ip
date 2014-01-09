@@ -2,11 +2,14 @@ angular.module('tApp')
 	.controller('WorkTimelineController', ['Companies','$scope','$rootScope','$timeout',
 		function (Companies,$scope,$rootScope,$timeout) {
 
-		var yearHeight, yearLabelHeight, monthHeight, codeTimer;
+		var yearHeight, yearLabelHeight, monthHeight, codeTimer, monthArray;
 
 		yearHeight = 116;
 		yearLabelHeight = 20;
 		monthHeight = (yearHeight - yearLabelHeight) / 12;
+
+		monthArray = [ "January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December" ];
 
 		/**
 		 * Populate array of available years
@@ -19,6 +22,10 @@ angular.module('tApp')
 		 * [ 12, 11, .... ]
 		 */
 		$scope.months = _.range(1, 13).reverse();
+
+		$scope.monthName = function(monthNo){
+			return monthArray[monthNo-1];
+		};
 
 		$scope.companies = Companies.query();
 

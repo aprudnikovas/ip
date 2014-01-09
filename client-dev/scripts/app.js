@@ -1,6 +1,10 @@
 angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','ui.event'])
 	.run(function($rootScope,$timeout) {
+
 		$rootScope.menuIsActive = false;
+
+		$rootScope.projectImagePath = "data/img/";
+
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
 

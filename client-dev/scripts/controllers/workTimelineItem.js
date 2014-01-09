@@ -2,15 +2,22 @@ angular.module('tApp')
 	.controller('WorkTimelineItemController', ['Companies','Projects','Skills','Languages','$scope','$stateParams',
 		function (Companies, Projects, Skills, Languages, $scope, $stateParams) {
 
-		var id, yearHeight, yearLabelHeight, monthHeight;
+		var id, yearHeight, yearLabelHeight, monthHeight, monthArray;
 
 		yearHeight = 164;
 		yearLabelHeight = 20;
 		monthHeight = (yearHeight - yearLabelHeight) / 12;
 
+		monthArray = [ "January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December" ];
+
 		id = $stateParams.itemId;
 
 		$scope.months = _.range(1, 13).reverse();
+
+		$scope.monthName = function(monthNo){
+			return monthArray[monthNo-1];
+		};
 
 		Companies.getAll(function(items){
 
