@@ -5,6 +5,8 @@ var express = require('express')
 
 var app = express();
 
+var oneYear = 86400000 * 365;
+
 // CONFIGURE APP
 ////////////////////////////////
 
@@ -12,7 +14,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/client-prod');
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
-app.use(express.favicon(path.join(__dirname, 'client-prod/favicon.ico')));
+app.use(express.favicon( path.join( __dirname, 'client-prod/favicon.ico'), { maxAge: oneYear } ));
 app.use(express.logger('dev'));
 app.use(express.compress());
 app.use(express.bodyParser());
@@ -25,7 +27,7 @@ app.use(function (req, res, next) {
 	next();
 });
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'client-prod')));
+app.use(express.static( path.join(__dirname, 'client-prod'), { maxAge: oneYear } ));
 app.use(function (req, res, next) {
 	res.status(404);
 	if (req.accepts('html')) {
