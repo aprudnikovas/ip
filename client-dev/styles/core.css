@@ -6182,6 +6182,11 @@ td.visible-print {
   left: -125px;
   padding-top: 20px;
   z-index: 1050;
+  -o-transition: all 0.15s ease;
+  -ms-transition: all 0.15s ease;
+  -moz-transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
 }
 .navigation.active {
   left: 0;
@@ -7537,6 +7542,11 @@ body {
   background-color: #f8f8f8;
   color: #888888;
   background-position: center 100%;
+  -o-transition: padding 0.15s ease;
+  -ms-transition: padding 0.15s ease;
+  -moz-transition: padding 0.15s ease;
+  -webkit-transition: padding 0.15s ease;
+  transition: padding 0.15s ease;
 }
 .main-content {
   position: relative;
