@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="styles/core.css">
         <!-- endbuild -->
 
+        <script>var _csrf="<%= token %>"; if(!!_csrf.match(/\<\%\=\s*token\s*\%\>/)){_csrf=null;}</script>
     </head>
 
     <body ng-app="tApp" ng-class="stateName" >

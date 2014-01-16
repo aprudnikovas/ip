@@ -7,3 +7,4 @@ dist
 client-dev/bower_components
 .elasticbeanstalk/
 node_modules/
+npm-debug.log
