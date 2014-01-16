@@ -52,11 +52,12 @@ angular.module('tApp')
 
 			$http.post("/sendemail", buildPostData(visitorClone) )
 				.success(function(data, status, headers, config) {
-					if(status == 200 && data && data.sent === "true")
+					if(status == 200 && data && data.sent === "true"){
 						$scope.formIsSent = true;
-					else
+						$scope.visitor = {}
+					} else {
 						$scope.formErrors = ["Could not send email, try again later."]
-
+					}
 					$scope.submittingData = false;
 				}).error(function(data, status, headers, config) {
 					$scope.formErrors = ["Server Error. Could not send email, try again later."];
