@@ -41,15 +41,22 @@ app.use(function (req, res, next) {
 	res.type('txt').send('Not found');
 });
 app.use(function (err, req, res, next) {
-	console.log('ERROR:500: ' +
-		new Date() +
-		'; REQUEST URL: ' +
-		req.url +
-		'; REQUEST QUERY: ' + JSON.stringify(req.query) +
-		'; STACKTRACE: ' + err.stack
-	);
-	res.status(500);
-	res.render('500.html');
+
+	console.log(
+		[
+			"ERROR: " + (err.status || 500),
+			"TIME: " + (new Date),
+			"URL: " + req.url,
+			"QUERY: " + JSON.stringify(req.query),
+			"STACK: " + err.stack
+		].join("; ")
+	)
+
+	res.status(err.status || 500);
+	res.render('500.html', {
+		status: err.status || 500
+		, error: err
+	});
 });
 
 // INIT ADDITIONAL CONFIG
