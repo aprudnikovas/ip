@@ -25,10 +25,6 @@
 				sent:false
 			};
 
-			console.log("****************")
-			console.log(req.body)
-			console.log("****************")
-
 			return res.format({
 				html: function(){
 					res.render('index.html');
