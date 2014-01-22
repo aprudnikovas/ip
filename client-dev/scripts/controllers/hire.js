@@ -40,7 +40,7 @@ angular.module('tApp')
 
 		$scope.sendEmail = function(){
 
-			var visitorClone = _.clone($scope.visitor)
+			var visitorClone = _.clone($scope.visitor);
 			var errors = validateVisitor(visitorClone);
 
 			if(errors != null){
@@ -52,7 +52,7 @@ angular.module('tApp')
 
 			$http.post("/sendemail", buildPostData(visitorClone) )
 				.success(function(data, status, headers, config) {
-					if(status == 200 && data && data.sent === "true"){
+					if(status == 200 && data && data.sent == true){
 						$scope.formIsSent = true;
 						$scope.visitor = {}
 					} else {
