@@ -1,13 +1,12 @@
-var AWS = require('aws-sdk');
-AWS.config.region = 'eu-west-1';
-
 (function (exports) {
 
 	"use strict";
 
 	exports.init = function (app) {
 
-		var ses = new AWS.SES();
+		var AWS = require('aws-sdk');
+		AWS.config.update({region: 'eu-west-1'});
+		var ses = new AWS.SES({region: 'eu-west-1'});
 
 		app.get('/', function (req, res) {
 
@@ -30,50 +29,40 @@ AWS.config.region = 'eu-west-1';
 				sent:false
 			};
 
-			ses.listIdentities({}, function(err,data){
-
-				response.idtt = data;
-				response.idttErr = err;
-
-				ses.sendEmail({
-					Source:'info@ivarprudnikov.com',
-					Destination:{
-						ToAddresses:["ivar.prudnikov@gmail.com"]
+			ses.sendEmail({
+				Source:'info@ivarprudnikov.com',
+				Destination:{
+					ToAddresses:["ivar.prudnikov@gmail.com"]
+				},
+				Message: {
+					Subject: {
+						Data: req.body.subject
 					},
-					Message: {
-						Subject: {
-							Data: req.body.subject
-						},
-						Body: {
-							Html: {
-								Data: req.body.message
-							}
+					Body: {
+						Html: {
+							Data: req.body.message
 						}
-					},
-					ReplyToAddresses: [req.body.email]
-				}, function(error,responseData){
-					if(error == null){
-						response.sent = true;
-						response.successData = responseData;
-					} else {
-						response.error = error;
 					}
+				},
+				ReplyToAddresses: [req.body.email]
+			}, function(error,responseData){
 
-					return res.format({
-						html: function(){
-							res.render('index.html');
-						},
-						json: function(){
-							res.send(response);
-						}
-					});
-				}); // end ses send
+				if(error == null){
+					response.sent = true;
+				} else {
+					res.status = 400;
+					response.error = error;
+				}
 
-
-			}); // end ses list
-
-
-
+				return res.format({
+					html: function(){
+						res.render('index.html');
+					},
+					json: function(){
+						res.send(response);
+					}
+				});
+			}); // end ses send
 
 		});
 
