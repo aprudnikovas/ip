@@ -6161,7 +6161,109 @@ td.visible-print {
     left: 9px;
   }
 }
+@-moz-keyframes zoomDot {
+  0% {
+    width: 8px;
+    height: 8px;
+    border-radius: 15px;
+    top: 10px;
+    left: 10px;
+  }
+  50% {
+    width: 16px;
+    height: 16px;
+    border-radius: 15px;
+    top: 6px;
+    left: 6px;
+  }
+  100% {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 9px;
+    left: 9px;
+  }
+}
+@-o-keyframes zoomDot {
+  0% {
+    width: 8px;
+    height: 8px;
+    border-radius: 15px;
+    top: 10px;
+    left: 10px;
+  }
+  50% {
+    width: 16px;
+    height: 16px;
+    border-radius: 15px;
+    top: 6px;
+    left: 6px;
+  }
+  100% {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 9px;
+    left: 9px;
+  }
+}
+@keyframes zoomDot {
+  0% {
+    width: 8px;
+    height: 8px;
+    border-radius: 15px;
+    top: 10px;
+    left: 10px;
+  }
+  50% {
+    width: 16px;
+    height: 16px;
+    border-radius: 15px;
+    top: 6px;
+    left: 6px;
+  }
+  100% {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 9px;
+    left: 9px;
+  }
+}
 @-webkit-keyframes shakeArrow {
+  0% {
+    right: 0px;
+  }
+  50% {
+    right: 5px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@-moz-keyframes shakeArrow {
+  0% {
+    right: 0px;
+  }
+  50% {
+    right: 5px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@-o-keyframes shakeArrow {
+  0% {
+    right: 0px;
+  }
+  50% {
+    right: 5px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@keyframes shakeArrow {
   0% {
     right: 0px;
   }
@@ -6415,10 +6517,17 @@ td.visible-print {
 }
 .animation-block {
   display: block;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
-  transform-style: preserve-3d;
   perspective: 500;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateY(180deg) scale3d(0.5, 0.5, 0.5);
+  -ms-transform: rotateY(180deg) scale3d(0.5, 0.5, 0.5);
   transform: rotateY(180deg) scale3d(0.5, 0.5, 0.5);
   width: 200px;
   height: 200px;
@@ -6433,10 +6542,12 @@ td.visible-print {
   height: 100%;
 }
 .animation-block.active {
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
   transform: rotateY(0deg);
-  box-sizing: border-box;
 }
-.animation-block.active img {
+.animation-block.active .box-sizing(border-box) img {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 #expertise {
@@ -6450,6 +6561,7 @@ td.visible-print {
   margin-bottom: 75px;
   background-color: #eeeeee;
   position: relative;
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 #expertise .expertise-stripe.active {
@@ -6464,6 +6576,7 @@ td.visible-print {
   top: 50%;
   background-color: #f8f8f8;
   color: #888888;
+  -webkit-transition: all ease 0.4s;
   transition: all ease 0.4s;
 }
 #expertise .expertise-stripe .expertise-item-description .close-description {
@@ -6543,6 +6656,8 @@ td.visible-print {
   margin: 0;
 }
 #expertise .expertise-stripe .expertise-group ul > li a {
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 500;
   width: 150px;
@@ -6564,14 +6679,21 @@ td.visible-print {
   display: block;
   top: -31px;
   left: 50%;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
   transform: rotate(0deg);
+  -webkit-transform-origin: bottom left;
+  -moz-transform-origin: bottom left;
   transform-origin: bottom left;
   z-index: 5000;
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 #expertise .expertise-stripe .expertise-group ul > li a:before {
   border-width: 0px 0px 106px 30px;
   border-color: transparent transparent #d37575 transparent;
+  -webkit-transform-origin: bottom right;
+  -moz-transform-origin: bottom right;
   transform-origin: bottom right;
   margin-left: -30px;
 }
@@ -6584,8 +6706,11 @@ td.visible-print {
   border-radius: 75px;
   background-color: #f8f8f8;
   background-image: url("../images/img_sprite_bio.png");
+  -webkit-transition: all ease 0.2s;
   transition: all ease 0.2s;
   cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 5001;
   border: 1px solid #e5afaf;
@@ -6597,9 +6722,13 @@ td.visible-print {
   color: #888888;
 }
 #expertise .expertise-stripe .expertise-group ul > li a .front {
+  -webkit-transform: rotate3d(0, 1, 0, 0deg);
+  -ms-transform: rotate3d(0, 1, 0, 0deg);
   transform: rotate3d(0, 1, 0, 0deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li a .back {
+  -webkit-transform: scale(0) rotate3d(0, 1, 0, 180deg);
+  -ms-transform: scale(0) rotate3d(0, 1, 0, 180deg);
   transform: scale(0) rotate3d(0, 1, 0, 180deg);
   background: #d37575;
   color: #f8f8f8;
@@ -6609,6 +6738,8 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-rest a:before,
 #expertise .expertise-stripe .expertise-group ul > li.expertise-rest a:after {
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
   transform: rotate(150deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-rest a .face {
@@ -6619,6 +6750,8 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-api a:before,
 #expertise .expertise-stripe .expertise-group ul > li.expertise-api a:after {
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
   transform: rotate(150deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-api a .face {
@@ -6629,6 +6762,8 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-servers a:before,
 #expertise .expertise-stripe .expertise-group ul > li.expertise-servers a:after {
+  -webkit-transform: rotate(220deg);
+  -ms-transform: rotate(220deg);
   transform: rotate(220deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-servers a .face {
@@ -6639,6 +6774,8 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-ui a:before,
 #expertise .expertise-stripe .expertise-group ul > li.expertise-ui a:after {
+  -webkit-transform: rotate(375deg);
+  -ms-transform: rotate(375deg);
   transform: rotate(375deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-ui a .face {
@@ -6649,6 +6786,8 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-ux a:before,
 #expertise .expertise-stripe .expertise-group ul > li.expertise-ux a:after {
+  -webkit-transform: rotate(340deg);
+  -ms-transform: rotate(340deg);
   transform: rotate(340deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-ux a .face {
@@ -6659,6 +6798,8 @@ td.visible-print {
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a:before,
 #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a:after {
+  -webkit-transform: rotate(320deg);
+  -ms-transform: rotate(320deg);
   transform: rotate(320deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a .face {
@@ -6668,7 +6809,9 @@ td.visible-print {
 #expertise .expertise-stripe .expertise-group ul > li > a:focus .back,
 #expertise .expertise-stripe .expertise-group ul > li > a.active .back {
   z-index: 5002;
-  transform: scale(1) rotate3d(0, 1, 0, 0deg);
+  -webkit-transform: scale(0.9) rotate3d(0, 1, 0, 0deg);
+  -ms-transform: scale(0.9) rotate3d(0, 1, 0, 0deg);
+  transform: scale(0.9) rotate3d(0, 1, 0, 0deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li > a.active:before,
 #expertise .expertise-stripe .expertise-group ul > li > a.active:after {
@@ -6681,6 +6824,7 @@ td.visible-print {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   position: relative;
+  -webkit-transition: all ease 0.2s;
   transition: all ease 0.2s;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 }
@@ -6778,6 +6922,7 @@ td.visible-print {
   top: 10px;
   left: 10px;
   position: absolute;
+  -webkit-transition: all ease 0.1s;
   transition: all ease 0.1s;
 }
 .coding-skills-navigation a:hover,
