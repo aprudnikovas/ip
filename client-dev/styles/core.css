@@ -6284,11 +6284,8 @@ td.visible-print {
   left: -125px;
   padding-top: 20px;
   z-index: 1050;
-  -o-transition: all 0.15s ease;
-  -ms-transition: all 0.15s ease;
-  -moz-transition: all 0.15s ease;
-  -webkit-transition: all 0.15s ease;
-  transition: all 0.15s ease;
+  -webkit-transition: all ease 0.15s;
+  transition: all ease 0.15s;
 }
 .navigation.active {
   left: 0;
@@ -6306,6 +6303,7 @@ td.visible-print {
   padding-bottom: 11px;
   border: 1px solid #d37575;
   border-top-color: transparent;
+  -webkit-transition: all ease 0.1s;
   transition: all ease 0.1s;
 }
 .navigation-toggler .navigation-toggler-bar {
@@ -6321,6 +6319,7 @@ td.visible-print {
   height: 43px;
   border-bottom-width: 4px;
   border-top-color: #d37575;
+  outline: none;
 }
 .navigation-main ul {
   list-style: none;
@@ -6358,6 +6357,7 @@ td.visible-print {
   letter-spacing: 1px;
   color: #ffffff;
   background-color: #c74e4e;
+  outline: none;
 }
 .navigation-main ul > li a:hover .jumping-letter,
 .navigation-main ul > li a:focus .jumping-letter,
