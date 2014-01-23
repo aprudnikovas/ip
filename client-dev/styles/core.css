@@ -6522,6 +6522,8 @@ td.visible-print {
   backface-visibility: hidden;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
+  -webkit-perspective: 500;
+  -moz-perspective: 500;
   perspective: 500;
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -6659,6 +6661,8 @@ td.visible-print {
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-perspective: 500;
+  -moz-perspective: 500;
   perspective: 500;
   width: 150px;
   height: 150px;
@@ -6667,6 +6671,8 @@ td.visible-print {
   position: absolute;
   top: 0;
   z-index: 5000;
+  outline: none;
+  -webkit-user-select: none;
 }
 #expertise .expertise-stripe .expertise-group ul > li a:before,
 #expertise .expertise-stripe .expertise-group ul > li a:after {
@@ -6712,6 +6718,9 @@ td.visible-print {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-perspective: 500;
+  -moz-perspective: 500;
+  perspective: 500;
   z-index: 5001;
   border: 1px solid #e5afaf;
   padding-top: 50px;
@@ -6722,11 +6731,13 @@ td.visible-print {
   color: #888888;
 }
 #expertise .expertise-stripe .expertise-group ul > li a .front {
-  -webkit-transform: rotate3d(0, 1, 0, 0deg);
-  -ms-transform: rotate3d(0, 1, 0, 0deg);
-  transform: rotate3d(0, 1, 0, 0deg);
+  z-index: 5001;
+  -webkit-transform: scale(1) rotate3d(0, 1, 0, 0deg);
+  -ms-transform: scale(1) rotate3d(0, 1, 0, 0deg);
+  transform: scale(1) rotate3d(0, 1, 0, 0deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li a .back {
+  z-index: 5002;
   -webkit-transform: scale(0) rotate3d(0, 1, 0, 180deg);
   -ms-transform: scale(0) rotate3d(0, 1, 0, 180deg);
   transform: scale(0) rotate3d(0, 1, 0, 180deg);
@@ -6805,10 +6816,16 @@ td.visible-print {
 #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a .face {
   background-position: center -750px;
 }
+#expertise .expertise-stripe .expertise-group ul > li > a:hover .front,
+#expertise .expertise-stripe .expertise-group ul > li > a:focus .front,
+#expertise .expertise-stripe .expertise-group ul > li > a.active .front {
+  -webkit-transform: scale(1) rotate3d(0, 1, 0, 0deg);
+  -ms-transform: scale(1) rotate3d(0, 1, 0, 0deg);
+  transform: scale(1) rotate3d(0, 1, 0, 0deg);
+}
 #expertise .expertise-stripe .expertise-group ul > li > a:hover .back,
 #expertise .expertise-stripe .expertise-group ul > li > a:focus .back,
 #expertise .expertise-stripe .expertise-group ul > li > a.active .back {
-  z-index: 5002;
   -webkit-transform: scale(0.9) rotate3d(0, 1, 0, 0deg);
   -ms-transform: scale(0.9) rotate3d(0, 1, 0, 0deg);
   transform: scale(0.9) rotate3d(0, 1, 0, 0deg);
@@ -6898,6 +6915,8 @@ td.visible-print {
   position: relative;
   cursor: pointer;
   margin: 5px 0 5px 120px;
+  outline: none;
+  -webkit-user-select: none;
 }
 .coding-skills-navigation > li > a .coding-skills-tooltip {
   position: absolute;
