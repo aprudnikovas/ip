@@ -3,7 +3,7 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 
 		$rootScope.menuIsActive = false;
 
-		$rootScope.projectImagePath = "data/img/";
+		$rootScope.projectImagePath = "https://s3-eu-west-1.amazonaws.com/ivarprudnikov/img/projects/";
 
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){

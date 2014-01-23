@@ -19,7 +19,8 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'client-dev',
-    dist: 'client-prod'
+    dist: 'client-prod',
+	manifest: 'manifest.appcache'
   };
 
   try {
@@ -120,7 +121,8 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+	  manifest: '<%= yeoman.manifest %>'
     },
     jshint: {
       options: {
@@ -258,7 +260,12 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      }
+      },
+	  manifest: {
+		  nonull: true,
+		  dest: '<%= yeoman.dist %>/',
+		  src: '<%= yeoman.manifest %>'
+	  }
     },
     concurrent: {
       server: [
@@ -306,6 +313,31 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    manifest: {
+	  generate: {
+		options: {
+			  basePath: '<%= yeoman.dist %>/',
+			  network: ['*'],
+			  preferOnline: true,
+			  verbose: true,
+			  timestamp: true,
+			  hash: true
+		},
+		src: [
+			  'data/*.json',
+			  'fonts/*.svg',
+			  'fonts/*.eot',
+			  'fonts/*.ttf',
+			  'fonts/*.woff',
+			  'images/*.png',
+			  'images/*.jpeg',
+			  'scripts/*.js',
+			  'styles/*.css',
+			  'views/*.html'
+		],
+		dest: '<%= yeoman.manifest %>'
+	  }
     }
   });
 
@@ -344,7 +376,10 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+	'manifest',
+	'copy:manifest',
+	'clean:manifest'
   ]);
 
   grunt.registerTask('default', [
