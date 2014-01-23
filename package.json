@@ -14,7 +14,7 @@
     "ejs": "*",
     "aws-sdk": "~2.0.0-rc8"
   },
-  "localDependencies": {
+  "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
