@@ -8,13 +8,13 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <img src="{{projectImagePath}}{{item.images[0]}}" class="project-images-primary img-responsive">
+                <img ng-attr-src="{{projectImagePath && item.images[0] ? projectImagePath + item.images[0] : ''}}" class="project-images-primary img-responsive">
             </div>
         </div>
 
         <div ng-if="item.images && item.images.length > 1" class="row project-images-secondary-wrapper">
             <div ng-repeat="i in item.images" ng-if="$index > 0 && $index < 4" class="col-sm-4 project-images-secondary-column">
-                <img src="{{projectImagePath}}{{i}}" class="project-images-secondary img-responsive">
+                <img ng-attr-src="{{projectImagePath && i ? projectImagePath + i : ''}}" class="project-images-secondary img-responsive">
             </div>
         </div>
 

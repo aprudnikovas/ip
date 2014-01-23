@@ -10,8 +10,8 @@
         <li class="work-items-thumb-wrap" ng-repeat="project in projects"
                 ng-class="{active: project.id === active_project_id}">
             <a ui-sref="main.work.gallery.item({itemId:project.id})" class="" >
-                <span class="work-items-thumb-mask" style="background-image: url('{{projectImagePath}}{{project.images[0]}}')">
-                    <img src="{{projectImagePath}}{{project.images[0]}}" class="work-items-thumb-image">
+                <span class="work-items-thumb-mask" ng-attr-style="background-image: url('{{projectImagePath && project.images[0] ? projectImagePath + project.images[0] : ''}}')">
+                    <img ng-attr-src="{{ projectImagePath && project.images[0] ? projectImagePath + project.images[0] : ''}}" class="work-items-thumb-image">
                 </span>
                 {{project.title}}
             </a>

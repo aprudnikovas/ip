@@ -7,7 +7,7 @@
 		"description": "Web video app for kids",
 		"from": "1367362800000",
 		"to": "1376521200000",
-		"images" : [ "http://vrroo.com/images/logo_hero_wide.png" ],
+		"images" : [  ],
 		"skills" : [ "1","3","4","5" ],
 		"languages" : [ "1","9","11","12","13" ]
 	},
