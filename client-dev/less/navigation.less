@@ -17,11 +17,7 @@
   padding-top: 20px;
   z-index: 1050;
 
-  -o-transition: all 0.15s ease;
-  -ms-transition: all 0.15s ease;
-  -moz-transition: all 0.15s ease;
-  -webkit-transition: all 0.15s ease;
-  transition: all 0.15s ease;
+  .transition( all ease 0.15s );
 
   &.active {
     left:0;
@@ -42,7 +38,7 @@
   border: 1px solid @nav-bg;
   border-top-color: transparent;
 
-  transition: all ease 0.1s;
+  .transition( all ease 0.1s );
 
   .navigation-toggler-bar {
     display: block;
@@ -58,6 +54,7 @@
     height: 43px;
     border-bottom-width: 4px;
     border-top-color: @nav-bg;
+    outline: none;
   }
 }
 
@@ -99,6 +96,7 @@
         letter-spacing: 1px;
         color: @nav-fg;
         background-color: darken(@nav-bg,10%);
+        outline: none;
 
         .jumping-letter{
           animation:bounceLetter 1s;
