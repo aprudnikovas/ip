@@ -36,7 +36,8 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 						controller: 'MenuController'
 					},
 					"footer" : {
-						templateUrl: 'views/footer.html'
+						templateUrl: 'views/footer.html',
+						controller: 'FooterController'
 					}
 				}
 			})
