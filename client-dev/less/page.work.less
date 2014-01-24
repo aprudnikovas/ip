@@ -380,8 +380,12 @@ body[class*="main_work"] {
     &:focus {
 
       text-decoration: none;
-      bottom: 4px;
-      box-shadow: 0 3px 0px darken(@page-work-img-background,3%),0 3px 3px rgba(0, 0, 0, 0.05) , 0 4px 10px rgba(0, 0, 0, 0.05);
+      .box-shadow( 0 10px 30px rgba(0, 0, 0, 0.05) );
+      .perspective(1000px);
+      .transform( translateY( -5px ) );
+      .transform-origin( center );
+      .transform-style( flat );
+      .backface-visibility( hidden );
 
       .projects-gallery-item-image-mask {
         -webkit-filter: grayscale(0%);
@@ -475,12 +479,14 @@ body[class*="main_work"] {
       color: @page-work-link;
       border-radius: 20px;
       cursor: pointer;
-      transition: all ease 0.1s;
+      .transition( all ease 0.1s);
+      -webkit-user-select: none;
 
       &:hover:not(.inactive),
       &:focus:not(.inactive) {
         border-color: @page-work-link-active;
         color: @page-work-link-active;
+        outline:none;
       }
 
       &.inactive {
