@@ -11,6 +11,15 @@
 
         <nav class="navbar navbar-filter " role="navigation">
             <ul class="nav navbar-nav ">
+
+                <li ng-show="isFilterActive()">
+                    <a class="navbar-filter-clear-all" ng-click="clearAllFilters()">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        Show all
+                    </a>
+                </li>
+
+
                 <filterdropdown title="Companies"  class="{{ isAnyItemSelected(companies) ? 'selected' : 'not-selected' }}">
 
                     <a class="navbar-filter-toggler" tabindex="-1" ng-show="isAnyItemSelected(companies)" ng-click="toggleCompany()"><i class="glyphicon glyphicon-remove-circle"></i> Show all</a>
