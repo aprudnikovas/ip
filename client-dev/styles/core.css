@@ -7684,6 +7684,8 @@ body[class*="main_work"] .h6 {
   background-color: transparent;
   color: #d37575;
   border-color: #d37575;
+  -webkit-user-select: none;
+  outline: none;
 }
 .page-navigation .navbar .navbar-nav > .active > a .caret,
 .page-navigation .navbar .navbar-nav > li > a:hover .caret,
@@ -7696,6 +7698,9 @@ body[class*="main_work"] .h6 {
   color: #34aedd;
   margin-right: 2em;
 }
+.page-navigation .navbar .navbar-nav > li > .navbar-filter-clear-all .glyphicon {
+  top: 2px;
+}
 .page-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link {
   border-top: 2px solid transparent;
 }
@@ -7703,7 +7708,8 @@ body[class*="main_work"] .h6 {
 .page-navigation .navbar .navbar-nav > .filterdropdown_root .filterdropdown_link:focus {
   border-top-color: #d37575;
 }
-.page-navigation .navbar .navbar-nav > .filterdropdown_root.selected .filterdropdown_link {
+.page-navigation .navbar .navbar-nav > .filterdropdown_root.selected .filterdropdown_link,
+.page-navigation .navbar .navbar-nav > .filterdropdown_root.filterdropdown_open .filterdropdown_link {
   border-top-color: #d37575;
 }
 .page-navigation .navbar + .navbar-filter {

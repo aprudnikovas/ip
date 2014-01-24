@@ -45,6 +45,8 @@
       background-color: transparent;
       color: @page-work-link-active;
       border-color: @page-work-link-active;
+      -webkit-user-select: none;
+      outline: none;
 
       .caret {
         border-top-color: @page-work-link-active;
@@ -55,6 +57,10 @@
     .navbar-nav > li > .navbar-filter-clear-all {
       color: @page-work-bright;
       margin-right: 2em;
+
+      .glyphicon {
+        top: 2px;
+      }
     }
 
     .navbar-nav > .filterdropdown_root {
@@ -68,7 +74,8 @@
         }
       }
 
-      &.selected .filterdropdown_link {
+      &.selected .filterdropdown_link,
+      &.filterdropdown_open .filterdropdown_link{
         border-top-color: @page-work-link-active;
       }
     }
