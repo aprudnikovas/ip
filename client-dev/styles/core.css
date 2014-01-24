@@ -6547,8 +6547,11 @@ td.visible-print {
   -webkit-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   transform: rotateY(0deg);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.animation-block.active .box-sizing(border-box) img {
+.animation-block.active img {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
@@ -7298,8 +7301,23 @@ body[class*="main_work"] .h6 {
 .projects-gallery .projects-gallery-item:hover,
 .projects-gallery .projects-gallery-item:focus {
   text-decoration: none;
-  bottom: 4px;
-  box-shadow: 0 3px 0px #f7f7f7, 0 3px 3px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform-style: flat;
+  -ms-transform-style: flat;
+  transform-style: flat;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .projects-gallery .projects-gallery-item:hover .projects-gallery-item-image-mask,
 .projects-gallery .projects-gallery-item:focus .projects-gallery-item-image-mask {
@@ -7367,7 +7385,9 @@ body[class*="main_work"] .h6 {
   color: #d37575;
   border-radius: 20px;
   cursor: pointer;
+  -webkit-transition: all ease 0.1s;
   transition: all ease 0.1s;
+  -webkit-user-select: none;
 }
 .projects-gallery-pagination .projects-gallery-pagination-previous a:hover:not(.inactive),
 .projects-gallery-pagination .projects-gallery-pagination-next a:hover:not(.inactive),
@@ -7375,6 +7395,7 @@ body[class*="main_work"] .h6 {
 .projects-gallery-pagination .projects-gallery-pagination-next a:focus:not(.inactive) {
   border-color: #d37575;
   color: #d37575;
+  outline: none;
 }
 .projects-gallery-pagination .projects-gallery-pagination-previous a.inactive,
 .projects-gallery-pagination .projects-gallery-pagination-next a.inactive {
@@ -7475,6 +7496,8 @@ body[class*="main_work"] .h6 {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
+  -webkit-user-select: none;
+  outline: none;
 }
 .work-items > li > a .work-items-thumb-mask {
   display: block;

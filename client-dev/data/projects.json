@@ -7,7 +7,7 @@
 		"description": "Web video app for kids",
 		"from": "1367362800000",
 		"to": "1376521200000",
-		"images" : [  ],
+		"images" : [ "vrroo-01.svg" ],
 		"skills" : [ "1","3","4","5", "10", "11" ],
 		"languages" : [ "1","8","9","10","11","12","13" ]
 	},
