@@ -89,7 +89,7 @@ angular.module('tApp')
 			allCompanies = $scope.companies = Companies.getAll();
 			allSkills = $scope.skills = Skills.getAll();
 			allLanguages = $scope.languages = Languages.getAll();
-			allProjects = Projects.getAll(filterAndSortPortfolio);
+			allProjects = $scope.projects = Projects.getAll(filterAndSortPortfolio);
 
 			$scope.$watch( 'searchFilter', filterAndSortPortfolio, true);
 
@@ -384,6 +384,26 @@ angular.module('tApp')
 
 			$scope.isAnyItemSelected = function(itemObjectList){
 				return _.some(itemObjectList,function(x){return x.selected})
+			};
+
+
+			$scope.isFilterActive = function(){
+
+				var isActive = false,
+					scopeVars = ["skills", "languages", "projects", "years"];
+
+				return _.some(scopeVars, function( variableName ){
+					return $scope.isAnyItemSelected( $scope[variableName] )
+				});
+
+			};
+
+
+			$scope.clearAllFilters = function(){
+				$scope.toggleCompany();
+				$scope.toggleYear();
+				$scope.toggleSkill();
+				$scope.toggleLanguage();
 			};
 
 
