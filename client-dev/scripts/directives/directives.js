@@ -8,9 +8,13 @@ angular.module('tApp')
 	.directive('filterdropdown', function () {
 		return {
 			restrict: 'EA',
-			template: '<li class="filterdropdown_root" ng-class="{filterdropdown_open:active}">'+
-				'<a class="filterdropdown_link" ng-click="toggle()" ui-keypress="{13:\'toggle()\'}" tabindex="0">{{title}} <span class="caret"></span></a>'+
-				'<div class="filterdropdown_dropdown" ng-transclude></div>'+
+			template: '' +
+				'<li class="filterdropdown_root" ng-class="{filterdropdown_open:active}">'+
+					'<a class="filterdropdown_link" ng-click="toggle()" ui-keypress="{13:\'toggle()\'}" tabindex="0">{{title}} <span class="caret"></span></a>'+
+					'<span class="filterdropdown_dropdown">' +
+						'<span class="filterdropdown_dropdown_arrow"></span>' +
+						'<span class="filterdropdown_dropdown_content" ng-transclude></span>' +
+					'</span>'+
 				'</li>',
 			scope: { title: '@', active:'&' },
 			controller: ['$scope', '$element', '$document', function($scope,$element,$document){
