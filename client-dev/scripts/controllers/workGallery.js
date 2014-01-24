@@ -390,7 +390,7 @@ angular.module('tApp')
 			$scope.isFilterActive = function(){
 
 				var isActive = false,
-					scopeVars = ["skills", "languages", "projects", "years"];
+					scopeVars = ["companies", "skills", "languages", "years"];
 
 				return _.some(scopeVars, function( variableName ){
 					return $scope.isAnyItemSelected( $scope[variableName] )
