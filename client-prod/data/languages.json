@@ -31,7 +31,7 @@
 		"id":"5",
 		"name":"mysql",
 		"type":"backend",
-		"description":"the world's most widely used[5][6] open-source relational database management system (RDBMS)",
+		"description":"The world's most widely used open-source relational database management system",
 		"relative":["6","7"]
 	},
 	{
@@ -96,5 +96,27 @@
 		"type":"frontend",
 		"description":"AngularJS is what HTML would have been, had it been designed for building web-apps.",
 		"relative":["12","13"]
+	},
+	{
+		"id":"15",
+		"name":"php",
+		"type":"backend",
+		"description":"PHP is a server-side scripting language designed for web development but also used as a general-purpose programming language.",
+		"relative":["16"]
+	},
+	{
+		"id":"16",
+		"name":"magento",
+		"type":"backend",
+		"description":"Magento is an open source e-commerce web application that was launched on March 31, 2008 under the name Bento.",
+		"relative":["15"]
+	},
+	{
+		"id":"17",
+		"name":"wordpress",
+		"type":"backend",
+		"description":"WordPress is a free and open source blogging tool and a content management system (CMS) based on PHP and MySQL",
+		"relative":["5","15"]
 	}
+
 ]
