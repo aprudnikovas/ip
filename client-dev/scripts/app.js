@@ -1,5 +1,5 @@
 angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','ui.event'])
-	.run(function($rootScope,$timeout) {
+	.run(function($rootScope,$timeout,$window) {
 
 		$rootScope.menuIsActive = false;
 
@@ -7,18 +7,26 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
+				var pagePath, stateName;
 
-				var stateName = toState.name.replace(/\./g,'_');
+				stateName = toState.name.replace(/\./g,'_');
 
 				$rootScope.stateName = stateName + " animationPending ";
-
 				$rootScope.animationStartChange = false;
 				$timeout(function() {
 					$rootScope.animationStartChange = true;
 					$rootScope.stateName = stateName + " animationExecute ";
 				}, 50);
 
-			})
+				pagePath = $window.location.pathname + "#/" + toState.name.replace(/\./g,'/');
+
+				ga('send', {
+					'hitType': 'pageview',
+					'page': pagePath,
+					'title': stateName
+				});
+			}
+		);
 	})
 	.config(['$stateProvider', '$urlRouterProvider',
 		function ( $stateProvider, $urlRouterProvider ) {
