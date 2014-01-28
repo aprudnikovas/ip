@@ -7,7 +7,7 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
-				var pagePath, stateName;
+				var pagePaths, pagePath, stateName;
 
 				stateName = toState.name.replace(/\./g,'_');
 
@@ -18,7 +18,12 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 					$rootScope.stateName = stateName + " animationExecute ";
 				}, 50);
 
-				pagePath = $window.location.pathname + "#/" + toState.name.replace(/\./g,'/');
+
+				pagePaths = $window.location.href.split($window.location.host)
+				if(pagePaths.length > 1)
+					pagePath = pagePaths[1]
+				else
+					pagePath = "/"
 
 				ga('send', {
 					'hitType': 'pageview',
