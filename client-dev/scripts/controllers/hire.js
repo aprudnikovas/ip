@@ -45,6 +45,13 @@ angular.module('tApp')
 
 			if(errors != null){
 				$scope.formErrors = errors;
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'email',   // Required.
+					'eventAction': 'submit',      // Required.
+					'eventLabel': 'error-ui'
+				});
+
 				return false;
 			}
 
@@ -55,13 +62,36 @@ angular.module('tApp')
 					if(status == 200 && data && data.sent == true){
 						$scope.formIsSent = true;
 						$scope.visitor = {}
+
+						ga('send', {
+							'hitType': 'event',          // Required.
+							'eventCategory': 'email',   // Required.
+							'eventAction': 'submit',      // Required.
+							'eventLabel': 'success'
+						});
+
 					} else {
 						$scope.formErrors = ["Could not send email, try again later."]
+
+						ga('send', {
+							'hitType': 'event',          // Required.
+							'eventCategory': 'email',   // Required.
+							'eventAction': 'submit',      // Required.
+							'eventLabel': 'error-server'
+						});
 					}
 					$scope.submittingData = false;
 				}).error(function(data, status, headers, config) {
 					$scope.formErrors = ["Server Error. Could not send email, try again later."];
 					$scope.submittingData = false;
+
+					ga('send', {
+						'hitType': 'event',          // Required.
+						'eventCategory': 'email',   // Required.
+						'eventAction': 'submit',      // Required.
+						'eventLabel': 'error-server-severe'
+					});
+
 				});
 
 		};
