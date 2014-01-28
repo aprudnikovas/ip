@@ -1,5 +1,5 @@
 angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','ui.event'])
-	.run(function($rootScope,$timeout,$window) {
+	.run(function($rootScope,$timeout,$window,$location) {
 
 		$rootScope.menuIsActive = false;
 
@@ -7,7 +7,7 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
-				var pagePaths, pagePath, stateName;
+				var stateName;
 
 				stateName = toState.name.replace(/\./g,'_');
 
@@ -17,7 +17,12 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 					$rootScope.animationStartChange = true;
 					$rootScope.stateName = stateName + " animationExecute ";
 				}, 50);
+			}
+		);
 
+		$rootScope.$on('$locationChangeSuccess',
+			function(event){
+				var pagePaths, pagePath;
 
 				pagePaths = $window.location.href.split($window.location.host)
 				if(pagePaths.length > 1)
@@ -27,9 +32,9 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 
 				ga('send', {
 					'hitType': 'pageview',
-					'page': pagePath,
-					'title': stateName
+					'page': pagePath
 				});
+
 			}
 		);
 	})
