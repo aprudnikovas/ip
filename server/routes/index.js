@@ -23,6 +23,12 @@
 
 		});
 
+		app.get('/token', function (req, res) {
+			res.send({
+				token: req.session._csrf
+			});
+		})
+
 		app.post('/sendemail', function (req, res) {
 
 			var response = {
@@ -54,14 +60,7 @@
 					response.error = error;
 				}
 
-				return res.format({
-					html: function(){
-						res.render('index.html');
-					},
-					json: function(){
-						res.send(response);
-					}
-				});
+				res.send(response);
 			}); // end ses send
 
 		});
