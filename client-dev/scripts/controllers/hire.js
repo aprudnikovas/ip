@@ -137,7 +137,7 @@ angular.module('tApp')
 				"Email: " + o1.email,
 				"Subject: " + o1.subject,
 				"Message: " + o1.message
-			].join("\n");
+			].join("\n<br>");
 
 			$http.get( "/token" )
 				.success(function(data, status, headers, config) {
