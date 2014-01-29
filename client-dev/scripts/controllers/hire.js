@@ -1,5 +1,5 @@
 angular.module('tApp')
-	.controller('HireController', ['$scope','$rootScope','$timeout','$http', function ($scope,$rootScope,$timeout,$http) {
+	.controller('HireController', ['$scope','$rootScope','$timeout','$http','$window', function ($scope,$rootScope,$timeout,$http,$window) {
 
 		$scope.codeText = '010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001'
 
@@ -37,6 +37,10 @@ angular.module('tApp')
 			{ id:5, active:true, name:'Join our startup'},
 			{ id:6, active:true, name:'Other'}
 		];
+
+		$scope.sendAgain = function(){
+			$window.location.reload();
+		}
 
 		$scope.sendEmail = function(){
 
