@@ -132,12 +132,12 @@ angular.module('tApp')
 			o1 = _.extend( {}, visitorObj);
 			o2 = _.pick( o1, ['email', 'subject']);
 			o2.message = [
-				"Enquiry: " + o1.enquiry.name,
-				"Organization: " + o1.organization_type.name,
-				"Email: " + o1.email,
-				"Subject: " + o1.subject,
-				"Message: " + o1.message
-			].join("\n<br>");
+				"<p>Enquiry: " + o1.enquiry.name + "</p>",
+				"<p>Organization: " + o1.organization_type.name + "</p>",
+				"<p>Email: " + o1.email + "</p>",
+				"<p>Subject: " + o1.subject + "</p>",
+				"<p>Message: " + o1.message + "</p>"
+			].join("<br/>");
 
 			$http.get( "/token" )
 				.success(function(data, status, headers, config) {
