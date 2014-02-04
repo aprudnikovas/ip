@@ -174,7 +174,7 @@ angular.module('tApp')
 							if(fromYear === toYear)
 								yearsToCheck = [toYear];
 							else
-								yearsToCheck = _.range(fromYear,toYear);
+								yearsToCheck = _.range(fromYear,toYear + 1);
 
 							contains = _.some(searchFilter.years, function(yearValue){
 								return _.contains(yearsToCheck, yearValue )
@@ -305,6 +305,7 @@ angular.module('tApp')
 					} else {
 						searchFilter.years = _.union(searchFilter.years, [y]);
 					}
+
 				} else {
 					searchFilter.years = [];
 				}
