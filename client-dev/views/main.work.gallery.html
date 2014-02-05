@@ -71,6 +71,15 @@
         <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
             <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
                 <span class="projects-gallery-item-image-wrapper">
+
+                    <span class="spinner">
+                        <span class="rect1"></span>
+                        <span class="rect2"></span>
+                        <span class="rect3"></span>
+                        <span class="rect4"></span>
+                        <span class="rect5"></span>
+                    </span>
+
                     <span class="projects-gallery-item-image-mask" ng-attr-style="background-image: url('{{ projectImagePath && project.images[0] ? projectImagePath + project.images[0] : ''}}')">
                         <img class="projects-gallery-item-image" ng-attr-src="{{ projectImagePath && project.images[0] ? projectImagePath + project.images[0] : ''}}" >
                     </span>
