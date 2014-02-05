@@ -7,7 +7,7 @@
 		"description": "Web video app for kids",
 		"from": "1367362800000",
 		"to": "1376521200000",
-		"images" : [ "vrroo-01.svg" ],
+		"images" : [ "vrroo_01.jpg","vrroo_02.jpg","vrroo_03.jpg","vrroo_04.jpg","vrroo_05.jpg" ],
 		"skills" : [ "1","3","4","5", "10", "11" ],
 		"languages" : [ "1","8","9","10","11","12","13" ]
 	},
@@ -32,7 +32,7 @@
 		"description": "Freedom to roam is Android app marketplace website, along with Android app.",
 		"from": "1344985200000",
 		"to": "1351728000000",
-		"images" : [ "ftr-01.png", "ftr-02.png" ],
+		"images" : [ "ftr_01.jpg", "ftr_02.jpg", "ftr_03.jpg", "ftr_04.jpg", "ftr_05.jpg" ],
 		"skills" : [ "1","3","6","10","12" ],
 		"languages" : [ "2", "3", "4", "5", "6", "8", "10", "12" ]
 	},
@@ -57,7 +57,7 @@
 		"description": "Property rental website",
 		"from": "1317942000000",
 		"to": "",
-		"images" : [ "letshelpyou-01.jpg", "letshelpyou-02.png" ],
+		"images" : [ "lha_01.jpg", "lha_02.jpg", "lha_03.jpg", "lha_04.jpg", "lha_05.jpg", "lha_06.jpg", "lha_07.jpg", "lha_08.jpg", "lha_09.jpg", "lha_10.jpg" ],
 		"skills" : [ "1", "2", "3", "6", "7", "10","12" ],
 		"languages" : [ "2", "3", "4", "5", "6", "8", "10", "12" ]
 	},
@@ -69,7 +69,7 @@
 		"description": "Magento commerce theme.",
 		"from": "1308092400000",
 		"to": "1319065200000",
-		"images" : [ "boomboom-01.jpg", "boomboom-02.jpg", "boomboom-03.jpg", "boomboom-04.jpg" ],
+		"images" : [ "boomboom_01.jpg", "boomboom_02.jpg", "boomboom_03.jpg", "boomboom_04.jpg", "boomboom_05.jpg" ],
 		"skills" : [ "1" ],
 		"languages" : [ "8", "10", "12", "15", "16" ]
 	},
@@ -81,7 +81,7 @@
 		"description": "shildek.com site",
 		"from": "1294185600000",
 		"to": "1300147200000",
-		"images" : [ "shildek-01.jpg", "shildek-02.jpg" ],
+		"images" : [ "shildek_01.jpg", "shildek_02.jpg" ],
 		"skills" : [ "1","4" ],
 		"languages" : [ "8", "10", "12", "15", "17" ]
 	},
@@ -177,7 +177,7 @@
 		"description": "T-Shirt design",
 		"from": "1286060400000",
 		"to": "1286146800000",
-		"images" : [  ],
+		"images" : [ "tshirt_01.jpg" ],
 		"skills" : [ "1" ],
 		"languages" : [  ]
 	},
@@ -189,7 +189,7 @@
 		"description": "Series of illustrations",
 		"from": "1246057200000",
 		"to": "1248908400000",
-		"images" : [  ],
+		"images" : [ "urbanizmus_01.jpg", "urbanizmus_02.jpg", "urbanizmus_03.jpg" ],
 		"skills" : [ "1" ],
 		"languages" : [  ]
 	},
@@ -201,7 +201,7 @@
 		"description": "Illustration",
 		"from": "1242860400000",
 		"to": "1249081200000",
-		"images" : [ "underwater-adventures-01.png","underwater-adventures-02.jpg" ],
+		"images" : [ "underwater_adventures_01.jpg" ],
 		"skills" : [ "1" ],
 		"languages" : [  ]
 	},
@@ -213,7 +213,7 @@
 		"description": "Illustration",
 		"from": "1258243200000",
 		"to": "1258675200000",
-		"images" : [ "starwars-01.png", "starwars-02.png" ],
+		"images" : [ "star_wars_01.jpg" ],
 		"skills" : [ "1" ],
 		"languages" : [  ]
 	}
