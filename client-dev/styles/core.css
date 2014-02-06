@@ -7265,7 +7265,7 @@ body[class*="main_work"] .h6 {
   margin-bottom: 35px;
   position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transition: all ease 0.12s;
+  transition: all ease 0.1s;
 }
 .projects-gallery .projects-gallery-item .projects-gallery-item-image-wrapper {
   display: block;
@@ -7278,7 +7278,7 @@ body[class*="main_work"] .h6 {
   display: block;
   width: 100%;
   height: 100%;
-  background-position: 50% 50%;
+  background-position: 50% 0%;
   background-size: cover;
   -webkit-filter: grayscale(100%);
   transition: all ease 0.12s;
@@ -7301,14 +7301,14 @@ body[class*="main_work"] .h6 {
 .projects-gallery .projects-gallery-item:hover,
 .projects-gallery .projects-gallery-item:focus {
   text-decoration: none;
-  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   perspective: 1000px;
-  -webkit-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  transform: translateY(-5px);
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
   -webkit-transform-origin: center;
   -moz-transform-origin: center;
   transform-origin: center;
