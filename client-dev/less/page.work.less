@@ -339,7 +339,7 @@ body[class*="main_work"] {
     margin-bottom: 35px;
     position:relative;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: all ease 0.12s;
+    transition: all ease 0.1s;
 
     .projects-gallery-item-image-wrapper {
       display: block;
@@ -352,7 +352,7 @@ body[class*="main_work"] {
         display: block;
         width: 100%;
         height: 100%;
-        background-position: 50% 50%;
+        background-position: 50% 0%;
         background-size: cover;
         -webkit-filter: grayscale(100%);
         transition: all ease 0.12s;
@@ -380,9 +380,9 @@ body[class*="main_work"] {
     &:focus {
 
       text-decoration: none;
-      .box-shadow( 0 10px 30px rgba(0, 0, 0, 0.05) );
+      .box-shadow( 0 5px 20px rgba(0, 0, 0, 0.05) );
       .perspective(1000px);
-      .transform( translateY( -5px ) );
+      .transform( translateY( -3px ) );
       .transform-origin( center );
       .transform-style( flat );
       .backface-visibility( hidden );
