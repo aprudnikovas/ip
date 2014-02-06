@@ -7276,6 +7276,8 @@ body[class*="main_work"] .h6 {
 }
 .projects-gallery .projects-gallery-item .projects-gallery-item-image-wrapper .projects-gallery-item-image-mask {
   display: block;
+  z-index: 2;
+  position: relative;
   width: 100%;
   height: 100%;
   background-position: 50% 0%;
@@ -7670,6 +7672,7 @@ body[class*="main_work"] .h6 {
   position: absolute;
   top: 50%;
   margin-top: -10px;
+  z-index: 1;
 }
 .spinner > * {
   background-color: #333;
