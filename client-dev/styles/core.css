@@ -7426,6 +7426,9 @@ body[class*="main_work"] .h6 {
   font-size: 16px;
   margin: 0 0 20px;
 }
+.description-item-section .btn {
+  margin-bottom: 5px;
+}
 .work-items {
   margin: 0 0 20px;
   padding: 0;
