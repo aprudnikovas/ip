@@ -3,22 +3,35 @@
 @main-link-color: @brand-link;
 @main-dim-color: @brand-dim;
 
+@main-page-break: 800px;
+
 .main_home .footer {
   position: absolute;
-  width: 500px;
-  left: 50%;
-  margin-left: -250px;
+  width: 100%;
+  left:0;
+
+  @media (min-width: @grid-float-breakpoint) {
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+  }
 }
 
 .home-block {
 
-  width: 800px;
+  width: @main-page-break - 1;
   height: 270px;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: -160px;
   margin-left: -400px;
+
+  @media (max-width: @main-page-break) {
+    width: 100%;
+    left:0;
+    margin-left: 0;
+  }
 
   h1 {
     position: absolute;
@@ -31,6 +44,13 @@
     width: 50%;
     font-size: 50px;
     font-family: @hand-font;
+    .transition(all ease 0.3s);
+
+    @media (max-width: @main-page-break) {
+      text-align: center;
+      width: 100%;
+      left:0;
+    }
   }
 
   h2 {
@@ -44,6 +64,15 @@
     line-height: 1;
     text-align: right;
     width: 50%;
+    .transition(all ease 0.3s);
+
+    @media (max-width: @main-page-break) {
+      text-align: center;
+      width: 100%;
+      left:0;
+      top: 56px;
+      text-indent: 140px;
+    }
   }
 
   .firstName {
@@ -61,7 +90,16 @@
     line-height: 1;
     font-weight: 800;
     font-family: @code-font;
-    color: @main-dim-color;
+    color: darken(@main-dim-color,10%);
+    .transition(all ease 0.3s);
+
+    @media (max-width: @main-page-break) {
+      text-align: center;
+      width: 100%;
+      letter-spacing: 3px;
+      position: absolute;
+      top: -27px;
+    }
   }
 
   .home-block-nav {
@@ -69,6 +107,15 @@
     top: 0;
     left: 50%;
     margin-left: 32px;
+    .transition(all ease 0.3s);
+
+    @media (max-width: @main-page-break) {
+      text-align: center;
+      width: 100%;
+      left:0;
+      top: 68px;
+      margin: 0 auto;
+    }
 
     ul {
       margin: 0;
@@ -78,6 +125,12 @@
 
       li {
         display:block;
+        .transition(all ease 0.3s);
+
+        @media (max-width: @main-page-break) {
+          width: 300px;
+          margin: 0 auto;
+        }
 
         a {
           display: block;
@@ -88,7 +141,11 @@
           border-top-color: transparent;
           min-width: 200px;
           margin-bottom: 30px;
-          transition: all ease 0.1s;
+          .transition(all ease 0.1s);
+
+          @media (max-width: @main-page-break) {
+            margin-bottom: 20px;
+          }
 
           &:hover,
           &:focus {
@@ -96,6 +153,10 @@
             border-top-color: @main-link-color;
             margin-bottom: 27px;
             text-decoration: none;
+
+            @media (max-width: @main-page-break) {
+              margin-bottom: 17px;
+            }
 
             .arrow {
               animation:shakeArrow 0.6s infinite;
