@@ -34,6 +34,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background-color: #eaeaea;
@@ -51,10 +52,18 @@ body {
   height: 100%;
 }
 
-.menu-activated {
-  padding-left: 130px;
+body.menu-activated {
+  padding-left: 0;
+
+  @media (min-width: @grid-float-breakpoint) {
+    padding-left: 130px;
+  }
 }
 
+
+.separator {
+  -webkit-user-select: none;
+}
 
 .page {
   margin: 0;
@@ -85,14 +94,28 @@ body {
   text-align: center;
   margin-bottom: 20px;
 
+  .page-title-wrapper {
+    display: block;
+    height: 60px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
   h1 {
     position: relative;
-    top: 13px;
+    top: 28px;
     margin: 0;
     padding: 0;
-    line-height: 65px;
-    font-size: 34px;
+    font-size: 20px;
     font-family: @hand-font;
+
+    @media (min-width: @grid-float-breakpoint) {
+      top: 23px;
+      font-size: 34px;
+    }
 
     a {
       color: @main-foreground-color;
@@ -111,7 +134,11 @@ body {
 
   font-family: @dosis-font;
   color: @main-foreground-color;
-  max-width: 100%;
+  max-width: 400px;
+
+  @media (min-width: @grid-float-breakpoint) {
+    max-width: 100%;
+  }
 
   > header {
     text-align: center;
@@ -126,6 +153,8 @@ body {
   }
 
 }
+
+
 
 
 @popover-border-highlight-color: @main-link-color;
