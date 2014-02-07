@@ -2,6 +2,7 @@
 @page-bio-foreground: @brand-fg;
 @page-bio-link: @brand-link;
 @page-bio-dim: @brand-dim;
+@page-bio-break: 800px;
 
 
 .main_bio {
@@ -322,6 +323,111 @@
 
     }
   }
+}
+
+
+
+@media (max-width: @page-bio-break) {
+
+  #expertise {
+
+    .expertise-stripe {
+      height: 80px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+      &.active {
+        height: 230px;
+      }
+
+      &.active .expertise-item-description {
+        width: 300px;
+        margin-left: -150px;
+        padding: 1em;
+      }
+
+      .expertise-backend {
+        top: -40px;
+      }
+      .expertise-frontend {
+        bottom: -40px;
+      }
+
+      .expertise-group {
+        position: absolute;
+        width: 300px;
+        left: 50%;
+        margin-left: -150px;
+        height: 80px;
+
+        .expertise-group-title {
+          display: none;
+        }
+
+        &.expertise-backend .expertise-group-title {
+          left:0;
+          .expertise-group-title-dot{ right:0 }
+        }
+        &.expertise-frontend .expertise-group-title {
+          right: 0;
+          .expertise-group-title-dot{ left:0 }
+        }
+
+        ul > li {
+
+          a {
+            width: 80px;
+            height: 80px;
+          }
+
+          a:before,
+          a:after{
+            border-width: 0px 15px 53px 0px;
+            top: -16px;
+            left: 50%;
+          }
+          a:before {
+            border-width: 0px 0px 53px 15px;
+            margin-left: -15px;
+          }
+
+          a .face {
+            width: 80px;
+            height: 80px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            line-height: 30px;
+            font-size: 16px;
+            background-size: 100%;
+          }
+
+          &.expertise-api a {
+            left: 90px;
+            .face { background-position: center -80px; }
+          }
+          &.expertise-servers a {
+            left: 180px;
+            .face { background-position: center -155px; }
+          }
+          &.expertise-ui a {
+            left: 45px;
+            .face { background-position: center -235px; }
+          }
+          &.expertise-ux a {
+            left: 135px;
+            .face { background-position: center -315px; }
+          }
+          &.expertise-spa a {
+            left: 225px;
+            .face { background-position: center -390px; }
+          }
+        }
+
+      }
+    }
+
+  }
+
 }
 
 

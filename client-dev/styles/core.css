@@ -6912,6 +6912,102 @@ td.visible-print {
 #expertise .expertise-stripe .expertise-group ul > li > a.active:after {
   opacity: 1;
 }
+@media (max-width: 800px) {
+  #expertise .expertise-stripe {
+    height: 80px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  #expertise .expertise-stripe.active {
+    height: 230px;
+  }
+  #expertise .expertise-stripe.active .expertise-item-description {
+    width: 300px;
+    margin-left: -150px;
+    padding: 1em;
+  }
+  #expertise .expertise-stripe .expertise-backend {
+    top: -40px;
+  }
+  #expertise .expertise-stripe .expertise-frontend {
+    bottom: -40px;
+  }
+  #expertise .expertise-stripe .expertise-group {
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    height: 80px;
+  }
+  #expertise .expertise-stripe .expertise-group .expertise-group-title {
+    display: none;
+  }
+  #expertise .expertise-stripe .expertise-group.expertise-backend .expertise-group-title {
+    left: 0;
+  }
+  #expertise .expertise-stripe .expertise-group.expertise-backend .expertise-group-title .expertise-group-title-dot {
+    right: 0;
+  }
+  #expertise .expertise-stripe .expertise-group.expertise-frontend .expertise-group-title {
+    right: 0;
+  }
+  #expertise .expertise-stripe .expertise-group.expertise-frontend .expertise-group-title .expertise-group-title-dot {
+    left: 0;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li a {
+    width: 80px;
+    height: 80px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li a:before,
+  #expertise .expertise-stripe .expertise-group ul > li a:after {
+    border-width: 0px 15px 53px 0px;
+    top: -16px;
+    left: 50%;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li a:before {
+    border-width: 0px 0px 53px 15px;
+    margin-left: -15px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li a .face {
+    width: 80px;
+    height: 80px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    line-height: 30px;
+    font-size: 16px;
+    background-size: 100%;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-api a {
+    left: 90px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-api a .face {
+    background-position: center -80px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-servers a {
+    left: 180px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-servers a .face {
+    background-position: center -155px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-ui a {
+    left: 45px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-ui a .face {
+    background-position: center -235px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-ux a {
+    left: 135px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-ux a .face {
+    background-position: center -315px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a {
+    left: 225px;
+  }
+  #expertise .expertise-stripe .expertise-group ul > li.expertise-spa a .face {
+    background-position: center -390px;
+  }
+}
 #coding-skills .skill-description-wrapper {
   width: 0px;
   height: 280px;
