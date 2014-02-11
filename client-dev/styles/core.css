@@ -6265,6 +6265,42 @@ td.visible-print {
     margin-left: -250px;
   }
 }
+.ccc {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: .5em;
+  word-break: break-all;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1;
+}
+.ccc.ccc01 {
+  top: 0;
+  left: 50%;
+}
+.ccc.ccc02 {
+  top: 0;
+  left: 30%;
+  font-size: 5em;
+}
+.ccc.ccc03 {
+  top: 0;
+  left: 40%;
+  font-size: 2em;
+}
+.ccc.ccc04 {
+  top: 0;
+  left: 48%;
+  font-size: 1em;
+}
+.ccc.ccc05 {
+  top: 0;
+  left: 80%;
+  font-size: 8em;
+}
 .home-block {
   width: 799px;
   height: 270px;
