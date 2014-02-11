@@ -87,61 +87,13 @@
 	},
 
 	{
-		"id": "8",
-		"company_id": "4",
-		"title": "IvarPrudnikov older",
-		"description": "ivarprudnikov.com older site",
-		"from": "1327017600000",
-		"to": "1329264000000",
-		"images" : [  ],
-		"skills" : [ "2" ],
-		"languages" : [ "8", "10", "12", "15", "17" ]
-	},
-
-	{
-		"id": "9",
-		"company_id": "4",
-		"title": "T reconstruction",
-		"description": "Summer house reconstruction",
-		"from": "1172707200000",
-		"to": "1176591600000",
-		"images" : [  ],
-		"skills" : [ "6", "8", "9" ],
-		"languages" : [  ]
-	},
-
-	{
-		"id": "10",
-		"company_id": "4",
-		"title": "Tutkus",
-		"description": "Visualizations for interior design studio Retroforma",
-		"from": "1154386800000",
-		"to": "1156028400000",
-		"images" : [  ],
-		"skills" : [ "6", "8", "9" ],
-		"languages" : [  ]
-	},
-
-	{
-		"id": "11",
-		"company_id": "4",
-		"title": "BKC",
-		"description": "Technical drawings and visualizations of Birzai Culture Centre",
-		"from": "1163980800000",
-		"to": "1171065600000",
-		"images" : [  ],
-		"skills" : [ "8", "9" ],
-		"languages" : [  ]
-	},
-
-	{
 		"id": "12",
 		"company_id": "4",
 		"title": "Bajoras",
 		"description": "Architectural solution for a new dwelling",
 		"from": "1203465600000",
 		"to": "1213916400000",
-		"images" : [  ],
+		"images" : [ "bajoras_01.jpg", "bajoras_02.jpg", "bajoras_03.jpg", "bajoras_04.jpg", "bajoras_05.jpg", "bajoras_06.jpg", "bajoras_07.jpg" ],
 		"skills" : [ "8", "9" ],
 		"languages" : [  ]
 	},
@@ -153,7 +105,7 @@
 		"description": "Architectural solution for a new dwelling",
 		"from": "1243810800000",
 		"to": "1245452400000",
-		"images" : [  ],
+		"images" : [ "rus_01.jpg", "rus_02.jpg", "rus_03.jpg", "rus_04.jpg", "rus_05.jpg" ],
 		"skills" : [ "8", "9" ],
 		"languages" : [  ]
 	},
