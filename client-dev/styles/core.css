@@ -6489,7 +6489,7 @@ td.visible-print {
   text-align: center;
   margin: 1em 0;
   font-size: 2.5em;
-  color: #888888;
+  color: #555555;
 }
 .animation-block {
   display: block;
@@ -6531,6 +6531,10 @@ td.visible-print {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
+.intro {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
 #expertise {
   height: auto;
   overflow: hidden;
@@ -6556,7 +6560,7 @@ td.visible-print {
   left: 50%;
   top: 50%;
   background-color: #f8f8f8;
-  color: #888888;
+  color: #555555;
   -webkit-transition: all ease 0.4s;
   transition: all ease 0.4s;
 }
@@ -6614,7 +6618,7 @@ td.visible-print {
   line-height: 30px;
   width: 5em;
   font-family: "la_belle_auroreregular", sans-serif;
-  color: #888888;
+  color: #555555;
   font-size: 2em;
   text-align: center;
   margin-left: -2.5em;
@@ -6709,7 +6713,7 @@ td.visible-print {
   line-height: 50px;
   text-align: center;
   font-size: 20px;
-  color: #888888;
+  color: #555555;
 }
 #expertise .expertise-stripe .expertise-group ul > li a .front {
   z-index: 5001;
@@ -6928,7 +6932,7 @@ td.visible-print {
 }
 #coding-skills .skill-description-wrapper .description {
   overflow: hidden;
-  color: #888888;
+  color: #555555;
   font-family: 'Dosis Light', sans-serif;
 }
 #coding-skills .skill-description-wrapper .description .coding-skills-language {
@@ -6943,7 +6947,7 @@ td.visible-print {
   font-family: 'Dosis Light', sans-serif;
   margin: 0 15px 10px;
   padding: 0;
-  color: #888888;
+  color: #555555;
 }
 #coding-skills .coding-skills-frontend {
   left: -160px;
@@ -7173,7 +7177,7 @@ body[class*="main_work"] .h6 {
 #timeline .timeline-year .timeline-month .dot {
   width: 4px;
   height: 4px;
-  background-color: #888888;
+  background-color: #555555;
   border-radius: 5px;
   position: absolute;
   top: 50%;
@@ -7205,7 +7209,7 @@ body[class*="main_work"] .h6 {
   margin-top: -15px;
   width: 60px;
   background-color: #f8f8f8;
-  color: #888888;
+  color: #555555;
   border: 1px solid #34aedd;
 }
 #timeline .timeline-job {
@@ -7366,7 +7370,7 @@ body[class*="main_work"] .h6 {
   display: none;
 }
 .projects-gallery .projects-gallery-item .projects-gallery-item-label {
-  color: #888888;
+  color: #555555;
   display: block;
   bottom: 0;
   width: 100%;
@@ -7910,7 +7914,7 @@ body {
 body {
   overflow-y: scroll;
   background-color: #f8f8f8;
-  color: #888888;
+  color: #555555;
   background-position: center 100%;
   -o-transition: padding 0.15s ease;
   -ms-transition: padding 0.15s ease;
@@ -7969,7 +7973,7 @@ body.menu-activated {
   color: #eeeeee;
 }
 .page > header {
-  color: #888888;
+  color: #555555;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -7997,14 +8001,14 @@ body.menu-activated {
   }
 }
 .page > header h1 a {
-  color: #888888;
+  color: #555555;
 }
 .page > header .firstName {
   margin-right: 10px;
 }
 .page > section {
   font-family: 'Dosis Light', sans-serif;
-  color: #888888;
+  color: #555555;
   max-width: 400px;
 }
 @media (min-width: 600px) {
@@ -8014,7 +8018,7 @@ body.menu-activated {
 }
 .page > section > header {
   text-align: center;
-  color: #888888;
+  color: #555555;
   margin-bottom: 1em;
 }
 .page > section > header h2 {
