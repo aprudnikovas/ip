@@ -150,17 +150,17 @@ angular.module('tApp')
 			{
 				title:'UI',
 				className: 'expertise-ui',
-				text:'ui text'
+				text:'Drawing in notepad, creating posters, it was starting point of everything I am now, and although I do not design houses anymore I still enjoy and maintain graphical assets, create new ones.'
 			},
 			{
 				title:'UX',
 				className: 'expertise-ux',
-				text:'ux text'
+				text:'I am more than happy to be part of UX decisions as it involves analytics, observations, new design patterns.'
 			},
 			{
 				title:'SPA',
 				className: 'expertise-spa',
-				text:'spa text'
+				text:"Single Page Applications are present & future. It is also challenging as requires adoption of new dev techniques, new design patterns and more fights with backend devs."
 			}
 		];
 
@@ -168,17 +168,17 @@ angular.module('tApp')
 			{
 				title:'REST',
 				className: 'expertise-rest',
-				text:'rest text'
+				text:'Representational state transfer is usually first choice when I develop backend services as it is predictable and modular, sometimes repetitive though.'
 			},
 			{
 				title:'API',
 				className: 'expertise-api',
-				text:'api text'
+				text:"Cannot imagine rich application without some sort of third party api that needs implementation. Maps, social networks, video, you name it, I've been there"
 			},
 			{
 				title:'Servers',
 				className: 'expertise-servers',
-				text:'servers text'
+				text:"'Servers' title relates to server instance management, vertical and horizontal scaling. Those are often achieved with the help of Amazon Services."
 			}
 		];
 
