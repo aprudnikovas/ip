@@ -13,17 +13,19 @@
 
 html,body {
   height: 100%;
-  overflow-y: auto;
 }
 
 body {
-
-  overflow-y: scroll;
 
   background-color: @main-background-color;
   color: @main-foreground-color;
 
   background-position: center 100%;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  overflow-y: scroll;
 
   -o-transition: padding 0.15s ease;
   -ms-transition: padding 0.15s ease;
@@ -53,10 +55,9 @@ body {
 }
 
 body.menu-activated {
-  padding-left: 0;
 
   @media (min-width: @grid-float-breakpoint) {
-    padding-left: 130px;
+    padding-left: 140px;
   }
 }
 
@@ -118,6 +119,12 @@ body.menu-activated {
     }
 
     a {
+      color: @main-link-color;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
       color: @main-foreground-color;
     }
   }

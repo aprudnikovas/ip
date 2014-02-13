@@ -15,7 +15,7 @@
 
                 <div class="form-group" ng-class="{'has-error': rc.hire.needsAttention(hire.email) && rc.hire.attempted, 'has-warning':rc.hire.needsAttention(hire.email) && !rc.hire.attempted }">
                     <label for="email">Email</label>
-                    <input type="email" required="" ng-model="visitor.email" class="form-control" id="email" name="email" placeholder="eg: josh.gizzex@company.com" autofocus="">
+                    <input type="email" required="" ng-model="visitor.email" class="form-control" id="email" name="email" placeholder="eg: josh.gizzex@company.com">
                     <span class="help-block" ng-show="rc.hire.needsAttention(hire.email) && rc.hire.attempted">
                         Please provide valid email, I will need to reply somehow
                     </span>

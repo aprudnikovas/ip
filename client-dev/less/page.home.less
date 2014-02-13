@@ -4,6 +4,7 @@
 @main-dim-color: @brand-dim;
 
 @main-page-break: 800px;
+@main-page-break-lower: 400px;
 
 .main_home .footer {
   position: absolute;
@@ -96,6 +97,13 @@
       width: 100%;
       left:0;
     }
+
+    @media (max-width: @main-page-break-lower) {
+      text-align: center;
+      width: 100%;
+      left:0;
+      font-size: 38px;
+    }
   }
 
   h2 {
@@ -117,6 +125,15 @@
       left:0;
       top: 56px;
       text-indent: 140px;
+    }
+
+    @media (max-width: @main-page-break-lower) {
+      text-align: center;
+      width: 100%;
+      left: 0;
+      font-size: 12px;
+      text-indent: 100px;
+      top: 43px;
     }
   }
 
@@ -174,6 +191,11 @@
 
         @media (max-width: @main-page-break) {
           width: 300px;
+          margin: 0 auto;
+        }
+
+        @media (max-width: @main-page-break-lower) {
+          width: 220px;
           margin: 0 auto;
         }
 
