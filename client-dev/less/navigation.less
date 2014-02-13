@@ -36,8 +36,6 @@
   cursor: pointer;
   padding-top: 12px;
   padding-bottom: 11px;
-  border: 1px solid @nav-bg;
-  border-top-color: transparent;
 
   .transition( all ease 0.1s );
 
@@ -52,10 +50,12 @@
 
   &:hover,
   &:focus {
-    height: 43px;
-    border-bottom-width: 4px;
-    border-top-color: @nav-bg;
     outline: none;
+
+    background-color: @nav-bg;
+    .navigation-toggler-bar {
+      background-color: @toggle-bg;
+    }
   }
 }
 
