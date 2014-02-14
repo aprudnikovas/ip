@@ -87,7 +87,9 @@
     <h3 class="bio-main-title">languages / frameworks</h3>
 
     <div id="coding-skills">
+
         <div class="skill-description-wrapper" ng-class="languageBlock != null ? 'active' : ''">
+
             <div class="coding-skills-block coding-skills-frontend">
 
                 <h4 class="coding-skills-title">front-end</h4>
@@ -122,6 +124,7 @@
             </div>
 
             <div ng-if="languageBlock" class="description">
+                <a class="close" ng-click="updateLanguageBlock()">&times;</a>
                 <h3 class="coding-skills-language">{{languageBlock.lang}}</h3>
                 <p class="coding-skills-text">{{languageBlock.text}}</p>
             </div>
