@@ -6564,6 +6564,9 @@ td.visible-print {
 .intro {
   font-size: 1.1em;
   line-height: 1.5;
+  max-width: 30em;
+  margin-left: auto;
+  margin-right: auto;
 }
 #expertise {
   height: auto;
@@ -6859,8 +6862,8 @@ td.visible-print {
     height: 230px;
   }
   #expertise .expertise-stripe.active .expertise-item-description {
-    width: 300px;
-    margin-left: -150px;
+    width: 90%;
+    margin-left: -45%;
     padding: 1em;
   }
   #expertise .expertise-stripe .expertise-backend {
@@ -6966,12 +6969,21 @@ td.visible-print {
   font-family: 'Dosis Light', sans-serif;
 }
 #coding-skills .skill-description-wrapper .description .coding-skills-language {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   margin: 0 0 0.5em;
+}
+#coding-skills .skill-description-wrapper .description .close {
+  font-size: 40px;
+  line-height: 24px;
+  color: #d37575;
 }
 #coding-skills .coding-skills-block {
   display: block;
   width: 160px;
   position: absolute;
+  overflow: hidden;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 #coding-skills .coding-skills-block .coding-skills-title {
   font-family: 'Dosis Light', sans-serif;
@@ -7006,6 +7018,18 @@ td.visible-print {
   right: -90px;
   left: initial;
   text-align: left;
+}
+@media (max-width: 800px) {
+  #coding-skills .skill-description-wrapper.active {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 10px;
+    border: 0;
+  }
+  #coding-skills .skill-description-wrapper.active .coding-skills-block {
+    width: 0;
+    left: 0;
+  }
 }
 .coding-skills-navigation {
   margin: 0;
