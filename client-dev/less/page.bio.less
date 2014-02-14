@@ -53,6 +53,9 @@
 .intro {
   font-size: 1.1em;
   line-height: 1.5;
+  max-width: 30em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -344,8 +347,8 @@
       }
 
       &.active .expertise-item-description {
-        width: 300px;
-        margin-left: -150px;
+        width: 90%;
+        margin-left: -45%;
         padding: 1em;
       }
 
@@ -458,16 +461,26 @@
       font-family: @dosis-font;
 
       .coding-skills-language {
+        font-family: @code-font;
         margin: 0 0 0.5em;
+      }
+
+      .close {
+        font-size: 40px;
+        line-height: 24px;
+        color: @page-bio-link;
       }
     }
 
   }
 
+
   .coding-skills-block {
     display: block;
     width: 160px;
     position: absolute;
+    overflow: hidden;
+    .transition(all 0.1s ease);
 
     .coding-skills-title {
       font-family: @dosis-font;
@@ -507,6 +520,25 @@
         right: -90px;
         left: initial;
         text-align: left;
+      }
+    }
+  }
+
+}
+
+@media (max-width: @page-bio-break) {
+
+  #coding-skills {
+
+    .skill-description-wrapper.active {
+      width: 100%;
+      max-width: 400px;
+      padding: 0 10px;
+      border: 0;
+
+      .coding-skills-block {
+        width:0;
+        left:0;
       }
     }
   }
