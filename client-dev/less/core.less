@@ -161,7 +161,34 @@ body.menu-activated {
 
 }
 
+.btn-branded {
+  position: relative;
+  border: 1px solid darken(@main-link-color, 10%);
+  color: @main-background-color;
+  background-color: @main-link-color;
+  margin-right: 3px;
+  border-radius: 0;
+  .transition(all ease 0.1s);
 
+  &:hover,
+  &:focus {
+    background-color: darken(@main-link-color, 10%);
+    border-color: darken(@main-link-color, 20%);
+    color: @main-background-color;
+  }
+}
+
+.btn-popover:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-width: 0px 8px 8px 0px;
+  border-color: transparent transparent darken(@main-link-color, 20%) transparent;
+  border-style: solid;
+  display: block;
+  bottom: 0;
+  left: 0;
+}
 
 
 @popover-border-highlight-color: @main-link-color;
