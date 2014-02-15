@@ -7,24 +7,6 @@
 @nav-font: @dosis-font;
 @sprite-p: @sprite-path;
 
-.navigation {
-  width: 130px;
-  min-height: 100%;
-  background-color: @nav-bg;
-  position: absolute;
-  position: fixed;
-  top: 0;
-  left: -125px;
-  padding-top: 20px;
-  z-index: 1050;
-
-  .transition( all ease 0.15s );
-
-  &.active {
-    left:0;
-  }
-}
-
 .navigation-toggler {
   display: block;
   position: absolute;
@@ -46,6 +28,8 @@
     background-color: @nav-bg;
     margin: 0 auto 5px;
     border-radius: 2px;
+
+    .transition( all ease 0.3s );
   }
 
   &:hover,
@@ -57,6 +41,62 @@
       background-color: @toggle-bg;
     }
   }
+
+  &.active {
+
+    .navigation-toggler-bar {
+      position: absolute;
+      left: 10px;
+      margin: 0;
+    }
+
+    .toggler-bar-1 {
+      top: 50%;
+      margin-top: -1px;
+      width: 15px;
+
+      .rotate(-45deg);
+      .transform-origin(bottom left)
+    }
+    .toggler-bar-2 {
+      top: 50%;
+      margin-top: -1px;
+      width: 25px;
+    }
+    .toggler-bar-3 {
+      top: 50%;
+      margin-top: -1px;
+      width: 15px;
+
+      .rotate(45deg);
+      .transform-origin(top left);
+    }
+  }
+}
+
+
+.navigation {
+  width: 130px;
+  min-height: 100%;
+  background-color: @nav-bg;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: -125px;
+  z-index: 1050;
+
+  .transition( all ease 0.15s );
+
+  &.active {
+    left:0;
+  }
+}
+
+.navigation-main {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
 }
 
 .navigation-main ul {
@@ -70,6 +110,12 @@
     &.active {
       color: @nav-fg;
       background-color: darken(@nav-bg,10%);
+    }
+
+    &.home a {
+      padding-top: 20px;
+      padding-bottom: 16px;
+      border-bottom: 6px solid darken(@nav-bg,15%);
     }
 
     a {
@@ -132,12 +178,14 @@
 
 
   &.navigation-bg-bio{
-    background-position: center -235px;
+    background-position: center -243px;
+    height: 50px;
   }
   &.navigation-bg-work{
     background-position: center -295px;
   }
   &.navigation-bg-hire{
-    background-position: center -360px;
+    background-position: center -362px;
+    height: 55px;
   }
 }
