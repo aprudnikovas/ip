@@ -1,12 +1,15 @@
 <div class="navigation" ng-class="{active:menuIsActive}" ng-controller="MenuController">
-    <nav class="navigation-main">
-        <a tabindex="0" class="navigation-toggler" ng-click="toggleNavigation()" ui-keypress="{13:'toggleNavigation()'}">
-            <span class="navigation-toggler-bar"></span>
-            <span class="navigation-toggler-bar"></span>
-            <span class="navigation-toggler-bar"></span>
-        </a>
-        <ul ui-event="{ mouseenter : 'mouseOpenNavigation()', mouseleave : 'mouseHideNavigation()' } ">
-            <li class="home">
+
+    <a tabindex="0" class="navigation-toggler" ng-class="{active:menuIsActive}" ng-click="toggleNavigation()" ui-keypress="{13:'toggleNavigation()'}">
+        <span class="navigation-toggler-bar toggler-bar-1"></span>
+        <span class="navigation-toggler-bar toggler-bar-2"></span>
+        <span class="navigation-toggler-bar toggler-bar-3"></span>
+    </a>
+
+    <nav class="navigation-main" ui-event="{ mouseenter : 'mouseOpenNavigation()', mouseleave : 'mouseHideNavigation()' } ">
+
+        <ul>
+            <li class="home" ng-class="{active: stateMatches('main.home')}">
                 <a ui-sref="main.home" ng-attr-tabindex="{{menuIsActive ? '0' : '-1'}}">
                     <span class="">ip</span>
                 </a>
