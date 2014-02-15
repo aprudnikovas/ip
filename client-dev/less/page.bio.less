@@ -180,7 +180,7 @@
           border-radius: 75px;
           position: absolute;
           top: 0;
-          z-index: 5000;
+          z-index: 500;
           outline: none;
           -webkit-user-select: none;
         }
@@ -198,7 +198,7 @@
           left: 50%;
           .transform(rotate(0deg));
           .transform-origin(bottom left);
-          z-index: 5000;
+          z-index: 500;
           .transition( all ease 0.3s );
         }
         a:before {
@@ -221,7 +221,7 @@
           cursor: pointer;
           .backface-visibility( hidden );
           .perspective(500);
-          z-index: 5001;
+          z-index: 501;
           border: 1px solid lighten(@page-bio-link, 15%);
           padding-top: 50px;
           padding-bottom: 50px;
@@ -232,11 +232,11 @@
         }
 
         a .front {
-          z-index: 5001;
+          z-index: 501;
           .transform( scale(1) rotate3d(0,1,0,0deg) );
         }
         a .back {
-          z-index: 5002;
+          z-index: 502;
           .transform( scale(0) rotate3d(0,1,0,180deg) );
           background: @page-bio-link;
           color: @page-bio-background;

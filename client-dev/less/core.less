@@ -34,6 +34,18 @@ body {
   transition: padding 0.15s ease;
 }
 
+@media (min-width: @grid-float-breakpoint) {
+
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body.menu-activated {
+    padding-left: 140px;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -54,11 +66,27 @@ body {
   height: 100%;
 }
 
-body.menu-activated {
 
-  @media (min-width: @grid-float-breakpoint) {
-    padding-left: 140px;
-  }
+.page-transition-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.7);
+  z-index: 999;
+
+  .transition(all 0.2s ease);
+
+}
+.animatioPending .page-transition-cover {
+
+}
+.animationExecute .page-transition-cover {
+  background-color: rgba(255,255,255,0);
+  width: 0;
+  height: 0;
 }
 
 
