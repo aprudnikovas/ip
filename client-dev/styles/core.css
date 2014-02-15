@@ -6665,7 +6665,7 @@ td.visible-print {
   border-radius: 75px;
   position: absolute;
   top: 0;
-  z-index: 5000;
+  z-index: 500;
   outline: none;
   -webkit-user-select: none;
 }
@@ -6687,7 +6687,7 @@ td.visible-print {
   -moz-transform-origin: bottom left;
   -ms-transform-origin: bottom left;
   transform-origin: bottom left;
-  z-index: 5000;
+  z-index: 500;
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
@@ -6718,7 +6718,7 @@ td.visible-print {
   -webkit-perspective: 500;
   -moz-perspective: 500;
   perspective: 500;
-  z-index: 5001;
+  z-index: 501;
   border: 1px solid #e5afaf;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -6728,13 +6728,13 @@ td.visible-print {
   color: #555555;
 }
 #expertise .expertise-stripe .expertise-group ul > li a .front {
-  z-index: 5001;
+  z-index: 501;
   -webkit-transform: scale(1) rotate3d(0, 1, 0, 0deg);
   -ms-transform: scale(1) rotate3d(0, 1, 0, 0deg);
   transform: scale(1) rotate3d(0, 1, 0, 0deg);
 }
 #expertise .expertise-stripe .expertise-group ul > li a .back {
-  z-index: 5002;
+  z-index: 502;
   -webkit-transform: scale(0) rotate3d(0, 1, 0, 180deg);
   -ms-transform: scale(0) rotate3d(0, 1, 0, 180deg);
   transform: scale(0) rotate3d(0, 1, 0, 180deg);
@@ -8005,6 +8005,15 @@ body {
   -webkit-transition: padding 0.15s ease;
   transition: padding 0.15s ease;
 }
+@media (min-width: 600px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body.menu-activated {
+    padding-left: 140px;
+  }
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -8023,10 +8032,22 @@ body {
   width: 100%;
   height: 100%;
 }
-@media (min-width: 600px) {
-  body.menu-activated {
-    padding-left: 140px;
-  }
+.page-transition-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 999;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.animationExecute .page-transition-cover {
+  background-color: rgba(255, 255, 255, 0);
+  width: 0;
+  height: 0;
 }
 .separator {
   -webkit-user-select: none;
