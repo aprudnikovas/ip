@@ -27,7 +27,52 @@ app.use(function (req, res, next) {
 	next();
 });
 app.use(app.router);
-app.use(express.static( path.join(__dirname, 'client-prod'), { maxAge: oneYear } ));
+
+
+
+
+// all necessary client resources
+////////////////////////////////////////////////////////
+var staticMainDir = 'client-prod';
+var directoriesAndFiles = [
+	'data',
+	'fonts',
+	'images',
+	'scripts',
+	'styles',
+	'views',
+	'404.html',
+	'500.html',
+	'favicon.ico',
+	'index.html',
+	'robots.txt'
+];
+
+
+// handle appcache files separately
+////////////////////////////////////////////////////////
+app.use(function (req, res, next) {
+	if ('GET' != req.method && 'HEAD' != req.method) return next();
+	if( req.path && req.path.match(/.*manifest\.appcache/) ){
+		res.setHeader('Content-Type', 'text/cache-manifest');
+		res.setHeader('Pragma', 'no-cache');
+		res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+		res.setHeader('Expires', '0');
+
+		res.sendfile(path.join(__dirname, staticMainDir + req.path));
+
+	} else {
+		return next();
+	}
+
+});
+
+// handle static files
+////////////////////////////////////////////////////////
+app.use( express.static( path.join(__dirname, staticMainDir), { maxAge: oneYear } ));
+
+// 404 errors
+////////////////////////////////////////////////////////
 app.use(function (req, res, next) {
 	res.status(404);
 	if (req.accepts('html')) {
@@ -40,6 +85,9 @@ app.use(function (req, res, next) {
 	}
 	res.type('txt').send('Not found');
 });
+
+// other errors
+////////////////////////////////////////////////////////
 app.use(function (err, req, res, next) {
 
 	console.log(
