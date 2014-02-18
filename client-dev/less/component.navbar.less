@@ -111,9 +111,10 @@
 
 @media (max-width: @nav-break) {
 
-  .page-navigation {
+  .page-navigation .navbar {
 
-    .navbar.navbar-default {
+
+    &.navbar-default {
       .navbar-nav {
         text-align: center;
         margin: 0;
@@ -125,36 +126,10 @@
 
     }
 
-    .navbar.navbar-hire {
-      .navbar-nav {
-        text-align: center;
-        margin: 0;
-        float: none;
 
-        > li {
-          display:block;
-          width: 50%;
-          float: left;
+    &.navbar-hire,
+    &.navbar-filter{
 
-          > a {
-            background-color: @page-work-link;
-            color: @page-work-background;
-            margin: 0;
-            border: 0;
-            line-height: 1.2;
-          }
-
-          &.active a,
-          > a:hover,
-          > a:focus {
-            background-color: lighten(@page-work-link, 10%);
-            color: @page-work-background;
-          }
-        }
-      }
-    }
-
-    .navbar.navbar-filter {
       .navbar-nav {
         text-align: center;
         margin: 0;
@@ -171,17 +146,35 @@
 
           &.navbar-filter-clear-all-wrapper {
             width: 100%;
-
           }
 
           .filterdropdown_dropdown {
             text-align: left;
           }
 
+          &.selected:before {
+            background-color: @page-work-background;
+            margin-left: 0.5em;
+          }
+
           > a {
             background-color: @page-work-link;
             color: @page-work-background;
             margin: 0;
+            border: 0;
+            line-height: 1.2;
+
+            .caret {
+              border-top-color: @page-work-background;
+              border-bottom-color: @page-work-background;
+            }
+          }
+
+          &.active a,
+          > a:hover,
+          > a:focus {
+            background-color: lighten(@page-work-link, 10%);
+            color: @page-work-background;
 
             .caret {
               border-top-color: @page-work-background;
@@ -191,8 +184,8 @@
         }
 
       }
-
     }
+
   }
 
 
