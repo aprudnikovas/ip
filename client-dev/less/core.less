@@ -9,6 +9,7 @@
 @import "component.filterdropdown.less";
 @import "component.spinner.less";
 @import "component.navbar.less";
+@import "component.header.less";
 @import "component.footer.less";
 
 html,body {
@@ -26,12 +27,6 @@ body {
   padding-right: 10px;
 
   overflow-y: scroll;
-
-  -o-transition: padding 0.15s ease;
-  -ms-transition: padding 0.15s ease;
-  -moz-transition: padding 0.15s ease;
-  -webkit-transition: padding 0.15s ease;
-  transition: padding 0.15s ease;
 }
 
 @media (min-width: @grid-float-breakpoint) {
@@ -42,7 +37,7 @@ body {
   }
 
   body.menu-activated {
-    padding-left: 140px;
+    padding-left: 130px;
   }
 }
 
@@ -67,29 +62,6 @@ body {
 }
 
 
-.page-transition-cover {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(255,255,255,0.7);
-  z-index: 999;
-
-  .transition(all 0.2s ease);
-
-}
-.animatioPending .page-transition-cover {
-
-}
-.animationExecute .page-transition-cover {
-  background-color: rgba(255,255,255,0);
-  width: 0;
-  height: 0;
-}
-
-
 .separator {
   -webkit-user-select: none;
 }
@@ -97,7 +69,6 @@ body {
 .page {
   margin: 0;
   padding: 0 0 40px;
-  min-height: 100%;
 
   &.menuIsOpen {
     padding-left:130px;
@@ -278,4 +249,115 @@ body {
 
   }
 
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////
+///////////////   TESTING ANIMATIONS
+////////////////////////////////////////////////////////////
+
+[ui-view] {
+  -webkit-transition:none;
+}
+
+[ui-view="main"] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+
+  -webkit-transform-origin: top center;
+  opacity: 1;
+  -webkit-transform:scale3d(1, 1, 1);
+  -moz-transform:scale3d(1, 1, 1);
+  transform:scale3d(1, 1, 1);
+
+
+
+  &.ng-enter {
+    -webkit-transition:all 0.2s ease-in-out;
+  }
+  &.ng-leave {
+    -webkit-transition:all 0.2s ease-in-out;
+  }
+
+  &.ng-enter {
+    opacity: 0;
+    -webkit-transform:scale3d(0.5, 0.5, 0.5);
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+    -webkit-transform:scale3d(1, 1, 1);
+  }
+
+  &.ng-leave {
+    opacity: 1;
+    -webkit-transform:translate3d(0, 0, 0);
+  }
+
+  &.ng-leave-active {
+
+    opacity: 0;
+    -webkit-transform:translate3d(0, 200px, 0);
+  }
+
+
+}
+
+
+
+
+
+/*
+ * ngRepeat triggers three animation events: enter, leave and move.
+ */
+.repeat-animation.ng-enter,
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move {
+  -webkit-transition:100s ease-in-out all;
+  transition:100s ease-in-out all;
+}
+
+/* ending enter and move styling
+   (this is what the element will animate from */
+.repeat-animation.ng-enter,
+.repeat-animation.ng-move {
+  opacity:0;
+  -webkit-transform:scale3d(0.5, 0.5, 0.5);
+}
+
+/* ending enter and move styling
+   (this is what the element will animate towards */
+.repeat-animation.ng-enter.ng-enter-active,
+.repeat-animation.ng-move.ng-move-active {
+  opacity:1;
+  -webkit-transform:scale3d(1, 1, 1);
+}
+
+/* starting leave animation */
+.repeat-animation.ng-leave {
+  opacity:1;
+  -webkit-transform:scale3d(1, 1, 1);
+}
+
+/* ending leave animation */
+.repeat-animation.ng-leave.ng-leave-active {
+  opacity:0;
+  -webkit-transform:scale3d(0, 0, 0);
+}
+
+
+.repeat-animation.ng-enter-stagger,
+.repeat-animation.ng-move-stagger {
+  /* 50ms between each item being animated after the other */
+  -webkit-transition-delay:100ms;
+  transition-delay:100ms;
+
+  /* this is required here to prevent any CSS inheritance issues */
+  -webkit-transition-duration:0;
+  transition-duration:0;
 }

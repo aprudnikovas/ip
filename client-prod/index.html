@@ -1,8 +1,8 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="manifest.appcache"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" manifest="manifest.appcache"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" manifest="manifest.appcache"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" manifest="manifest.appcache"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html ng-app="tApp" class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="manifest.appcache"> <![endif]-->
+<!--[if IE 7]>         <html ng-app="tApp" class="no-js lt-ie9 lt-ie8" manifest="manifest.appcache"> <![endif]-->
+<!--[if IE 8]>         <html ng-app="tApp" class="no-js lt-ie9" manifest="manifest.appcache"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="tApp" class="no-js" manifest="manifest.appcache"> <!--<![endif]-->
 
     <head>
         <meta charset="utf-8">
@@ -11,20 +11,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="styles/0d004de1.core.css">
+        <link rel="stylesheet" href="styles/03bcb18f.core.css">
 
     </head>
 
 
-    <body ng-app="tApp" ng-class="stateName">
+    <body class="body" ng-class="currentState.name">
 
-        <div class="page-transition-cover"></div>
+        <div class="ui-view-container" ui-view="navigation" autoscroll="false"></div>
 
-        <div ui-view="navigation"></div>
-
-        <div class="main-content">
-            <div class="main page-wrapper" ui-view="main"></div>
-            <div class="footer-wrapper" ui-view="footer"></div>
+        <div class="main-content" ng-class="stateName">
+            <div class="main page-wrapper ui-view-container" ui-view="main" autoscroll="false"></div>
         </div>
 
         <script>
@@ -35,7 +32,7 @@
             ga('create', 'UA-43884937-2', 'ivarprudnikov.com');
         </script>
 
-        <script src="scripts/5aadd044.app.js"></script>
+        <script src="scripts/c1e3972c.app.js"></script>
 
     </body>
 </html>

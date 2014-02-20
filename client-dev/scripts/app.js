@@ -1,24 +1,19 @@
-angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','ui.event'])
+angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ngAnimate','ui.keypress','ui.event'])
 	.run(function($rootScope,$timeout,$window,$location) {
 
 		$rootScope.menuIsActive = false;
 
 		$rootScope.projectImagePath = "https://s3-eu-west-1.amazonaws.com/ivarprudnikov/img/projects/";
 
+		$rootScope.currentState = { name:'' };
+
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams){
-				var stateName;
-
-				stateName = toState.name.replace(/\./g,'_');
-
-				$rootScope.stateName = stateName + " animationPending ";
-				$rootScope.animationStartChange = false;
-				$timeout(function() {
-					$rootScope.animationStartChange = true;
-					$rootScope.stateName = stateName + " animationExecute ";
-				}, 50);
+				$rootScope.currentState.name = toState.name.replace(/\./g,'_');
+				$("body").animate({ scrollTop: 0 }, 100);
 			}
 		);
+
 
 		$rootScope.$on('$locationChangeSuccess',
 			function(event){
@@ -52,10 +47,6 @@ angular.module('tApp', ['ui.router','ui.bootstrap','ngResource','ui.keypress','u
 					"navigation" : {
 						templateUrl: 'views/menu.html',
 						controller: 'MenuController'
-					},
-					"footer" : {
-						templateUrl: 'views/footer.html',
-						controller: 'FooterController'
 					}
 				}
 			})
