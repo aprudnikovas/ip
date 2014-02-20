@@ -1,11 +1,7 @@
 angular.module('tApp')
 	.controller('HireController', ['$scope','$rootScope','$timeout','$http','$window', function ($scope,$rootScope,$timeout,$http,$window) {
 
-		$scope.codeText = '010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001'
-
-		var timer, errorMap;
-
-		errorMap = {
+		var errorMap = {
 			general: {
 				message: 'Could not send email, try again later.',
 				eventLabel: 'error-server'
@@ -171,26 +167,5 @@ angular.module('tApp')
 				});
 
 		}
-
-
-		$scope.execTimer = function(){
-			timer = $timeout(function() {
-				var t = $scope.codeText;
-				var a = t.slice(0,t.length - 3)
-				var b = t.slice(t.length - 3)
-				$scope.codeText = b + a;
-
-				$scope.execTimer()
-
-			}, 200);
-		}
-
-		$scope.execTimer()
-
-		$scope.$on("$destroy", function() {
-			if (stop) {
-				$timeout.cancel(timer);
-			}
-		});
 
 	}]);

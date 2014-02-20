@@ -4,8 +4,8 @@
 
         <nav class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav">
-                <li ng-class="stateName.indexOf('main_work_gallery') > -1 ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
-                <li ng-class="stateName.indexOf('main_work_timeline') > -1 ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
+                <li ng-class="currentState.name.indexOf('main_work_gallery') > -1 ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
+                <li ng-class="currentState.name.indexOf('main_work_timeline') > -1 ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
             </ul>
         </nav>
 
