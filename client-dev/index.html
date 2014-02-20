@@ -1,8 +1,8 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="manifest.appcache"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" manifest="manifest.appcache"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" manifest="manifest.appcache"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" manifest="manifest.appcache"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html ng-app="tApp" class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="manifest.appcache"> <![endif]-->
+<!--[if IE 7]>         <html ng-app="tApp" class="no-js lt-ie9 lt-ie8" manifest="manifest.appcache"> <![endif]-->
+<!--[if IE 8]>         <html ng-app="tApp" class="no-js lt-ie9" manifest="manifest.appcache"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="tApp" class="no-js" manifest="manifest.appcache"> <!--<![endif]-->
 
     <head>
         <meta charset="utf-8">
@@ -18,15 +18,12 @@
     </head>
 
 
-    <body ng-app="tApp" ng-class="stateName" >
+    <body class="body" ng-class="currentState.name">
 
-        <div class="page-transition-cover"></div>
+        <div class="ui-view-container" ui-view="navigation" autoscroll="false"></div>
 
-        <div ui-view="navigation" ></div>
-
-        <div class="main-content">
-            <div class="main page-wrapper" ui-view="main" ></div>
-            <div class="footer-wrapper" ui-view="footer"></div>
+        <div class="main-content" ng-class="stateName">
+            <div class="main page-wrapper ui-view-container" ui-view="main" autoscroll="false"></div>
         </div>
 
         <script>
@@ -51,13 +48,13 @@
         <script src="scripts/directives/directives.js"></script>
         <script src="scripts/directives/validation.js"></script>
 
-        <script src="scripts/factories/animations.js"></script>
         <script src="scripts/factories/companies.js"></script>
         <script src="scripts/factories/languages.js"></script>
         <script src="scripts/factories/projects.js"></script>
         <script src="scripts/factories/skills.js"></script>
 
         <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/controllers/header.js"></script>
         <script src="scripts/controllers/footer.js"></script>
         <script src="scripts/controllers/home.js"></script>
         <script src="scripts/controllers/bio.js"></script>

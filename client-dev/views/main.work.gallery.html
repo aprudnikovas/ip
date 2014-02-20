@@ -4,8 +4,8 @@
 
         <nav class="navbar navbar-default " role="navigation">
             <ul class="nav navbar-nav">
-                <li ng-class="stateName.indexOf('main_work_gallery') > -1 ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
-                <li ng-class="stateName.indexOf('main_work_timeline') > -1 ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
+                <li ng-class="currentState.name.indexOf('main_work_gallery') > -1 ? 'active' : ''"><a ui-sref="main.work.gallery"><span class="glyphicon glyphicon-th-large"></span> Grid</a></li>
+                <li ng-class="currentState.name.indexOf('main_work_timeline') > -1 ? 'active' : ''"><a ui-sref="main.work.timeline"><span class="glyphicon glyphicon-calendar"></span> Timeline</a></li>
             </ul>
         </nav>
 
@@ -62,13 +62,13 @@
     </div>
 </div>
 
-<div class="projects-gallery clearfix {{animationClass}}">
+<div class="projects-gallery clearfix">
 
     <div class="col-md-10 col-md-offset-1 ">
 
         <div class="row">
 
-        <div class="col-sm-6 col-md-4" ng-repeat="project in projects">
+        <div class="col-sm-6 col-md-4 " ng-repeat="project in projects">
             <a ui-sref="main.work.gallery.item({itemId:project.id})" class="projects-gallery-item">
                 <span class="projects-gallery-item-image-wrapper">
 
@@ -97,12 +97,12 @@
 
 <nav class="projects-gallery-pagination">
     <div class="projects-gallery-pagination-previous">
-        <a ng-if="pagination.prevOffset != null" tabindex="0" ng-click="prevPage()" ui-keypress="{13:'prevPage()'}"><span class="glyphicon glyphicon-chevron-left"></span></a>
-        <a ng-if="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a ng-show="pagination.prevOffset != null" tabindex="0" ng-click="prevPage()" ui-keypress="{13:'prevPage()'}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a ng-show="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
     </div>
     <div class="projects-gallery-pagination-next">
-        <a ng-if="pagination.nextOffset != null" tabindex="0" ng-click="nextPage()" ui-keypress="{13:'nextPage()'}"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        <a ng-if="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a ng-show="pagination.nextOffset != null" tabindex="0" ng-click="nextPage()" ui-keypress="{13:'nextPage()'}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a ng-show="pagination.nextOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
 </nav>
 

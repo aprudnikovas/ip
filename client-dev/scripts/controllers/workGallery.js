@@ -1,9 +1,9 @@
 angular.module('tApp')
-	.controller('WorkGalleryController', ['Animations','Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout','$stateParams',
-		function (Animations,Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout,$stateParams) {
+	.controller('WorkGalleryController', ['Projects', 'Companies','Skills','Languages','$scope','$rootScope','$timeout','$stateParams',
+		function (Projects,Companies,Skills,Languages,$scope,$rootScope,$timeout,$stateParams) {
 
 			var
-				codeTimer, DEFAULT_MAX, DEFAULT_OFFSET,
+				DEFAULT_MAX, DEFAULT_OFFSET,
 				searchFilter, pagination,
 				allProjects, allCompanies, allSkills, allLanguages, years,
 				rootSearch
@@ -104,30 +104,11 @@ angular.module('tApp')
 			function filterAndSortPortfolio(){
 
 				executeFilter(function(projects){
-
-					paginate(projects, function(filteredAndPaginated, dir){
+					paginate(projects, function(paginatedProjects){
 						// save preferences
 						updateLocationSearch();
-
-						if($scope.projects && $scope.projects.length && Animations.type[dir] !== Animations.type.none ){
-							Animations.animateData($scope, {
-								data: filteredAndPaginated,
-								dataVarName: "projects",
-								animateVar: "animationClass",
-								type: Animations.type[dir]
-							});
-						} else {
-							Animations.animateData($scope, {
-								data: filteredAndPaginated,
-								dataVarName: "projects",
-								animateVar: "animationClass",
-								type: Animations.type["fade"],
-								doAnimateOut: false,
-								duration : { in: 500 }
-							});
-						}
+						$scope.projects = paginatedProjects;
 					});
-
 				});
 
 
@@ -241,14 +222,6 @@ angular.module('tApp')
 
 					var paginated, direction;
 
-					if( pagination.offset === pagination.prevOffset ){
-						direction = Animations.type.left;
-					} else if ( pagination.offset === pagination.nextOffset ){
-						direction = Animations.type.right;
-					} else {
-						direction = Animations.type.none;
-					}
-
 					// save pagination details
 					pagination.prevOffset = (pagination.offset - pagination.max) > -1 ? (pagination.offset - pagination.max) : null;
 					pagination.nextOffset = (pagination.offset + pagination.max) >= projects.length ? null : (pagination.offset + pagination.max);
@@ -257,7 +230,7 @@ angular.module('tApp')
 					paginated = projects.slice(pagination.offset,(pagination.max + pagination.offset));
 
 					if(callback != null && typeof callback === 'function'){
-						callback(paginated,direction);
+						callback(paginated);
 					} else {
 						throw Error("fn paginate requires callback function");
 					}
@@ -407,36 +380,5 @@ angular.module('tApp')
 				$scope.toggleLanguage();
 			};
 
-
-			// MOVING TEXT
-			///////////////////
-			$scope.codeText = '010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001010100100110100101001001001010100101010111001010010010100000001101110010100101001010010011001010101001011001010010101010010010100101011111100100101001001101001010010101111010101010111100001010111001010100110101001';
-
-			$scope.execCodeTimer = function(){
-				codeTimer = $timeout(function() {
-					var t = $scope.codeText;
-					var a = t.slice(0,t.length - 3);
-					var b = t.slice(t.length - 3);
-					$scope.codeText = b + a;
-
-					$scope.execCodeTimer();
-
-				}, 200);
-			};
-
-
-			// EXECUTE TIMERS
-			//////////////////////
-			$scope.execCodeTimer();
-
-
-			// CLEANUP
-			//////////////////////
-
-			$scope.$on("$destroy", function() {
-				if (codeTimer) {
-					$timeout.cancel(codeTimer);
-				}
-			});
 
 	}]);
