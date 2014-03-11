@@ -8,7 +8,7 @@ angular.module('tApp')
 		}, 100);
 
 
-		// Languages / frameworks visibility
+		// Technologies visibility
 		/////////////////////////////////////
 
 		$scope.languageBlock;
@@ -40,7 +40,7 @@ angular.module('tApp')
 		}
 
 
-		// LANGUAGES / FRAMEWORKS
+		// Technologies
 		//////////////////////////
 
 		$scope.codeDataBackEnd = [
