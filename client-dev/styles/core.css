@@ -8054,6 +8054,9 @@ body {
 .page.menuIsOpen {
   padding-left: 130px;
 }
+.page label {
+  font-weight: normal;
+}
 .page .separator {
   font-size: 8px;
   width: 100%;
