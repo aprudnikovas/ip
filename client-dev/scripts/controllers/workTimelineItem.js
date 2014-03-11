@@ -46,7 +46,7 @@ angular.module('tApp')
 					$scope.skills = _.filter(skills, function(s){ return _.indexOf(skillIds, s.id) > -1 });
 				});
 
-				// company languages/frameworks used
+				// company technologies used
 				Languages.getAll(function(languages){
 					var languageIds = _.flatten( _.pluck($scope.projects,'languages') );
 					$scope.languages = _.filter(languages, function(l){ return _.indexOf(languageIds, l.id) > -1 });
