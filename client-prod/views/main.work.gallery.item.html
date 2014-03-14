@@ -1,28 +1,21 @@
-<div class="col-sm-12 text-center">
-    <a ui-sref="main.work.gallery" class="gallery-item-back-link">Back</a>
-</div>
+<a ui-sref="main.work.gallery" class="gallery-item-back-link">Back</a>
 
-<div class="col-sm-7">
 
-    <div ng-if="item.images && item.images.length" class="project-images">
+   {{carouselControls}}
 
-        <div class="row">
-            <div class="col-sm-12">
-                <img ng-attr-src="{{projectImagePath && item.images[0] ? projectImagePath + item.images[0] : ''}}" class="project-images-primary img-responsive">
-            </div>
-        </div>
+    <div ng-if="item.images && item.images.length" class="project-images clearfix">
 
-        <div ng-if="item.images && item.images.length > 1" class="row project-images-secondary-wrapper">
-            <div ng-repeat="i in item.images" ng-if="$index > 0 && $index < 4" class="col-sm-4 project-images-secondary-column">
-                <img ng-attr-src="{{projectImagePath && i ? projectImagePath + i : ''}}" class="project-images-secondary img-responsive">
-            </div>
-        </div>
+        <ul rn-carousel="" rn-carousel-buffered="" rn-carousel-control="true" rn-carousel-indicator="true" class="project-images-carousel">
+            <li ng-repeat="image in item.images" class="project-images-carousel-slide" ng-attr-style="background-image:url({{ projectImagePath && image ? projectImagePath + image : '' }});">
+
+            </li>
+
+        </ul>
 
     </div>
 
-</div>
 
-<div class="col-sm-5">
+<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
     <section class="description-item">
 

@@ -1,14 +1,16 @@
 <div ng-include="'views/header.html'"></div>
 
-<article class="page page-work">
 
-    <section class="container">
-        <div class="row">
-            <div class="" ui-view="list" autoscroll="false"></div>
-            <div class="" ui-view="item" autoscroll="false"></div>
-        </div>
-    </section>
+<section class="page page-work">
 
-</article>
+    <div class="page-work-item">
+        <div class="" ui-view="item" autoscroll="false"></div>
+    </div>
+
+    <div class="page-work-list">
+        <div class="" ui-view="list" autoscroll="false"></div>
+    </div>
+
+</section>
 
 <div ng-include="'views/footer.html'"></div>

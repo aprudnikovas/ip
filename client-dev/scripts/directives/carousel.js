@@ -13,7 +13,6 @@
  */
 
 angular.module('tApp')
-
 	.directive('rnCarouselControls', [function() {
 		return {
 			restrict: 'A',
@@ -39,9 +38,9 @@ angular.module('tApp')
 				'</span>' +
 				'</div>'
 		};
-	}])
+	}]);
 
-
+angular.module('tApp')
 	.directive('rnCarouselIndicators', [function() {
 		return {
 			restrict: 'A',
@@ -54,9 +53,9 @@ angular.module('tApp')
 				'<span ng-repeat="item in items" ng-click="$parent.index=$index" ng-class="{active: $index==$parent.index}"></span>' +
 				'</div>'
 		};
-	}])
+	}]);
 
-
+angular.module('tApp')
 	.directive('rnCarousel', ['$swipe', '$window', '$document', '$parse', '$compile', '$timeout',
 		function($swipe, $window, $document, $parse, $compile, $timeout) {
 			// internal ids to allow multiple instances
@@ -488,15 +487,14 @@ angular.module('tApp')
 			};
 		}]);
 
-	angular.module('tApp')
-
-		.filter('carouselSlice', function() {
-			return function(collection, start, size) {
-				if (angular.isArray(collection)) {
-					return collection.slice(start, start + size);
-				} else if (angular.isObject(collection)) {
-					// dont try to slice collections :)
-					return collection;
-				}
-			};
-		});
+angular.module('tApp')
+	.filter('carouselSlice', [function() {
+		return function(collection, start, size) {
+			if (angular.isArray(collection)) {
+				return collection.slice(start, start + size);
+			} else if (angular.isObject(collection)) {
+				// dont try to slice collections :)
+				return collection;
+			}
+		};
+	}]);
