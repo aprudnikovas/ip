@@ -18,3 +18,13 @@
   margin-left: 0.3em;
   margin-right: 0.3em;
 }
+
+@media (max-width: @grid-float-breakpoint) {
+  .footer-date {
+    display:none;
+  }
+
+  .footer-date + span .footer-link-separator {
+    display:none;
+  }
+}

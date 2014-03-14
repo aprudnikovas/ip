@@ -100,6 +100,10 @@ body[class*="main_work"] {
       margin-right: 50px;
       margin-left: initial;
 
+      @media (max-width: @grid-float-breakpoint) {
+        margin-right: 30px;
+      }
+
       > :before {
         left:0;
         right: initial;
@@ -130,6 +134,10 @@ body[class*="main_work"] {
       line-height: 1;
       width: 10em;
       font-family: @hand-font;
+
+      @media (max-width: @grid-float-breakpoint) {
+        width: 5em;
+      }
 
       &.from {
         bottom:-10px;
@@ -215,6 +223,10 @@ body[class*="main_work"] {
       left: 50%;
       margin-left: 30px;
 
+      @media (max-width: @grid-float-breakpoint) {
+        margin-left: 25px;
+      }
+
       > :before {
         right:0;
         .rotate(180deg);
@@ -238,6 +250,10 @@ body[class*="main_work"] {
     &:nth-child(odd){
       right: 50%;
       margin-right: 30px;
+
+      @media (max-width: @grid-float-breakpoint) {
+        margin-right: 25px;
+      }
 
       > :before {
         left:0;
@@ -265,6 +281,10 @@ body[class*="main_work"] {
       left: 50%;
       margin-left: -1px;
 
+      @media (max-width: @grid-float-breakpoint) {
+        width: 1px;
+      }
+
       &:before {
         content: '';
         position: absolute;
@@ -273,6 +293,10 @@ body[class*="main_work"] {
         border-style: solid;
         display: block;
         top: 0;
+
+        @media (max-width: @grid-float-breakpoint) {
+          border-width: 0px 8px 8px 0px;
+        }
       }
 
       &:after {
@@ -283,6 +307,10 @@ body[class*="main_work"] {
         border-style: solid;
         display: block;
         bottom: 0;
+
+        @media (max-width: @grid-float-breakpoint) {
+          border-width: 0px 8px 8px 0px;
+        }
       }
 
       .timeline-job-label {
@@ -302,6 +330,16 @@ body[class*="main_work"] {
         border-top-color: transparent;
         transition: all ease 0.1s;
 
+        @media (max-width: @grid-float-breakpoint) {
+          min-width: 70px;
+          height: 40px;
+          line-height: 20px;
+          margin-top: -20px;
+          padding: 10px;
+          font-size: 0.8em;
+        }
+
+
         &:hover,
         &:focus {
           text-decoration: none;
@@ -319,6 +357,13 @@ body[class*="main_work"] {
         display: block;
         top: 50%;
         margin-top: -6px;
+
+        @media (max-width: @grid-float-breakpoint) {
+          border-width: 0px 6px 6px 0px;
+          margin-top: -3px;
+          margin-left: 2px;
+          margin-right: 2px;
+        }
       }
 
     }
@@ -347,7 +392,6 @@ body[class*="main_work"] {
   .projects-gallery-item {
     display: block;
     width: 100%;
-    max-width: 360px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 35px;
@@ -355,12 +399,20 @@ body[class*="main_work"] {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: all ease 0.1s;
 
+    @media (max-width: @grid-float-breakpoint) {
+      max-width: 360px;
+    }
+
     .projects-gallery-item-image-wrapper {
       display: block;
       position:relative;
       z-index: 2;
       background-color: @page-work-img-background;
-      height: 130px;
+      height: 145px;
+
+      @media (max-width: @grid-float-breakpoint) {
+        height: 130px;
+      }
 
       .projects-gallery-item-image-mask {
         display: block;

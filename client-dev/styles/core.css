@@ -6198,49 +6198,6 @@ button.close {
     margin-left: -250px;
   }
 }
-.ccc-wrap {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-}
-.ccc {
-  position: absolute;
-  top: 0;
-  display: block;
-  width: .5em;
-  word-break: break-all;
-  text-align: center;
-  font-size: 3em;
-  color: #fff;
-  color: rgba(255, 255, 255, 0.35);
-  line-height: 1;
-  -webkit-user-select: none;
-}
-.ccc.ccc01 {
-  top: 0;
-  left: 50%;
-}
-.ccc.ccc02 {
-  top: 0;
-  left: 30%;
-  font-size: 5em;
-}
-.ccc.ccc03 {
-  top: 0;
-  left: 40%;
-  font-size: 2em;
-}
-.ccc.ccc04 {
-  top: 0;
-  left: 48%;
-  font-size: 1em;
-}
-.ccc.ccc05 {
-  top: 0;
-  left: 80%;
-  font-size: 8em;
-}
 .home-block {
   width: 799px;
   height: 270px;
@@ -6337,6 +6294,7 @@ button.close {
 }
 @media (max-width: 800px) {
   .home-block .separator {
+    display: none;
     text-align: center;
     width: 100%;
     letter-spacing: 3px;
@@ -7128,6 +7086,13 @@ body[class*="main_work"] .h6 {
   margin-right: 50px;
   margin-left: initial;
 }
+@media (max-width: 600px) {
+  #timeline.timeline-single .timeline-job,
+  #timeline.timeline-single .timeline-job:nth-child(even),
+  #timeline.timeline-single .timeline-job:nth-child(odd) {
+    margin-right: 30px;
+  }
+}
 #timeline.timeline-single .timeline-job > :before,
 #timeline.timeline-single .timeline-job:nth-child(even) > :before,
 #timeline.timeline-single .timeline-job:nth-child(odd) > :before {
@@ -7169,6 +7134,11 @@ body[class*="main_work"] .h6 {
   line-height: 1;
   width: 10em;
   font-family: "la_belle_auroreregular", sans-serif;
+}
+@media (max-width: 600px) {
+  #timeline.timeline-single .timeline-job-line-marker {
+    width: 5em;
+  }
 }
 #timeline.timeline-single .timeline-job-line-marker.from {
   bottom: -10px;
@@ -7240,6 +7210,11 @@ body[class*="main_work"] .h6 {
   left: 50%;
   margin-left: 30px;
 }
+@media (max-width: 600px) {
+  #timeline .timeline-job:nth-child(even) {
+    margin-left: 25px;
+  }
+}
 #timeline .timeline-job:nth-child(even) > :before {
   right: 0;
   -webkit-transform: rotate(180deg);
@@ -7264,6 +7239,11 @@ body[class*="main_work"] .h6 {
 #timeline .timeline-job:nth-child(odd) {
   right: 50%;
   margin-right: 30px;
+}
+@media (max-width: 600px) {
+  #timeline .timeline-job:nth-child(odd) {
+    margin-right: 25px;
+  }
 }
 #timeline .timeline-job:nth-child(odd) > :before {
   left: 0;
@@ -7294,6 +7274,11 @@ body[class*="main_work"] .h6 {
   left: 50%;
   margin-left: -1px;
 }
+@media (max-width: 600px) {
+  #timeline .timeline-job .timeline-job-line {
+    width: 1px;
+  }
+}
 #timeline .timeline-job .timeline-job-line:before {
   content: '';
   position: absolute;
@@ -7303,6 +7288,11 @@ body[class*="main_work"] .h6 {
   display: block;
   top: 0;
 }
+@media (max-width: 600px) {
+  #timeline .timeline-job .timeline-job-line:before {
+    border-width: 0px 8px 8px 0px;
+  }
+}
 #timeline .timeline-job .timeline-job-line:after {
   content: '';
   position: absolute;
@@ -7311,6 +7301,11 @@ body[class*="main_work"] .h6 {
   border-style: solid;
   display: block;
   bottom: 0;
+}
+@media (max-width: 600px) {
+  #timeline .timeline-job .timeline-job-line:after {
+    border-width: 0px 8px 8px 0px;
+  }
 }
 #timeline .timeline-job .timeline-job-line .timeline-job-label {
   position: absolute;
@@ -7329,6 +7324,16 @@ body[class*="main_work"] .h6 {
   border-top-color: transparent;
   transition: all ease 0.1s;
 }
+@media (max-width: 600px) {
+  #timeline .timeline-job .timeline-job-line .timeline-job-label {
+    min-width: 70px;
+    height: 40px;
+    line-height: 20px;
+    margin-top: -20px;
+    padding: 10px;
+    font-size: 0.8em;
+  }
+}
 #timeline .timeline-job .timeline-job-line .timeline-job-label:hover,
 #timeline .timeline-job .timeline-job-line .timeline-job-label:focus {
   text-decoration: none;
@@ -7345,6 +7350,14 @@ body[class*="main_work"] .h6 {
   top: 50%;
   margin-top: -6px;
 }
+@media (max-width: 600px) {
+  #timeline .timeline-job .timeline-job-line .timeline-job-label:before {
+    border-width: 0px 6px 6px 0px;
+    margin-top: -3px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
 #timeline .timeline-end {
   display: block;
   margin: 20px auto;
@@ -7360,7 +7373,6 @@ body[class*="main_work"] .h6 {
 .projects-gallery .projects-gallery-item {
   display: block;
   width: 100%;
-  max-width: 360px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 35px;
@@ -7368,12 +7380,22 @@ body[class*="main_work"] .h6 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all ease 0.1s;
 }
+@media (max-width: 600px) {
+  .projects-gallery .projects-gallery-item {
+    max-width: 360px;
+  }
+}
 .projects-gallery .projects-gallery-item .projects-gallery-item-image-wrapper {
   display: block;
   position: relative;
   z-index: 2;
   background-color: #ffffff;
-  height: 130px;
+  height: 145px;
+}
+@media (max-width: 600px) {
+  .projects-gallery .projects-gallery-item .projects-gallery-item-image-wrapper {
+    height: 130px;
+  }
 }
 .projects-gallery .projects-gallery-item .projects-gallery-item-image-wrapper .projects-gallery-item-image-mask {
   display: block;
@@ -7516,6 +7538,12 @@ body[class*="main_work"] .h6 {
 .description-container .timeline-item-section {
   margin-left: 40px;
 }
+@media (max-width: 600px) {
+  .timeline-container .timeline-item-section,
+  .description-container .timeline-item-section {
+    margin-left: 30px;
+  }
+}
 .description-item {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -7539,6 +7567,7 @@ body[class*="main_work"] .h6 {
 .description-item-section .description-item-text-lead {
   font-size: 21px;
   margin: 0 0 20px;
+  line-height: 1.1;
 }
 .description-item-section .description-item-text {
   font-size: 16px;
@@ -7822,6 +7851,11 @@ body[class*="main_work"] .h6 {
     -webkit-transform: scaleY(1);
   }
 }
+@media (min-width: 600px) {
+  .page-navigation .navbar-default .navbar-nav {
+    width: 100%;
+  }
+}
 .page-navigation .navbar {
   border: 0;
   background-color: transparent;
@@ -8038,6 +8072,14 @@ body[class*="main_work"] .h6 {
 .footer-link-separator {
   margin-left: 0.3em;
   margin-right: 0.3em;
+}
+@media (max-width: 600px) {
+  .footer-date {
+    display: none;
+  }
+  .footer-date + span .footer-link-separator {
+    display: none;
+  }
 }
 .rn-carousel-container {
   overflow: hidden;
