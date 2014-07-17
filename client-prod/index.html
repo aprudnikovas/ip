@@ -1,0 +1,38 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html ng-app="tApp" class="no-js lt-ie9 lt-ie8 lt-ie7" manifest="manifest.appcache"> <![endif]-->
+<!--[if IE 7]>         <html ng-app="tApp" class="no-js lt-ie9 lt-ie8" manifest="manifest.appcache"> <![endif]-->
+<!--[if IE 8]>         <html ng-app="tApp" class="no-js lt-ie9" manifest="manifest.appcache"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="tApp" class="no-js" manifest="manifest.appcache"> <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="styles/3395f9c4.core.css">
+
+    </head>
+
+
+    <body class="body" ng-class="currentState.name">
+
+        <div class="ui-view-container" ui-view="navigation" autoscroll="false"></div>
+
+        <div class="main-content" ng-class="stateName">
+            <div class="main page-wrapper ui-view-container" ui-view="main" autoscroll="false"></div>
+        </div>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-43884937-2', 'ivarprudnikov.com');
+        </script>
+
+        <script src="scripts/f3a1d159.app.js"></script>
+
+    </body>
+</html>
