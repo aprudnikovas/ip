@@ -7,7 +7,7 @@
             <a ng-show="pagination.prevOffset == null" class="inactive"><span class="glyphicon glyphicon-chevron-left"></span></a>
         </li>
 
-        <li class="work-items-thumb-wrap" ng-repeat="project in projects"
+        <li class="work-items-thumb-wrap repeater" ng-repeat="project in projects"
                 ng-class="{active: project.id === active_project_id}">
             <a ui-sref="main.work.gallery.item({itemId:project.id})" class="" >
 
